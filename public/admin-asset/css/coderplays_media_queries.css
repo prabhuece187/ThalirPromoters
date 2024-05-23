@@ -1,0 +1,37 @@
+@media (max-width: 576px) { 
+	.text-muted{
+		font-size: 10px;
+		text-align: center;
+	}
+	.tilte-head{
+		margin-bottom: 10px;
+	}
+	.mobile_mot{
+		margin-top: 10px;
+	}
+/*	td{
+		min-width: 100px;
+	}*/
+	.tilte-head, .mob-but-bot 
+	{
+    	margin-bottom: 10px !important;
+	}
+ }
+/*
+@media (max-width: 830px)
+{
+	td {
+	    min-width: 100px;
+	}
+}
+*/
+
+/*@media (min-width: 1199px){
+	.table-responsive-cus {
+	    display: block !important;
+	    width: 100% !important;
+	    overflow-x: auto !important;
+	    -webkit-overflow-scrolling: touch;
+	    -ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+}*/

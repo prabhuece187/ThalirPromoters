@@ -1,0 +1,499 @@
+.login_page h1,.logo-area h1{
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px; 
+}
+.logo-area{
+  background: transparent!important;
+}
+th.action{
+  width: 170px;
+}
+section .content-body {
+    padding: 30px 30px 30px 30px;
+}
+
+ul{
+  padding-left: 0px;
+}
+.datepick {
+    /*position: absolute;*/
+    top: 0px;
+    left: 13px;
+    bottom: 10px;
+    overflow: hidden;
+    opacity: 0;
+    width: inherit;
+}
+.bill_print{
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+}
+.w-300{
+    width: 300px;
+}
+
+/*.no_raw
+{ 
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}*/
+
+/*------------------------------------------------*/
+
+.help-block{
+  color: #e16969;
+  font-size: 13px; 
+}
+
+.lab-span
+{
+  color: #e16969 !important;
+}
+
+.messeage
+{
+  color: red;
+}
+
+.image-show
+{
+  width: 30px;
+  height: 30px;
+}
+
+.img-pad{
+    padding: 10px 10px 10px 0px;
+}
+
+.mod-area{
+  color: #fff;
+  padding-right: 10px;
+}
+
+
+.form-control{
+    display: block !important;
+    height: 34px !important;
+    padding: 6px 12px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    border: 1px solid rgb(234, 234, 234) !important;
+    white-space: nowrap !important;
+    line-height: 19px !important;
+    text-decoration: none !important;
+    border-radius: 0px !important;
+    background-clip: padding-box !important;
+    font-size: 0.8rem !important;
+}
+
+.form-control:focus{
+  border-color: #000000!important;
+  box-shadow : none !important;
+}
+
+.close{
+    opacity: 1 !important;
+  font-weight: 100 !important;
+  font-size: 1.3rem !important;
+}
+
+.close:focus{
+  outline: none !important;
+}
+
+.modal-title{
+     color: #fff !important;
+  font-size: 15px !important;
+  padding-left: 10px !important;
+}
+
+ .modal-header{
+  background-color: #111d77 !important;
+  padding: 0.4rem !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.modal-footer{
+  padding: 10px 0px 0px 0px !important;
+}
+
+
+.btn{
+  font-size: 12px !important;
+  color: #fff !important;
+  background-color: #111d77!important;
+  border-color: #111d77!important;
+  border-radius: 0 !important;
+  padding: 0.1rem 0.35rem !important;
+  margin-bottom: 0px !important;
+}
+
+.btn:focus{
+  box-shadow: none !important;
+}
+
+.btn-sm{
+  line-height: 0px !important;
+  padding:0.25rem 0.25rem !important;
+  font-size: 14px !important;
+  /*display: inherit !important;*/
+}
+
+.btn-primary{
+ line-height: 0px !important;
+  padding:0.25rem 0.25rem !important;
+  font-size: 14px !important;
+}
+
+.top-btn{
+  padding: 16px 40px 0px 0px;
+  text-align: right;
+}
+
+.card{
+    font-size: .9rem !important;
+    background: #c1c1c2 !important;
+
+}
+
+table.dataTable tbody tr {
+ background: #c1c1c2 !important;
+}
+
+.select2-default {
+      color: #000 !important;
+}
+
+.card-header{
+    padding: 1rem !important;
+}
+
+.card-title{
+  padding-left: 0px !important;
+  font-size: .9rem !important;
+  font-weight: 700 !important;
+  color: #000 !important;
+  margin-bottom: 0px!important;
+  letter-spacing: 1px !important;
+}
+
+.font-large-1{
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+    color: #000 !important;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    border-top: 1px solid #111 !important;
+}
+
+.table th, .table td {
+    border-top:none !important;
+}
+
+.modal-content {
+  background: #c1c1c2 !important;
+}
+
+.form-group label{
+  letter-spacing: 0px !important;
+  color: #000 !important;
+  font-size: 0.79rem !important;
+  font-weight: 800 !important;
+}
+
+.menu-title{
+    font-size: .85rem !important;
+}
+
+.list-group-item-heading {
+  font-size: .85rem !important;
+}
+
+.p_font{
+  font-size: .75rem !important;
+}
+
+/*.form-control:disabled, .form-control[readonly] {
+background-color: #fff !important;
+}*/
+
+form label {
+  color: #000 !important;
+  /*font-size: 0.75rem !important; */
+  /*font-size: 18px !important;*/
+  font-weight: 800 !important;
+  letter-spacing: 0px !important;
+}
+
+.font-sz{
+  font-size: 14px !important;
+}
+
+.atag:hover, .atag:focus{
+  background-color:  #ff087f !important;
+  color: #fff!important;
+  text-decoration: none !important;
+  border-color: transparent!important;
+}
+
+
+/*-----------------designing------------------------*/
+ .mar-lft-3{
+    margin-left: 3px;
+ }
+
+ .pad-top-22{
+  padding-top: 22px;
+ }
+
+ .pad-top-40{
+  padding-top: 40px;
+ }
+
+ .md-mar-15{
+  margin: 15px 0px 0px 0px;
+ }
+
+ .md-mar-15{
+  font-size: 18px;
+ }
+
+ .mar-top-25{
+  margin-top: 25px;
+ }
+
+ .btn-list{
+  padding:10px;
+  text-align: right;
+ }
+
+/*-----------------designing------------------------*/
+
+.search-input{
+padding-top: 0px; 
+padding-bottom: 0px;
+padding-left: 5px; 
+padding-right: 5px;    
+line-height: 21px; 
+border: 2px solid;
+}
+
+.md-datepicker-input {   
+     padding: 0px!important; 
+    line-height: 19px!important;
+}
+
+.tilte-head{
+  display: inline-block;
+  border-bottom: 2px solid;
+  padding-bottom: 1px;
+}
+
+.pad-lr-15{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.md-datepicker-triangle-button {
+    bottom: -6.5px !important;
+}
+
+.mar-rgt-10{
+  margin-right: 10px !important;
+}
+
+.pad-top-8{
+  padding-top: 8px !important;
+}
+
+.mag-top-8{
+  margin-top: 8px !important;
+}
+
+/*----------------------------*/
+.mg-sty{
+  margin-left: 16px;
+  margin-bottom: 10px;
+}
+.pad-alter{
+  padding-top: 3px !important;
+}
+.pad-r{
+  padding-right: 0px !important;
+}
+.mar-l{
+  margin-left: 3px !important;
+}
+.ma-sty{
+  margin: 15px 15px 0px 15px;
+}
+.mar-t-b{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.total_sty{
+  float: right;
+  margin-right: -95px;
+}
+.total_lab_sty{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.inv_total_sty{
+  float: right;
+  margin-right: -64px;
+}
+.fon-sty{
+  font-weight: bold;
+  font-size: 16px !important;
+}
+.inv-fon-sty{
+  font-weight: bold;
+  font-size: 16px !important;
+  margin-right: 33px;
+}
+.dcbtn{
+    margin-top: 42px;
+    float: right;
+    margin-right: 17px;
+}
+.app-sidebar .logo, .off-canvas-sidebar .logo {
+    padding: 20px 15px 20px 10px;
+}
+
+.app-sidebar .logo-img, .off-canvas-sidebar .logo-img {
+    margin-right: 20px;
+}
+.wi_responsive{
+  width: 100% !important;
+}
+
+
+/*-------------- latest change --------------------------*/
+
+.app-sidebar .navigation i, .off-canvas-sidebar .navigation i {
+   color: #000064 !important;
+}
+
+.sidebar-header a.nav-toggle {
+  color: #000064 !important;
+}
+
+.app-sidebar .logo .logo-text, .off-canvas-sidebar .logo .logo-text {
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+}
+
+form label {
+  text-transform: capitalize !important;
+}
+
+.th-textcenter {
+   background-color: #111d77 !important;
+   color: #fff !important;
+}
+
+.addline{
+  color: #111d77 !important;
+}
+
+.table thead th {
+  font-weight: 400 !important;
+}
+
+.table thead th {
+   border-bottom: 1px solid #111d77;
+   background-color: #111d77;
+   color: #fff;
+}
+
+.card .card-block {
+   padding: 1.5rem 1.5rem 1.5rem !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: #111d77 !important;
+    border-color: #111d77 !important;
+}
+
+.primary.darken-2 {
+  color: #111d77 !important; 
+}
+
+.gradient-ibiza-sunset {
+  background-image: linear-gradient(45deg, #111d77, #111d77) !important;
+}
+
+.table-th{
+  color: #fff !important;
+}
+
+.mar-left{
+  margin-left: 8px !important;
+}
+
+.pad-top-10{
+  padding-top: 10px !important;
+}
+
+.tb-txt{
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.pad-top-20{
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.page-item.active .page-link {
+    background-color: #111d77 !important;
+    border-color: #111d77 !important;
+}
+
+.mar-right-20{
+  margin-right: 20px !important;
+}
+
+.span-sty{
+  display: inline-block !important;
+  width: 31px !important;
+  background-color: #ff087f !important;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  top: 6px;
+}
+
+/*================== scroll bar top ==================*/
+
+.table-responsive-scrollbar-top{
+    display: block !important;
+    width: 500px !important;
+    overflow-x: scroll !important;
+}
+
+.div1 {
+  width:1000px !important; 
+  height: 20px !important; 
+}
+
+.wid-170{
+  width: 170px !important;
+}
+
+.wid-130{
+  width: 130px !important;
+}
+
+.wid-95{
+  width: 95px !important;
+}

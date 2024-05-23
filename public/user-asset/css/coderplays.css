@@ -1,0 +1,457 @@
+.sticky-active.ltn__sticky-bg-black {
+    background-color: #01580a  !important;
+}
+
+.section-bg-2, .section-bg-6, .section-bg-7 {
+	 background-color: #323434 !important;
+   border: #fff 1px solid;
+}
+
+.ltn__feature-item-6.active .ltn__feature-info .ltn__service-btn, .ltn__feature-item-6.active .ltn__feature-icon, .ltn__feature-item-6:hover .ltn__feature-info .ltn__service-btn, .ltn__feature-item-6:hover .ltn__feature-icon {
+  color:#01580a  !important;
+}
+
+.ltn__feature-item-6::before {
+	 background-color: #01580a  !important;
+}
+
+.ltn__slide-item-2 {
+	padding-top: 200px !important;
+}
+
+.ltn__car-dealer-form-tab .ltn__tab-menu .active {
+	border-color: #01580a  !important;
+	background-color: #01580a  !important;	
+}
+
+.theme-btn-1 {
+	background-color: #01580a  !important;	
+ }
+
+ .ltn__product-item-4 .product-price {
+ 	color: #01580a  !important;	
+  font-size: 15px !important;
+ }
+
+ .ltn__widget-title-border-2 {
+  border-color:#01580a !important;
+ }
+
+ .top-rated-product-info .product-price {
+   color:#01580a !important;
+ }
+
+ .ltn__social-media-2 ul li:hover a {
+   background-color:#01580a !important;
+ }
+
+ .ltn__product-item-5 .product-img-location ul li i {
+   color:#01580a !important;
+ }
+
+ .ltn__car-dealer-form-box .ltn__custom-icon .nice-select::before {
+ 	color: #01580a  !important;	
+ }
+
+ .ltn__car-dealer-form-box .ltn__car-dealer-form-item {
+ 	margin-bottom: 10px !important;
+ }
+
+ .ltn__slide-item-2 .btn-wrapper {
+     margin-top: 10px !important; 
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"], textarea {
+ 	margin-bottom: 10px !important;
+}
+
+.ltn__secondary-color {
+	color: #fff !important;	
+}
+
+.section-subtitle-2::before {
+	background-color: #86aee0 !important;
+}
+
+.ltn__product-item-4 .product-hover-action ul li:hover {
+	background-color: #01580a  !important;
+}
+
+a:hover {
+	color: #000  !important;
+}
+
+a:hover i {
+	color: #000  !important;
+}
+
+.bg-green {
+	background-color: #01580a !important;
+}
+
+#scrollUp:hover {
+	background-color: #01580a  !important;
+}
+
+.checkbox-item input:checked ~ .checkmark {
+	background-color: #01580a  !important;
+	border-color: #01580a  !important;
+}
+
+.title-2 {
+ border-color: #01580a  !important;
+}
+
+.ltn__blog-meta li i {
+   border-color: #01580a  !important;
+   color: #01580a  !important;
+ }
+
+ .slick-arrow-1 .slick-arrow:hover {
+ 	background-color: #01580a  !important;
+	border-color: #01580a  !important;
+ }
+
+ .ltn__video-icon-2 i {
+ 	color: #01580a  !important;
+ }
+
+ .ltn__main-menu li > ul, .ltn__main-menu .sub-menu {
+ 	border-top:5px solid #01580a !important;
+ }
+
+ .ltn__main-menu li:hover > a {
+ 	color: #000  !important;
+ }
+
+ .ltn__grid-list-tab-menu .active {
+    color: #01580a  !important;
+ }
+
+.ltn__pagination ul li:hover a, .ltn__pagination ul li.active a {
+   background-color: #01580a   !important;
+   border-color: #01580a   !important;
+}
+
+.ltn__search-widget button {
+   background-color: #01580a  !important;
+   height: 85%;
+   border-color: #01580a  !important;
+}
+
+.ltn__testimonial-item-7::before {
+   background-color: #01580a  !important;
+}
+
+.ltn__testimonial-item-7:hover .ltn__testimoni-info p i {
+  color: #01580a  !important;
+}
+
+.bg-screen-color{
+  background-color: #f2f6f7 !important;
+}
+
+.input-item.ltn__custom-icon::before {
+  color: #01580a  !important;
+}
+
+.ltn__top-bar-menu > ul > li > i, .ltn__top-bar-menu > ul > li > a > i {
+    color: #059ef7  !important;
+}
+
+.ltn__feature-item-6 .ltn__feature-icon {
+   color: #01580a  !important;
+}
+
+.footer-widget .footer-title {
+  font-size: 17px !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+ border-color: #01580a  !important;
+}
+
+
+ /*----------------------page------------------------*/
+
+ .banner-head{
+    padding: 30px !important;
+    padding-top: 100px !important;
+ }
+
+ .banner-head-color{
+    color: #fff !important;
+    text-align: right !important;
+ }
+
+
+ .banner-head-color1{
+    color: #01580a  !important;
+ }
+
+ .banner-bottom{
+    padding-top: 30px !important;
+ }
+
+ .site-plan-box{
+ 	padding: 0px !important;
+ 	margin:  0px !important;
+ }
+
+
+ .site-plan-span{
+ 	float: left !important;
+ 	padding: 5px 10px 5px 10px;
+    /* margin: 3px 5px 1px 6px; */
+    border: 1px solid;
+    border-color: #01580a;
+    /* width: 20px; */
+    /* height: 20px; */
+    text-align: center;
+    margin-right: 5px;
+ }
+
+ .site-plan-label{
+ 	margin: 0px !important;
+ }
+
+ .site-plan-BOOKED{
+   background: #e7c313 !important;
+   color: #fff !important;
+   border-color: #e7c313 !important;
+ }
+
+ .site-plan-AVAILABLE{
+   background: #fff !important;
+   /*color: #fff !important;*/
+   border-color: #01580a!important;
+ }
+
+ .site-plan-SOLD{
+   background: #ff5a3c !important;
+   color: #fff !important;
+   border-color: #ff5a3c !important;
+ }
+
+ .site-plan-RESERVED{
+   background: #01580a !important;
+   color: #fff !important;
+   border-color: #01580a !important;
+ }
+
+ .marge-btm{
+  margin-bottom: 5px !important;
+ }
+
+ .title-top {
+    padding-top: 50px !important;
+ }
+
+.slick-dots li:hover, .slick-dots li.slick-active {
+      background-color:#01580a;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pb-50{
+  padding-bottom: 50px;
+}
+
+.pt-80 {
+  padding-top: 80px;
+}
+
+.section-title {
+  font-size: 30px !important;
+}
+
+.bgclr{
+  background-color: aliceblue !important;
+}
+
+.ltn__product-item-4 .product-info{
+   padding: 10px !important;
+   font-size: 12px !important;
+   margin-bottom: 1px !important;
+}
+
+.ltn__product-item-4 .product-price{
+  font-size: 12px !important;
+}
+  
+.ltn__product-item-4 .product-info-bottom {
+  padding: 8px !important;
+}
+
+@media (max-width: 767px)
+p {
+     font-size: 12px !important;
+  }
+
+/*===================== property detail page============*/
+
+ul li, ol li {
+  margin:1px !important;
+}
+
+.property-detail-info-list ul {
+    padding: 1px 10px 2px !important;
+}
+
+.footer-title {
+      margin-bottom: 5px !important;
+}
+
+.footer-widget {
+    margin-bottom: 14px !important;
+}
+
+
+.ltn__product-item-4 .product-img-location-gallery {
+
+  padding: 0 8px 15px !important;
+}
+
+.title-2 {
+  margin-bottom:20px !important;
+  margin-top:20px !important;
+}
+
+.btn.focus, .btn:focus {
+   box-shadow: 0 0 0 0.2rem rgb(1 88 10) !important;
+}
+
+.ltn__utilize-menu-inner {
+  color: #01580a !important;
+}
+
+.ltn__team-item {
+  background-color: #01580a !important;
+}
+
+.team-info {
+      padding: 25px 11px !important;
+}
+
+.ltn__list-item-half li {
+   width: 100% !important;
+  }
+
+.ltn__list-item-half li i {
+   color: #01580a !important;
+   background-color: #e5ffe7 !important;
+}
+
+.bg-overlay-theme-05:before {
+      background: rgb(200 255 206) !important;
+}
+
+.ltn__callout {
+ border-color: #01580a !important;
+}
+
+.support-name{
+  margin-bottom: 5px !important;
+  color: #fff !important;
+  font-weight:bold !important;
+}
+
+.white-clr{
+  color: #fff !important;
+}
+
+.bg-overlay-theme-black-60:before {
+    background: rgb(21 74 14 / 60%) !important;
+}
+
+ div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  /*border: 3px solid #73AD21;*/
+  padding-bottom: 20px;
+  z-index:1;
+}
+
+.scorll-icon{
+    background-color: #01580a;
+    color: #fff;
+    bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 40px;
+    right: 3%;
+    text-align: center;
+   /* -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);*/
+}
+.scorll-icon1{
+    background-color: #01580a;
+    color: #fff;
+    bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 40px;
+    left: 3%;
+   /* text-align: center;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);*/
+}
+
+#scrollUp {
+   background-color: #01580a !important;
+   bottom: 70px !important;
+}
+
+
+.page-item.active .page-link {
+  background-color: #01580a !important;
+  border-color: #01580a !important;
+  color: #fff !important;
+}
+
+.page-link {
+  color:#01580a !important;
+}
+
+
+.page-link:focus {
+      box-shadow: 0 0 0 0.2rem rgb(209 239 212) !important;
+  }
+
+  .widget {
+    padding:10px !important;
+  }
+
+  hr {
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  .ltn__utilize-menu-head {
+    margin-bottom:0px !important;
+    padding-bottom:0px !important;
+  }
+
+  .ltn__widget-title {
+    margin-bottom:10px !important;
+  }
+
+  .mini-cart-product-area {
+    max-height: calc(100% - (60px + 80px)) !important;
+}
+
+.ltn__utilize-menu-inner {
+  padding-right: 0px !important;
+}
+
+.ltn__utilize {   
+  padding: 5px 10px 20px 10px !important;
+}

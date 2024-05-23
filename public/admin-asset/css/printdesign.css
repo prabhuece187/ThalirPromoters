@@ -1,0 +1,93 @@
+@page{
+    size: auto;
+    margin: 20mm 15mm 25mm 20mm;
+}
+
+/*.tax {
+    background-color: #c0c0ff !important;
+}*/
+
+/*.headings {
+    background-color: #e4efff !important;
+}*/
+
+.print-heading > th {
+    background-color: #1616e0  !important;
+    color: white;
+}
+
+.print-subtotal > td.total {
+    background-color: #d6d6d6 !important;
+
+}
+
+.taxclass > td.tax {
+    background-color: #1616e0  !important;
+    color: white;
+}
+
+h2 {
+    break-before: page;
+}
+
+td.special-cell, th.special-cell{
+    border-right-color: transparent;
+}
+
+.special-content{
+    margin-left: -43px;
+}
+
+@media print{
+    .app-sidebar, .disp-only-screen, footer, header {
+        display: none;
+    }
+
+    html,body,.main-content, .content-wrapper, #section-to-print, .print-inner-layout{
+        padding: 0px!important;
+        margin: 0px!important;
+        display: block!important;
+        box-sizing: border-box!important;
+    }
+
+    h5{
+        font-size: 12pt;
+    }
+    p{
+        font-size: 20pt;
+    }
+
+    .disp-none{
+        display: table-cell;
+    }
+    td.disp-none{
+        border-bottom: 1px solid transparent;
+    }
+
+    .ws-10{
+       width: 10% !important;
+    }
+
+    .tbl td ,th , .tbl thead th,.tbl hr{
+        border: 2px solid #000 !important;
+    }
+
+     .tbl hr{
+        border: 1px solid #000 !important;
+    }
+
+
+    td.special-cell, th.special-cell{
+        border-right-color: transparent!important;
+    }
+    .special-content{
+        margin-left: -53px!important;
+    }
+    .borderless td{
+        border-top: none !important; 
+        border-bottom: none !important;
+    }
+
+
+
+}
