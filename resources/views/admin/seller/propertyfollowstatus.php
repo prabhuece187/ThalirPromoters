@@ -22,6 +22,7 @@
                         <tr>
                             <th>S.NO</th>
                             <th>DATE </th>
+                            <th>PROPERTY </th>
                             <th>VIEWED BUYER </th>
                             <th>DESCRIPTION</th>
                             <th>ACTION</th>
@@ -31,6 +32,7 @@
                         <tr ng-repeat="follows in property">
                             <th scope="row">{{$index+1}}</th>
                             <td>{{follows.FollowDate}}</td>
+                            <td>{{follows.PropertyId}}</td>
                             <td>{{follows.ViewedBuyer}}</td>
                             <td>{{follows.FollowDescription}}</td>
                             <td>
