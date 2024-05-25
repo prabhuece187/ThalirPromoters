@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/user-asset/css/style.css">
 
     <link rel="stylesheet" href="/user-asset/css/coderplays.css">
-    
+
     <!-- Responsive css -->
     <link rel="stylesheet" href="/user-asset/css/responsive.css">
 </head>
@@ -40,14 +40,14 @@
                             <div class="ltn__top-bar-menu">
                                 <ul>
                                     <li>
-                                     
+
                                     </li>
                                     <li>
                                         <div class="ltn__social-media">
                                             <ul>
                                                 <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                                
+
                                                 <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
                                                 <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
                                             </ul>
@@ -61,7 +61,7 @@
             </div>
         </div> -->
         <!-- ltn__header-top-area end -->
-        
+
         <!-- ltn__header-middle-area start -->
         <!-- style="animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;left: 0;position: fixed;top: 0;width: 100%; z-index: 999;" -->
         <div class="" style="background-color: #01580a;">
@@ -104,8 +104,8 @@
                                             <ul>
                                                 <li><a href="/admin-login">AspLogin</a></li>
                                                 <li><a href="/adminuserlogin">TM Login</a></li>
-                                                @if(session()->get('name') == 1)  
-                                                    <li><a href="/admin-login/mediatorregister">Mediator Register</a></li>
+                                                @if(session()->get('name') == 1)
+                                                    <li><a href="/admin-login#/mediatorregister">Mediator Register</a></li>
                                                 @endif
                                             </ul>
                                         </li>

@@ -10,12 +10,13 @@ class PropertyFollow extends Model
         protected $primaryKey="FollowId";
         protected $fillable = [
             'id',
-            'PropertyName', 
-            'PropertyId',   
-            'ViewedBuyer',   
-            'FollowStatus',  
+            'PropertyName',
+            'PropertyId',
+            'ViewedBuyer',
+            'FollowStatus',
             'FollowDate',
             'FollowDescription',
+            'NotifyStatus'
         ];
         protected $hidden = [
             'created_at',

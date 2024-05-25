@@ -44,7 +44,7 @@ use App\Http\Controllers\user\BuyerController;
 |
 */
 
-// ======================== USER ROUTES =========================  
+// ======================== USER ROUTES =========================
 Route::get('views/{page}', function ($page) {
 	    return view($page);
 });
@@ -56,7 +56,7 @@ Route::view('/help', 'user.help');
 Route::view('/support', 'user.support');
 Route::view('/adminuserlogin', 'user.adminlogin');
 
-// ======================= ADMIN ROUTES ============================  
+// ======================= ADMIN ROUTES ============================
 
 Route::get('/admin-login', [LoginController::class, 'getLogin']);
 Route::post('/admin-login', [LoginController::class, 'postLogin']);
@@ -98,13 +98,13 @@ Route::get('promoterproductdetail/promotersingleflat/{id}',[UserPromoterControll
 
 // ================= forget password ===================
 
-Route::get('forgot_password', [ForgotPasswordController::class, 'getEmail']); 
-Route::post('forgot_password', [ForgotPasswordController::class, 'postEmail']); 
-Route::post('emaillink', [ForgotPasswordController::class, 'EmailLinkSend']); 
-Route::post('passwordupdate', [ForgotPasswordController::class, 'PasswordUpdate']); 
+Route::get('forgot_password', [ForgotPasswordController::class, 'getEmail']);
+Route::post('forgot_password', [ForgotPasswordController::class, 'postEmail']);
+Route::post('emaillink', [ForgotPasswordController::class, 'EmailLinkSend']);
+Route::post('passwordupdate', [ForgotPasswordController::class, 'PasswordUpdate']);
 
 Route::group(['middleware' => ['auth']], function () {
-       
+
     Route::get('Dashboard', [DashboardController::class, 'index']);
     Route::get('new-come-property', [DashboardController::class, 'NewComeProperty']);
     Route::get('new-come-userstatus', [DashboardController::class, 'NewUserStatus']);
@@ -119,33 +119,33 @@ Route::group(['middleware' => ['auth']], function () {
     // --------------- user Data ---------------------
 
     Route::get('users_data',[UserDataController::class,'UserDataGet']);
-    Route::put('users_data/{id}', [UserDataController::class, 'UserDataUpdate']); 
+    Route::put('users_data/{id}', [UserDataController::class, 'UserDataUpdate']);
 
     //---------------- client data -----------------------
 
     Route::get('clientdata',[DashboardController::class,'ClientDataGet']);
-    Route::put('clientstatusupdate/{id}', [DashboardController::class, 'ClientStatusUpdate']);  
+    Route::put('clientstatusupdate/{id}', [DashboardController::class, 'ClientStatusUpdate']);
 
     // --------------- promoter Data ---------------------
 
-    Route::resource('sitemap', ProSiteController::class);  
-    Route::get('sitemapdetail/{id}', [ProSiteController::class, 'PromoterSiteDetail']);  
-    Route::put('sitestatus/{id}', [ProSiteController::class, 'PromoterSiteStatus']);  
+    Route::resource('sitemap', ProSiteController::class);
+    Route::get('sitemapdetail/{id}', [ProSiteController::class, 'PromoterSiteDetail']);
+    Route::put('sitestatus/{id}', [ProSiteController::class, 'PromoterSiteStatus']);
 	Route::post('sitemapupdate/{id}', [ProSiteController::class, 'PromoterSiteUpdate']);
 
     Route::resource('promoter',  ProSiteController::class);
-    Route::get('promoterget', [ProSiteController::class, 'PromoterSiteGet']); 
+    Route::get('promoterget', [ProSiteController::class, 'PromoterSiteGet']);
 
    // --------------- promoter Data ---------------------
-    
-    Route::get('promoterimageget/{id}', [ProSiteController::class, 'PromoterImageGet']);  
-    Route::post('promoterimage', [ProSiteController::class, 'PromoterImageAdd']);  
-    Route::post('galleryimageupdate/{id}', [ProSiteController::class, 'PromoterImageUpdate']); 
+
+    Route::get('promoterimageget/{id}', [ProSiteController::class, 'PromoterImageGet']);
+    Route::post('promoterimage', [ProSiteController::class, 'PromoterImageAdd']);
+    Route::post('galleryimageupdate/{id}', [ProSiteController::class, 'PromoterImageUpdate']);
 
     Route::put('promoterstatusupdate/{id}', [ProSiteController::class, 'PromoterStatusUpdate']);
 
    // --------------- refer Data ---------------------
-    Route::resource('refer', ReferController::class);  
+    Route::resource('refer', ReferController::class);
     Route::get('referimageget/{id}', [ReferController::class, 'ReferImageGet']);
     Route::post('referupdate/{id}', [ReferController::class, 'ReferUpdate']);
     Route::delete('referdelete/{id}', [ReferController::class, 'ReferDelete']);
@@ -167,48 +167,54 @@ Route::group(['middleware' => ['auth']], function () {
 
     // --------------- propertydocument Data ---------------------
 
-    Route::get('propertydocumentget/{id}', [PropertyController::class, 'PropertyDocumentGet']);  
+    Route::get('propertydocumentget/{id}', [PropertyController::class, 'PropertyDocumentGet']);
 
     // --------------- property Data ---------------------
 
     Route::resource('property',  PropertyController::class);
-    // Route::get('propertyimageget/{id}', [PropertyController::class, 'PropertyImageGet']);  
-    Route::get('propertyedit/{id}', [PropertyController::class, 'PropertyDataGet']); 
-    Route::post('propertyupdate/{id}', [PropertyController::class, 'PropertyUpdate']); 
-    Route::get('propertyget/{id}', [PropertyController::class, 'PropertyGet']); 
-    Route::get('propertyfollow/{id}', [PropertyController::class, 'PropertyFollowGet']); 
-    Route::get('propertysearch', [PropertyController::class, 'PropertySearch']); 
-    Route::get('propertygetdatas', [PropertyController::class, 'PropertyGetDatas']); 
+    // Route::get('propertyimageget/{id}', [PropertyController::class, 'PropertyImageGet']);
+    Route::get('propertyedit/{id}', [PropertyController::class, 'PropertyDataGet']);
+    Route::post('propertyupdate/{id}', [PropertyController::class, 'PropertyUpdate']);
+    Route::get('propertyget/{id}', [PropertyController::class, 'PropertyGet']);
+    Route::get('propertyfollow/{id}', [PropertyController::class, 'PropertyFollowGet']);
+    Route::get('propertysearch', [PropertyController::class, 'PropertySearch']);
+    Route::get('propertygetdatas', [PropertyController::class, 'PropertyGetDatas']);
 
     // --------------- propertyimage Data ---------------------
 
-    Route::get('sellerimage', [PropertyController::class, 'PropertyImageGet']);  
-    Route::post('sellerimage/{id}', [PropertyController::class, 'PropertyImageAdd']);  
-    Route::post('sellerimageupdate/{id}', [PropertyController::class, 'PropertyImageUpdate']); 
+    Route::get('sellerimage', [PropertyController::class, 'PropertyImageGet']);
+    Route::post('sellerimage/{id}', [PropertyController::class, 'PropertyImageAdd']);
+    Route::post('sellerimageupdate/{id}', [PropertyController::class, 'PropertyImageUpdate']);
 
     // --------------- propertyfollow Data ---------------------
 
-    Route::get('propertyfollowget/{id}', [PropertyController::class, 'PropertyFollowValGet']);  
-    Route::post('propertyfollow', [PropertyController::class, 'PropertyFollowAdd']);  
+    Route::get('propertyfollowget/{id}', [PropertyController::class, 'PropertyFollowValGet']);
+    Route::post('propertyfollow', [PropertyController::class, 'PropertyFollowAdd']);
     Route::put('propertyfollowupdate/{id}', [PropertyController::class, 'PropertyFollowUpdate']);
 
-    Route::get('propertypersonget/{id}', [PropertyController::class, 'PropertyPersonValGet']);  
-    Route::post('propertyperson', [PropertyController::class, 'PropertyPersonAdd']);  
+    Route::get('propertypersonget/{id}', [PropertyController::class, 'PropertyPersonValGet']);
+    Route::post('propertyperson', [PropertyController::class, 'PropertyPersonAdd']);
     Route::put('propertypersonupdate/{id}', [PropertyController::class, 'PropertyPersonUpdate']);
 
     Route::put('propertystatusupdate/{id}', [PropertyController::class, 'PropertyStatusUpdate']);
     Route::put('propertyuserstatusupdate/{id}', [PropertyController::class, 'PropertyUserStatusUpdate']);
 
+    Route::get('property_follow_status',[DashboardController::class,'PropertyFollowStatusGet']);
+
+    Route::put('pro_fol_sta_update/{id}', [DashboardController::class, 'PropertyFollowStatusUpdate']);
+
+
+
     // --------------- mediatorassign Data ---------------------
 
     Route::get('mediator_assign',[MediatorAssignController::class,'MediatorAssign']);
-    Route::post('mediator_assign', [MediatorAssignController::class, 'MediatorAssignAdd']);  
+    Route::post('mediator_assign', [MediatorAssignController::class, 'MediatorAssignAdd']);
     Route::put('mediator_assignupdate/{id}', [MediatorAssignController::class, 'MediatorAssignUpdate']);
 
     // --------------- aboassign Data ---------------------
 
     Route::get('abo_assign',[AboAssignController::class,'AboAssign']);
-    Route::post('abo_assign', [AboAssignController::class, 'AboAssignAdd']);  
+    Route::post('abo_assign', [AboAssignController::class, 'AboAssignAdd']);
     Route::put('abo_assignupdate/{id}', [AboAssignController::class, 'AboAssignUpdate']);
 
     Route::get('abo_assigned_values/{id}',[AboAssignController::class,'AboAssignedValuesGet']);
@@ -217,38 +223,41 @@ Route::group(['middleware' => ['auth']], function () {
     // --------------- mediatorfollow Data ---------------------
 
     Route::get('mediator_follow/{mid}/{pid}',[MediatorAssignController::class,'MediatorFollowGet']);
-    Route::post('mediator_follow', [MediatorAssignController::class, 'MediatorFollowAdd']);  
+    Route::post('mediator_follow', [MediatorAssignController::class, 'MediatorFollowAdd']);
     Route::get('mediator_follow_get/{mid}/{pid}',[MediatorAssignController::class,'MediatorFollowValGet']);
     Route::put('mediator_follow_update/{id}', [MediatorAssignController::class, 'MediatorFollowUpdate']);
 
-    Route::get('mediator_buyer_get/{mid}/{pid}', [MediatorAssignController::class, 'MediatorBuyerValGet']);  
-    Route::post('mediator_buyer', [MediatorAssignController::class, 'MediatorBuyerAdd']);  
+    Route::get('mediator_buyer_get/{mid}/{pid}', [MediatorAssignController::class, 'MediatorBuyerValGet']);
+    Route::post('mediator_buyer', [MediatorAssignController::class, 'MediatorBuyerAdd']);
     Route::put('mediator_buyer_update/{id}', [MediatorAssignController::class, 'MediatorBuyerUpdate']);
 
     Route::put('assign_status_update/{id}', [MediatorAssignController::class, 'AssignStatusUpdate']);
 
     Route::get('mediator_assign_per/{id}',[MediatorAssignController::class,'MediatorAssignPerson']);
 
+    Route::get('mediator_follow_status',[DashboardController::class,'MediatorFollowStatusGet']);
+
+    Route::put('med_fol_sta_update/{id}', [DashboardController::class, 'MediatorFollowStatusUpdate']);
 
     // --------------- rent Data ---------------------
 
-    
+
     // --------------- rentfollow Data ---------------------
 
 
     // --------------- rentimage Data ---------------------
 
- 
+
     // --------------- rentamenities Data ---------------------
 
-  
+
     //-------------------buyer----------------------------------------
     Route::get('/buyercommentpropertyget/{proid}', [BuyerController::class, 'BuyerCommentGet']);
     Route::get('/buyercommentpromoterget/{id}', [BuyerController::class, 'BuyerCommentPromoterGet']);
     Route::get('/buyercommentrentget/{typeid}/{cateid}/{rentid}', [BuyerController::class, 'BuyerCommentRentGet']);
 
     Route::put('buyerstatusupdate/{id}', [BuyerController::class, 'BuyerStatusUpdate']);
-    
+
     Route::get('sellerrequest', [BuyerController::class, 'BuyerSellerGet']);
     Route::put('sellerrequest/{id}', [BuyerController::class, 'BuyerSellerUpdate']);
     Route::post('sellerrequest', [BuyerController::class, 'BuyerSellerAdd']);
@@ -266,13 +275,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('mediator_follow_report ', [ReportController::class, 'MediatorFollowReport']);
 
-    Route::get('propertybuyer/{id}', [PropertyController::class, 'PropertyBuyerDataGet']); 
-    
+    Route::get('propertybuyer/{id}', [PropertyController::class, 'PropertyBuyerDataGet']);
+
     Route::post('customer_follow_report ', [ReportController::class, 'CustomerFollowReport']);
     Route::get('mediator_assign_report/{data}',[MediatorAssignController::class,'MediatorAssignDataGet']);
 
 
-	Route::get('logout', [LoginController::class, 'getLogout']);  
+	Route::get('logout', [LoginController::class, 'getLogout']);
 
     Route::get('views/{page}', function ($page) {
         return view($page);
