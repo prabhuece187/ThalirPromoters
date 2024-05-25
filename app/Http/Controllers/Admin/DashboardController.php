@@ -25,7 +25,7 @@ use DB;
 class DashboardController extends Controller
 {
     public function index()
-    {    	
+    {
         $data = Property::select( 'tbl_property.*',
             DB::raw('(select PropertyGalleryImage from tbl_property_gallery where tbl_property_gallery.PropertyId  =  tbl_property.PropertyId order by PropertyId asc limit 1) as photo'))
         ->where('tbl_property.PropertyStatus', 'Waitting')
@@ -40,14 +40,20 @@ class DashboardController extends Controller
         $commentprop = BuyerComment::where('tbl_buyer_comment.BuyerCommentStatus','New')
         ->where('tbl_buyer_comment.PropertyId','!=',null)
         ->groupBy('tbl_buyer_comment.PropertyId')
-        ->count(); 
+        ->count();
 
          $commentprom = BuyerComment::where('tbl_buyer_comment.BuyerCommentStatus','New')
         ->where('tbl_buyer_comment.ProSiteId','!=',null)
         ->groupBy('tbl_buyer_comment.ProSiteId')
-        ->count(); 
+        ->count();
 
          $client = ClientData::where('tbl_client_data.Status',0)
+        ->count();
+
+        $mediatorfollowstatus = MediatorFollow::where('tbl_mediator_follow.MediatorNotifyStatus',0)
+        ->count();
+
+        $propertyfollowstatus = PropertyFollow::where('tbl_property_follow.NotifyStatus',0)
         ->count();
 
 
@@ -95,8 +101,11 @@ class DashboardController extends Controller
         }
 
         return response(['data' => $data , 'role' => $role ,'status' => $status,'commentprop' => $commentprop,'commentprom' => $commentprom,'client' => $client
-            ,'totalassign'=> $totalassign ,'totalassignyes'=> $totalassignyes ,'totalassignno'=> $totalassignno ,'totalassignprocess'=> $totalassignprocess ,'totalassigncomplete'=> $totalassigncomplete ,'totalassignend'=> $totalassignend ,'totalassignstart'=> $totalassignstart]);
-        
+            ,'totalassign'=> $totalassign ,'totalassignyes'=> $totalassignyes ,'totalassignno'=> $totalassignno ,'totalassignprocess'=> $totalassignprocess ,
+            'totalassigncomplete'=> $totalassigncomplete ,'totalassignend'=> $totalassignend ,'totalassignstart'=> $totalassignstart,'mediatorfollowstatus'=> $mediatorfollowstatus,
+            'propertyfollowstatus'=> $propertyfollowstatus
+        ]);
+
     }
 
     public function NewComeProperty(Request $request)
@@ -150,7 +159,7 @@ class DashboardController extends Controller
 
        return response(['prom' => $prom , 'role' => $role ]);
     }
-    
+
     public function ClientDataGet(Request $request)
     {
         $client = ClientData::leftJoin('users','tbl_client_data.id','users.id')
@@ -162,7 +171,7 @@ class DashboardController extends Controller
 
         return response(['client' => $client , 'role' => $role ]);
     }
-    
+
     public function ClientStatusUpdate(Request $request, $id)
     {
         $property = ClientData::find($id);
@@ -170,7 +179,41 @@ class DashboardController extends Controller
 
         $data =  $property->update(['Status'=>1,'id'=>Auth::id()]);
 
-        return response($data);       
+        return response($data);
+    }
+
+    public function PropertyFollowStatusGet(Request $request)
+    {
+        $property = PropertyFollow::where('NotifyStatus',0)->get();
+
+        return response($property);
+    }
+
+    public function MediatorFollowStatusGet(Request $request)
+    {
+        $mediator = MediatorFollow::where('MediatorNotifyStatus',0)->get();
+
+        return response($mediator);
+    }
+
+    public function PropertyFollowStatusUpdate(Request $request, $id)
+    {
+        $property = PropertyFollow::find($id);
+        $input = $request->all();
+
+        $data =  $property->update(['NotifyStatus'=>1,'id'=>Auth::id()]);
+
+        return response($data);
+    }
+
+    public function MediatorFollowStatusUpdate(Request $request, $id)
+    {
+        $mediator = MediatorFollow::find($id);
+        $input = $request->all();
+
+        $data =  $mediator->update(['MediatorNotifyStatus'=>1,'id'=>Auth::id()]);
+
+        return response($data);
     }
 
 }

@@ -1,5 +1,5 @@
    <!-- Utilize Cart Menu Start -->
- 
+
     <!-- Utilize Cart Menu End -->
 
 
@@ -33,7 +33,7 @@
                         <ul>
                             <li><a href="/admin-login">AspLogin</a></li>
                             <li><a href="/adminuserlogin">TM Login</a></li>
-                            @if(session()->get('name') == 1)  
+                            @if(session()->get('name') == 1)
                                 <li><a href="/admin-login#/mediatorregister">Mediator Register</a></li>
                             @endif
                         </ul>
