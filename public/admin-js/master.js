@@ -16,7 +16,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'type', method: 'GET'}).success(function (result) {               
+        $http({ url: 'type', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -30,7 +30,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
     $scope.new = function()
     {
@@ -58,14 +58,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.type_form.TypeName == null)
         {
            $scope.formError.TypeName = "THIS FEILD IS REQUIRED";
            return;
         }
-       
-        
+
+
         $http({ url: 'type', method: 'POST',data:$scope.type_form}).success(function(data){
             $('#type_form').modal('hide');
             al('Property Created Successfully');
@@ -96,13 +96,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,type,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Property Type?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'type/'+type.TypeId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -138,7 +138,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'need', method: 'GET'}).success(function (result) {               
+        $http({ url: 'need', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -152,7 +152,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -181,7 +181,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.need_form.NeedName == null)
         {
            $scope.formError.NeedName = "THIS FEILD IS REQUIRED";
@@ -206,7 +206,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.NeedName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'need/'+$scope.need_form.NeedId, method: 'PUT',data:$scope.need_form}).success(function(data){
             $('#need_form').modal('hide');
             al('Need Updated Successfully');
@@ -218,13 +218,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,need,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Need?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'need/'+need.NeedId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -260,7 +260,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'purpose', method: 'GET'}).success(function (result) {               
+        $http({ url: 'purpose', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -274,7 +274,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -303,7 +303,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.purpose_form.PurposeName == null)
         {
            $scope.formError.PurposeName = "THIS FEILD IS REQUIRED";
@@ -328,7 +328,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.PurposeName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'purpose/'+$scope.purpose_form.PurposeId, method: 'PUT',data:$scope.purpose_form}).success(function(data){
             $('#purpose_form').modal('hide');
             al('Purpose Updated Successfully');
@@ -340,13 +340,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,purpose,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Purpose Type?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'purpose/'+purpose.PurposeId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -382,7 +382,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'floor', method: 'GET'}).success(function (result) {               
+        $http({ url: 'floor', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -396,7 +396,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -425,7 +425,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.floor_form.FloorName == null)
         {
            $scope.formError.FloorName = "THIS FEILD IS REQUIRED";
@@ -450,7 +450,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.FloorName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'floor/'+$scope.floor_form.FloorId, method: 'PUT',data:$scope.floor_form}).success(function(data){
             $('#floor_form').modal('hide');
             al('Floor Updated Successfully');
@@ -462,13 +462,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,floor,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Floor?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'floor/'+floor.FloorId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -504,7 +504,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'roof', method: 'GET'}).success(function (result) {               
+        $http({ url: 'roof', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -518,7 +518,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -547,7 +547,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.roof_form.RoofName == null)
         {
            $scope.formError.RoofName = "THIS FEILD IS REQUIRED";
@@ -572,7 +572,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.RoofName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'roof/'+$scope.roof_form.RoofId, method: 'PUT',data:$scope.roof_form}).success(function(data){
             $('#roof_form').modal('hide');
             al('Roof Updated Successfully');
@@ -584,13 +584,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,roof,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Roof?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'roof/'+roof.RoofId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -626,7 +626,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'area', method: 'GET'}).success(function (result) {               
+        $http({ url: 'area', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -640,7 +640,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -669,7 +669,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.area_form.AreaName == null)
         {
            $scope.formError.AreaName = "THIS FEILD IS REQUIRED";
@@ -694,7 +694,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.AreaName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'area/'+$scope.area_form.AreaId, method: 'PUT',data:$scope.area_form}).success(function(data){
             $('#area_form').modal('hide');
             al('Area Updated Successfully');
@@ -706,13 +706,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,area,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Area?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'area/'+area.AreaId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -748,7 +748,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'knowus', method: 'GET'}).success(function (result) {               
+        $http({ url: 'knowus', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -762,7 +762,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -791,7 +791,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.knowus_form.KnowusName == null)
         {
            $scope.formError.KnowusName = "THIS FEILD IS REQUIRED";
@@ -816,7 +816,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.KnowusName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'knowus/'+$scope.knowus_form.KnowusId, method: 'PUT',data:$scope.knowus_form}).success(function(data){
             $('#knowus_form').modal('hide');
             al('Knowus Updated Successfully');
@@ -828,13 +828,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,knowus,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Knowus?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'knowus/'+knowus.KnowusId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -869,7 +869,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'road', method: 'GET'}).success(function (result) {               
+        $http({ url: 'road', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -883,7 +883,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -912,7 +912,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.road_form.RoadName == null)
         {
            $scope.formError.RoadName = "THIS FEILD IS REQUIRED";
@@ -937,7 +937,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.RoadName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'road/'+$scope.road_form.RoadId, method: 'PUT',data:$scope.road_form}).success(function(data){
             $('#road_form').modal('hide');
             al('Road Updated Successfully');
@@ -949,13 +949,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,road,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Road?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'road/'+road.RoadId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -991,7 +991,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'oldbuyer', method: 'GET'}).success(function (result) {               
+        $http({ url: 'oldbuyer', method: 'GET'}).success(function (result) {
             $scope.oldbuyer = result;
 
             angular.element(document).ready( function () {
@@ -1005,7 +1005,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
     $scope.new = function()
     {
@@ -1041,7 +1041,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         $http({ url: 'oldbuyer', method: 'POST',data:$scope.oldbuyer_form}).success(function(data){
             $('#oldbuyer_form').modal('hide');
             al('Buyer Created Successfully');
@@ -1055,7 +1055,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     function update()
     {
-   
+
         $http({ url: 'oldbuyer/'+$scope.oldbuyer_form.OldBuyerId, method: 'PUT',data:$scope.oldbuyer_form}).success(function(data){
             $('#oldbuyer_form').modal('hide');
             al('Property Updated Successfully');
@@ -1067,13 +1067,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,old,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Property Type?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'oldbuyer/'+old.OldBuyerId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -1108,7 +1108,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'role', method: 'GET'}).success(function (result) {               
+        $http({ url: 'role', method: 'GET'}).success(function (result) {
             $scope.data = result;
 
             angular.element(document).ready( function () {
@@ -1122,7 +1122,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -1150,7 +1150,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.role_form.RoleName == null)
         {
            $scope.formError.RoleName = "THIS FEILD IS REQUIRED";
@@ -1158,7 +1158,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         }
 
         $scope.isDisabled = true;
-        
+
 
         $http({ url: 'role', method: 'POST',data:$scope.role_form}).success(function(data){
             $('#role_form').modal('hide');
@@ -1178,7 +1178,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            $scope.formError.RoledName = "THIS FEILD IS REQUIRED";
            return;
         }
-     
+
         $http({ url: 'role/'+$scope.role_form.RoleId, method: 'PUT',data:$scope.role_form}).success(function(data){
             $('#role_form').modal('hide');
             al('Role Updated Successfully');
@@ -1190,13 +1190,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,role,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Role?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'role/'+role.RoleId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -1236,18 +1236,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
     // $scope.states = STATES;
     $scope.form = {};
 
-    $http({ url: 'area', method: 'GET'}).success(function (result) {               
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
         $scope.area = result;
     });
 
-    $http({ url: 'abo', method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo', method: 'GET'}).success(function (result) {
         $scope.abo = result.data;
     });
 
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'mediator', method: 'GET'}).success(function (result) {               
+        $http({ url: 'mediator', method: 'GET'}).success(function (result) {
             $scope.data = result.data;
             $scope.id = result.id;
             $scope.role = result.role;
@@ -1263,7 +1263,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -1278,7 +1278,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         index = ind;
         $scope.formType = 'EDIT';
         $scope.mediator_form = angular.copy(mediator);
-        $scope.mediator_form.Area = {AreaId:$scope.mediator_form.AreaId,AreaName:$scope.mediator_form.AreaName}; 
+        $scope.mediator_form.Area = {AreaId:$scope.mediator_form.AreaId,AreaName:$scope.mediator_form.AreaName};
 
         $('#mediator_form').modal();
     }
@@ -1294,7 +1294,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.mediator_form.MediatorName == null)
         {
            $scope.formError.MediatorName = "THIS FEILD IS REQUIRED";
@@ -1329,7 +1329,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         $scope.mediator_form.AreaName = $scope.mediator_form.Area.AreaName;
         $scope.mediator_form.AboId = $scope.mediator_form.Abo.AboId;
         $scope.mediator_form.AboName = $scope.mediator_form.Abo.AboName;
-     
+
         $http({ url: 'mediator/'+$scope.mediator_form.MediatorId, method: 'PUT',data:$scope.mediator_form}).success(function(data){
             $('#mediator_form').modal('hide');
             al('Mediator Updated Successfully');
@@ -1341,13 +1341,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,mediator,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Mediator?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'mediator/'+road.MediatorId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -1377,11 +1377,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.isDisabledMediAccess = true;
 
 
-    $http({ url: 'mediator', method: 'GET'}).success(function (result) {               
+    $http({ url: 'mediator', method: 'GET'}).success(function (result) {
          $scope.mediator = result;
     });
 
-    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {               
+    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {
          $scope.property = result;
     });
 
@@ -1391,19 +1391,19 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.getTable = function(page,form)
     {
 
-        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "") 
+        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "")
            && (form.mediatorid == undefined || form.mediatorid == "") && (form.mediatorname == undefined || form.mediatorname == "")
            && (form.status == undefined || form.status == "") && (form.access == undefined || form.access == "") && (form.description == undefined || form.description == ""))
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
                 if($scope.paginat  != 0 || $scope.paginat  == "undefined")
                 {
-                  $scope.pagination.page = page; 
+                  $scope.pagination.page = page;
                 }
 
-                $http({ url: 'mediator_assign_per/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'mediator_assign_per/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -1413,26 +1413,26 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
                     if($scope.role === 1){
                        $scope.isDisabledMediStatus = false;
-                    }        
-        
-                }); 
+                    }
+
+                });
         }
         else
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
-                $scope.pagination.page = page; 
-                $scope.pagination.searchdata = "search"; 
-                $scope.pagination.propertyid = form.propertyid; 
-                $scope.pagination.propertyname = form.propertyname; 
-                $scope.pagination.mediatorid = form.mediatorid; 
+                $scope.pagination.page = page;
+                $scope.pagination.searchdata = "search";
+                $scope.pagination.propertyid = form.propertyid;
+                $scope.pagination.propertyname = form.propertyname;
+                $scope.pagination.mediatorid = form.mediatorid;
                 $scope.pagination.mediatorname = form.mediatorname;
-                $scope.pagination.description = form.description; 
-                $scope.pagination.status = form.status; 
-                $scope.pagination.access = form.access; 
+                $scope.pagination.description = form.description;
+                $scope.pagination.status = form.status;
+                $scope.pagination.access = form.access;
 
-                $http({ url: 'mediator_assign_per/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'mediator_assign_per/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -1441,12 +1441,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
                     $scope.page2 = form;
                     if($scope.role === 1){
                        $scope.isDisabledMediStatus = false;
-                    } 
-                }); 
+                    }
+                });
 
         }
 
-      
+
     }
 
     $scope.new = function()
@@ -1477,11 +1477,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addassign()
-    {    
-        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId; 
-        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;  
-        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId; 
-        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName;  
+    {
+        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId;
+        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;
+        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId;
+        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName;
 
         $http({ url: 'mediator_assign', method: 'POST',data:$scope.mediator_assign_form}).success(function(data){
             $('#mediator_assign_form').modal('hide');
@@ -1495,12 +1495,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updateassign()
-    {  
-        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId; 
-        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;  
-        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId; 
-        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName; 
-        
+    {
+        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId;
+        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;
+        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId;
+        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName;
+
         $http({ url: 'mediator_assignupdate/'+$scope.mediator_assign_form.MediatorAssignId, method: 'PUT',data:$scope.mediator_assign_form}).success(function(data){
             $('#mediator_assign_form').modal('hide');
             al('Property Assigned Successfully');
@@ -1510,7 +1510,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         });
     }
 
- 
+
     function al(text)
     {
         $mdToast.show($mdToast.simple().textContent(text).position('bottom right').hideDelay(3000));
@@ -1539,7 +1539,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'users_data', method: 'GET'}).success(function (result) {               
+        $http({ url: 'users_data', method: 'GET'}).success(function (result) {
             $scope.data = result.data;
             $scope.id = result.id;
             $scope.role = result.role;
@@ -1555,7 +1555,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
 
@@ -1581,7 +1581,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     function update()
     {
-     
+
         $http({ url: 'users_data/'+$scope.user_data_form.id, method: 'PUT',data:$scope.user_data_form}).success(function(data){
             $('#user_data_form').modal('hide');
             al('User Updated Successfully');
@@ -1593,13 +1593,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,mediator,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Mediator?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'mediator/'+road.MediatorId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -1640,13 +1640,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     // $scope.states = STATES;
     $scope.form = {};
 
-    $http({ url: 'area', method: 'GET'}).success(function (result) {               
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
         $scope.area = result;
     });
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'abo', method: 'GET'}).success(function (result) {               
+        $http({ url: 'abo', method: 'GET'}).success(function (result) {
             $scope.data = result.data;
             $scope.id = result.id;
             $scope.role = result.role;
@@ -1662,7 +1662,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -1677,7 +1677,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         index = ind;
         $scope.formType = 'EDIT';
         $scope.abo_form = angular.copy(abo);
-        $scope.abo_form.Area = {AreaId:$scope.abo_form.AreaId,AreaName:$scope.abo_form.AreaName}; 
+        $scope.abo_form.Area = {AreaId:$scope.abo_form.AreaId,AreaName:$scope.abo_form.AreaName};
 
         $('#abo_form').modal();
     }
@@ -1693,7 +1693,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         if($scope.abo_form.AboName == null)
         {
            $scope.formError.AboName = "THIS FEILD IS REQUIRED";
@@ -1725,7 +1725,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         $scope.abo_form.AreaId = $scope.abo_form.Area.AreaId;
         $scope.abo_form.AreaName = $scope.abo_form.Area.AreaName;
         console.log("its ok ");
-     
+
         $http({ url: 'abo/'+$scope.abo_form.AboId, method: 'PUT',data:$scope.abo_form}).success(function(data){
             $('#abo_form').modal('hide');
             al('Abo Updated Successfully');
@@ -1737,14 +1737,151 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,abo,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Abo?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
-            $http({ url: 'abo/'+road.AboId, method: 'DELETE'}).success(function(data){
+        $mdDialog.show(confirm).then(function() {
+            $http({ url: 'abo/'+abo.AboId, method: 'DELETE'}).success(function(data){
+                 al('Deleted Successfully');
+                $state.go($state.current, {}, {reload: true});
+            }).error(function(data){
+              al("Not Deleted");
+            });
+        });
+    }
+
+    function al(text)
+    {
+        $mdToast.show($mdToast.simple().textContent(text).position('bottom right').hideDelay(3000));
+    }
+
+    $scope.getTable();
+})
+
+
+app.config(function($stateProvider,$urlRouterProvider) {
+    $stateProvider
+        .state('asp', {
+            url: '/asp',
+            templateUrl: 'views/admin.master.asp',
+            controller: 'AspController',
+            title :'asp'
+        })
+})
+
+.controller('AspController', function($filter, $rootScope,$scope, MASTER, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, $location, STATES){
+
+    // $scope.states = STATES;
+    $scope.form = {};
+
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
+        $scope.area = result;
+    });
+
+    $scope.getTable = function(page)
+    {
+        $http({ url: 'asp', method: 'GET'}).success(function (result) {
+            $scope.data = result.data;
+            $scope.id = result.id;
+            $scope.role = result.role;
+
+            angular.element(document).ready( function () {
+               $('#table_id').DataTable({
+                   dom: 'lBfrtip',
+                   buttons: [ 'excel' ],
+                   responsive: true,
+                    columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 2, targets: -1 }
+                ]
+               });
+            });
+        });
+    }
+
+    $scope.new = function()
+    {
+        $scope.formType = 'NEW';
+        $scope.asp_form = {};
+        $('#asp_form').modal();
+    }
+
+    $scope.edit = function(ind,asp)
+    {
+        index = ind;
+        $scope.formType = 'EDIT';
+        $scope.asp_form = angular.copy(asp);
+        $scope.asp_form.Area = {AreaId:$scope.asp_form.AreaId,AreaName:$scope.asp_form.AreaName};
+
+        $('#asp_form').modal();
+    }
+
+    $scope.isDisabled = false;
+    $scope.postForm = function()
+    {
+        $scope.isDisabled = true;
+        $scope.formError={};
+        var errors=[];
+        $rootScope.processing=true;
+        ($scope.asp_form.AspId)? update() : add();
+    }
+
+    function add()
+    {
+        if($scope.asp_form.AspName == null)
+        {
+           $scope.formError.AspName = "THIS FEILD IS REQUIRED";
+           return;
+        }
+
+        $scope.asp_form.AreaId = $scope.asp_form.Area.AreaId;
+        $scope.asp_form.AreaName = $scope.asp_form.Area.AreaName;
+
+        $http({ url: 'asp', method: 'POST',data:$scope.asp_form}).success(function(data){
+            $('#asp_form').modal('hide');
+            al('Asp Created Successfully');
+            $state.go($state.current, {}, {reload: true});
+        }).error(function(data){
+            $scope.formError = data;
+            $scope.isDisabled = false;
+            al("Asp Not Created");
+        });
+    }
+
+    function update()
+    {
+        if($scope.asp_form.AspName == null)
+        {
+           $scope.formError.AspName = "THIS FEILD IS REQUIRED";
+           return;
+        }
+
+        $scope.asp_form.AreaId = $scope.asp_form.Area.AreaId;
+        $scope.asp_form.AreaName = $scope.asp_form.Area.AreaName;
+        console.log("its ok ");
+
+        $http({ url: 'asp/'+$scope.asp_form.AspId, method: 'PUT',data:$scope.asp_form}).success(function(data){
+            $('#asp_form').modal('hide');
+            al('Asp Updated Successfully');
+            $state.go($state.current, {}, {reload: true});
+        }).error(function(data){
+            $scope.isDisabled = false;
+            al("Asp Not Updated");
+        });
+    }
+
+    $scope.delete = function(ind,asp,ev)
+    {
+        var confirm = $mdDialog.confirm({targetEvent:ev})
+            .title('Are You Sure To Delete This Asp?')
+            .ok('Yes')
+            .cancel('No');
+
+        $mdDialog.show(confirm).then(function() {
+            $http({ url: 'asp/'+asp.AspId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
             }).error(function(data){

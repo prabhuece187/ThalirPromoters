@@ -12,7 +12,7 @@
     <meta property="og:title" content="thalirpromoters" />
 
     <meta property="og:url" content="http://www.thalirpromoters.com/propertydetail/{{ $property['PropertyId'] }}/{{ $property['NeedId'] }}" />
-    
+
     @if($propertygallery == "no items")
       <div>
         <meta property="og:image" content="/user-asset/img/logo.jpg" />
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="/user-asset/css/style.css">
 
     <link rel="stylesheet" href="/user-asset/css/coderplays.css">
-    
+
     <!-- Responsive css -->
     <link rel="stylesheet" href="/user-asset/css/responsive.css">
 </head>
@@ -54,14 +54,14 @@
                             <div class="ltn__top-bar-menu">
                                 <ul>
                                     <li>
-                                     
+
                                     </li>
                                     <li>
                                         <div class="ltn__social-media">
                                             <ul>
                                                 <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                                
+
                                                 <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
                                                 <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
                                             </ul>
@@ -75,7 +75,7 @@
             </div>
         </div> -->
         <!-- ltn__header-top-area end -->
-        
+
         <!-- ltn__header-middle-area start -->
         <!-- style="animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;left: 0;position: fixed;top: 0;width: 100%; z-index: 999;" -->
         <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black" style="background-color: #01580a;">
@@ -119,8 +119,8 @@
                                             <ul>
                                                 <li><a href="/admin-login">AspLogin</a></li>
                                                 <li><a href="/adminuserlogin">TM Login</a></li>
-                                                @if(session()->get('name') == 1)  
-                                                    <li><a href="/admin-login/mediatorregister">Mediator Register</a></li>
+                                                @if(session()->get('name') == 1)
+                                                    <li><a href="/admin-login#/mediatorregister">Mediator or Abo or Asp Register</a></li>
                                                 @endif
                                             </ul>
                                         </li>
@@ -252,7 +252,7 @@
                         </div>
                     @endforeach
                 </div>
-             @elseif(count($propertygallery) == 0) 
+             @elseif(count($propertygallery) == 0)
                <div class="row">
                     <div class="col-12 ">
                       <div class="col-6 align-self-center ">
@@ -281,7 +281,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    
+
                     <div class="ltn__shop-details-inner ltn__page-details-inner mb-60">
                         <div class="ltn__blog-meta">
                             <ul>
@@ -292,7 +292,7 @@
                                     <i class="far fa-calendar-alt"></i>{{ date_format (new DateTime($property['PropertyDate']), 'd-m-Y')}}
                                 </li>
                                 <li>
-                                    <a><i class="far fa-comments"></i> 
+                                    <a><i class="far fa-comments"></i>
                                       {{$commentcount}}
                                     </a>
                                 </li>
@@ -314,14 +314,14 @@
                         </label>
                         @endif
 
-                        <h4 class="title-2">Property Details</h4>  
+                        <h4 class="title-2">Property Details</h4>
                            <div class="property-detail-info-list section-bg-1 clearfix">
                               <div class="row">
                                 <div class="col-md-6" style="position: relative;">
 
 
                                 @if($property['PropertyStatus'] == 'Completed')
-                                <p class="watermark" 
+                                <p class="watermark"
                                 style=" position:absolute ;font-weight: bold;font-size: 30px;text-align: center;color: #ff0000;top:60px;transform: rotate(-35deg) scale(1.7, 1.5);" >
                                   Sold Out
                                 </p>
@@ -329,19 +329,19 @@
                                     <ul>
                                         @if($property['PropertyId'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Se.No :</label> 
+                                            <label style="margin-bottom:0px !important;">Se.No :</label>
                                             <span>{{ $property['PropertyId'] }}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyRegNo'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Reg.No Name :</label> 
+                                            <label style="margin-bottom:0px !important;">Reg.No Name :</label>
                                             <span>{{ $property['PropertyRegNo'] }}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Property Name :</label> 
+                                            <label style="margin-bottom:0px !important;">Property Name :</label>
                                             <span>
                                             {{$property['PropertyName']}}
                                             </span>
@@ -349,7 +349,7 @@
                                         @endif
                                         @if($property['PropertyLandSize'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Size :</label> 
+                                            <label style="margin-bottom:0px !important;">Size :</label>
                                             <span>
                                             {{$property['PropertyLandSize']}}
                                             </span>
@@ -357,41 +357,41 @@
                                         @endif
                                         @if($property['NeedName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Requirement : </label> 
+                                            <label style="margin-bottom:0px !important;">Requirement : </label>
                                             <span>{{$property['NeedName']}}</span>
                                         </li>
                                         @endif
                                         @if($property['TypeName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Type : </label> 
+                                            <label style="margin-bottom:0px !important;">Type : </label>
                                             <span>{{$property['TypeName']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyIndividualBudget'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Rate Per Unit :</label> 
+                                            <label style="margin-bottom:0px !important;">Rate Per Unit :</label>
                                             <span>₹ {{$property['PropertyIndividualBudget']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyTotalBudget'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Rate :</label> 
+                                            <label style="margin-bottom:0px !important;">Rate :</label>
                                             <span>₹ {{$property['PropertyTotalBudget']}}
-                                              @if($property['PropertyTotalValType'] == 'Lakhs')   
+                                              @if($property['PropertyTotalValType'] == 'Lakhs')
                                                  Lakhs
-                                              @endif  
-                                              @if($property['PropertyTotalValType'] == 'K')   
+                                              @endif
+                                              @if($property['PropertyTotalValType'] == 'K')
                                                  Thousand
                                               @endif
-                                              @if($property['PropertyTotalValType'] == 'Cr')   
+                                              @if($property['PropertyTotalValType'] == 'Cr')
                                                  Crore
-                                              @endif  
+                                              @endif
                                             </span>
                                         </li>
                                         @endif
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Land Facing :</label> 
-                                            <span> 
+                                            <label style="margin-bottom:0px !important;">Land Facing :</label>
+                                            <span>
                                                @if($property['PropertyNorth'] == 1)
                                                 <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">North,
@@ -399,7 +399,7 @@
                                                         <!-- <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                @endif  
+                                                @endif
                                                 @if($property['PropertySouth'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">South,
@@ -408,24 +408,24 @@
                                                         <!-- <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                 @endif 
-                                                @if($property['PropertyEast'] == 1) 
+                                                 @endif
+                                                @if($property['PropertyEast'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">East,
                                                         <!-- <input type="checkbox" value="{{$property['PropertyEast']}}" checked="checked"> -->
                                                         <!-- <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>   -->
-                                                 @endif 
-                                                 @if($property['PropertyWest'] == 1) 
+                                                 @endif
+                                                 @if($property['PropertyWest'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">West,
                                                         <!-- <input type="checkbox" value="{{$property['PropertyWest']}}" checked="checked"> -->
                                                         <!-- <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                 @endif 
-                                                @if($property['PropertyCorner'] == 1)  
+                                                 @endif
+                                                @if($property['PropertyCorner'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">Corner
                                                         <!-- <input type="checkbox" value="{{$property['PropertyCorner']}}" checked="checked"> -->
@@ -435,8 +435,8 @@
                                                 @endif
                                             </span>
                                         </li>
-                                         <li><label style="margin-bottom:0px !important;">Building Facing:</label> 
-                                            <span> 
+                                         <li><label style="margin-bottom:0px !important;">Building Facing:</label>
+                                            <span>
                                                @if($property['PropertyBuildNorth'] == 1)
                                                 <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;" >North,
@@ -444,7 +444,7 @@
                                                         <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                @endif  
+                                                @endif
                                                 @if($property['PropertyBuildSouth'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;" >South,
@@ -452,24 +452,24 @@
                                                         <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                 @endif 
-                                                @if($property['PropertyBuildEast'] == 1) 
+                                                 @endif
+                                                @if($property['PropertyBuildEast'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;" >East,
                                                         <!-- <input type="checkbox" value="{{$property['PropertyBuildEast']}}" checked="checked">
                                                         <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>   -->
-                                                 @endif 
-                                                 @if($property['PropertyBuildWest'] == 1) 
+                                                 @endif
+                                                 @if($property['PropertyBuildWest'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">West,
                                                        <!--  <input type="checkbox" value="{{$property['PropertyBuildWest']}}" checked="checked">
                                                         <span class="checkmark"></span> -->
                                                     </label>
                                                 <!-- </li>  -->
-                                                 @endif 
-                                                @if($property['PropertyBuildCorner'] == 1)  
+                                                 @endif
+                                                @if($property['PropertyBuildCorner'] == 1)
                                                  <!-- <li> -->
                                                     <label style="margin-bottom:0px !important;">Corner
                                                         <!-- <input type="checkbox" value="{{$property['PropertyBuildCorner']}}" checked="checked">
@@ -480,72 +480,72 @@
                                              </span>
                                         </li>
                                     </ul>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                    <ul>
                                         @if($property['AreaName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Property Area : </label> 
+                                            <label style="margin-bottom:0px !important;">Property Area : </label>
                                             <span>{{$property['AreaName']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyAreaDetail'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;"> Area Detail : </label> 
+                                            <label style="margin-bottom:0px !important;"> Area Detail : </label>
                                             <span>{{$property['PropertyAreaDetail']}}</span>
                                         </li>
                                         @endif
                                         @if($property['RoadName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Road Type :</label> 
+                                            <label style="margin-bottom:0px !important;">Road Type :</label>
                                             <span>{{$property['RoadName']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyRoadSize'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Road Wide :</label> 
+                                            <label style="margin-bottom:0px !important;">Road Wide :</label>
                                             <span> {{$property['PropertyRoadSize']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyRoadBase'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Road Base :</label> 
+                                            <label style="margin-bottom:0px !important;">Road Base :</label>
                                             <span> {{$property['PropertyRoadBase']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyBuildingSize'])
                                          <li>
-                                            <label style="margin-bottom:0px !important;">Building Size :</label> 
+                                            <label style="margin-bottom:0px !important;">Building Size :</label>
                                             <span> {{$property['PropertyBuildingSize']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyBuildingAge'])
                                          <li>
-                                            <label style="margin-bottom:0px !important;">Building Size :</label> 
+                                            <label style="margin-bottom:0px !important;">Building Size :</label>
                                             <span> {{$property['PropertyBuildingAge']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PropertyOwnerName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Name :</label> 
+                                            <label style="margin-bottom:0px !important;">Name :</label>
                                             <span> {{$property['PropertyOwnerName']}}</span>
                                         </li>
                                         @endif
                                          @if($property['PropertyOwnerName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Cell Number :</label> 
+                                            <label style="margin-bottom:0px !important;">Cell Number :</label>
                                             <span> {{$property['PropertyOwnerNumber']}}</span>
                                         </li>
                                         @endif
                                         @if($property['PurposeName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Purpose :</label> 
+                                            <label style="margin-bottom:0px !important;">Purpose :</label>
                                             <span>{{$property['PurposeName']}}</span>
                                         </li>
                                         @endif
                                         @if($property['FloorName'])
                                         <li>
-                                            <label style="margin-bottom:0px !important;">Floor :</label> 
+                                            <label style="margin-bottom:0px !important;">Floor :</label>
                                             <span>{{$property['FloorName']}}</span>
                                         </li>
                                         @endif
@@ -553,13 +553,13 @@
                                         @if(session()->get('name') == 1)
                                             @if($property['PropertyReferName'])
                                                 <li>
-                                                    <label style="margin-bottom:0px !important;">Name :</label> 
+                                                    <label style="margin-bottom:0px !important;">Name :</label>
                                                     <span> {{$property['PropertyReferName']}}</span>
                                                 </li>
                                             @endif
                                              @if($property['PropertyReferNumber'])
                                                 <li>
-                                                    <label style="margin-bottom:0px !important;">Cell Number :</label> 
+                                                    <label style="margin-bottom:0px !important;">Cell Number :</label>
                                                     <span> {{$property['PropertyReferNumber']}}</span>
                                                 </li>
                                             @endif
@@ -570,11 +570,11 @@
                                 </div>
                             </div>
                          </div>
-<!-- 
+<!--
                         <h4 class="title-2">NOTED</h4>
                         <p style="background-color: var(--section-bg-1);">Kindly check the availability of this property with thalir Promoters.. இந்த இடம் உள்ளதா என்று தளிர் புரமோட்டர்ஸ் கேட்டு உறுதி செய்து கொள்ளுங்கள்</p> -->
 
-                        
+
 
                         <h4 class="title-2">Full Details</h4>
                         @if($property['PropertyDescription'])
@@ -582,16 +582,16 @@
                         @endif
 
 
-                        <h4 class="title-2">Additional Property Details</h4>  
+                        <h4 class="title-2">Additional Property Details</h4>
                         <div class="property-detail-info-list section-bg-1 clearfix ">
                           <div  class="row">
                               @if($propertyeb != "no items")
                               <div class="col-lg-6">
                                 <ul>
-                                    <li><label>EB Source:</label> 
-                                        <span> 
+                                    <li><label>EB Source:</label>
+                                        <span>
                                             <li>
-                                              <table class="table"> 
+                                              <table class="table">
                                                 <thead>
                                                   <th>Source</th>
                                                   <th>Count</th>
@@ -605,7 +605,7 @@
                                                     @endforeach
                                                 </tbody>
                                               </table>
-                                            </li> 
+                                            </li>
                                         </span>
                                     </li>
                                 </ul>
@@ -614,10 +614,10 @@
                             @if($propertyeb != "no items")
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><label>Water Source:</label> 
-                                        <span> 
+                                    <li><label>Water Source:</label>
+                                        <span>
                                             <li>
-                                              <table class="table"> 
+                                              <table class="table">
                                                 <thead>
                                                   <th>Source</th>
                                                   <th>Count</th>
@@ -631,14 +631,14 @@
                                                     @endforeach
                                                 </tbody>
                                               </table>
-                                            </li> 
+                                            </li>
                                          </span>
                                     </li>
                                 </ul>
                             </div>
                             @endif
-                          </div>  
-                        </div> 
+                          </div>
+                        </div>
 
 
                     <h4 class="title-2">Property Video</h4>
@@ -648,35 +648,35 @@
                                 <i class="fa fa-play"></i>
                             </a>
                           </div>
-                      @endif 
+                      @endif
 
-                    @if(session()->get('name') == 1)  
+                    @if(session()->get('name') == 1)
                     <h4 class="title-2">Document Images</h4>
                         @if($propertydocument != "no items")
                         <div class="row">
                               @foreach($propertydocument as $prodoc)
-                              
+
                                   <div class="col-4" >
                                         <img class="img-fluid" style="width: 250px;height: 250px;padding: 5px" src="/uploads/property/document/{{$prodoc['PropertyDocumentName']}}" alt="Image">
                                   </div>
-                              
+
                               @endforeach
                               </div>
-                        @endif      
-                     @endif           
+                        @endif
+                     @endif
 
                     <h4 class="title-2">Location</h4>
                     <div class="property-details-google-map mb-60" style="height: auto">
                        You need this property location please <a target="blank" href="{{$property['PropertyLocation']}}" style="color:#01580a;font-weight: bold">Click Here </a>
                     </div>
 
-                    @if(session()->get('name') == 1) 
+                    @if(session()->get('name') == 1)
                     <h4 class="title-2">Spot Location</h4>
                     <div class="property-details-google-map mb-60" style="height: auto">
                        You need this property location please <a target="blank" href="{{$property['PropertyLocationSpot']}}" style="color:#01580a;font-weight: bold">Click Here </a>
                     </div>
                     @endif
-               
+
                     <div class="ltn__shop-details-tab-content-inner--- ltn__shop-details-tab-inner-2 ltn__product-details-review-inner mb-60">
                         <h4 class="title-2">Customer Reviews</h4>
                         <div class="product-ratting">
@@ -697,7 +697,7 @@
                             <p>{{ $comment }}</p>
                           </div>
                         @else
-                        @foreach ($comment as $comments) 
+                        @foreach ($comment as $comments)
                         <div class="ltn__comment-area mb-30">
                             <div class="ltn__comment-inner">
                                 <ul>
@@ -709,7 +709,7 @@
                                                     <ul>
                                                        @for ($i =0; $i <  $comments['StarCount']; $i++)
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                       @endfor  
+                                                       @endfor
                                                     </ul>
                                                 </div>
                                                 <p>  {{$comments['CommentDesc']}}</p>
@@ -717,7 +717,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                
+
                                 </ul>
                             </div>
                         </div>
@@ -758,7 +758,7 @@
                 </div>
                 </div>
 
-             
+
             </div>
         </div>
     </div>
@@ -770,7 +770,7 @@
 </div>
 <!-- Body main wrapper end -->
 
-  
+
 </body>
 
 

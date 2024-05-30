@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\KnowusController;
 use App\Http\Controllers\Admin\NeedController;
 use App\Http\Controllers\Admin\MediatorController;
 use App\Http\Controllers\Admin\AboController;
+use App\Http\Controllers\Admin\AspController;
 use App\Http\Controllers\Admin\ProSiteController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\LoginController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\AboAssignController;
 use App\Http\Controllers\Admin\MediatorAssignController;
 use App\Http\Controllers\Admin\UserDataController;
+use App\Http\Controllers\Admin\AspDataController;
 
 
 // ------------ user controller---------------
@@ -151,6 +153,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('referdelete/{id}', [ReferController::class, 'ReferDelete']);
 
     Route::put('referstatusupdate/{id}', [ReferController::class, 'ReferStatusUpdate']);
+
+    // --------------- Asp Data Data ---------------------
+    Route::resource('aspdata', AspDataController::class);
+    Route::post('aspdataupdate/{id}', [AspDataController::class, 'AspDataUpdate']);
+    Route::delete('aspdatadelete/{id}', [AspDataController::class, 'AspDataDelete']);
+
+    Route::put('aspdatastatusupdate/{id}', [AspDataController::class, 'AspDataStatusUpdate']);
+
     // ---------- type,area,roof,floor,purpose,knowus,oldbuyer master ---------------
 
     Route::resource('type',  TypeController::class);
@@ -164,6 +174,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('oldbuyer',  OldBuyerController::class);
     Route::resource('mediator',  MediatorController::class);
     Route::resource('abo',  AboController::class);
+    Route::resource('asp',  AspController::class);
 
     // --------------- propertydocument Data ---------------------
 
@@ -211,11 +222,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('mediator_assign', [MediatorAssignController::class, 'MediatorAssignAdd']);
     Route::put('mediator_assignupdate/{id}', [MediatorAssignController::class, 'MediatorAssignUpdate']);
 
+    Route::delete('mediator_assign_delete/{id}', [MediatorAssignController::class, 'MediatorAssignDelete']);
+
     // --------------- aboassign Data ---------------------
 
     Route::get('abo_assign',[AboAssignController::class,'AboAssign']);
     Route::post('abo_assign', [AboAssignController::class, 'AboAssignAdd']);
     Route::put('abo_assignupdate/{id}', [AboAssignController::class, 'AboAssignUpdate']);
+
+    Route::delete('abo_assign_delete/{id}', [AboAssignController::class, 'AboAssignDelete']);
 
     Route::get('abo_assigned_values/{id}',[AboAssignController::class,'AboAssignedValuesGet']);
 

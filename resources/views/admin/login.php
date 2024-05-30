@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Sequence</title> 
+    <title>Sequence</title>
     <link rel="shortcut icon" type="image/png" href="admin-asset/img/logo.png">
-    <link rel="stylesheet" type="text/css" href="admin-asset/css/app.css"> 
-        
+    <link rel="stylesheet" type="text/css" href="admin-asset/css/app.css">
+
     <link rel="stylesheet" type="text/css" href="admin-asset/css/poppins/popinslib.css">
     <link rel="stylesheet" type="text/css" href="admin-asset/css/poppins/poppins1.woff2">
     <link rel="stylesheet" type="text/css" href="admin-asset/css/poppins/poppins2.woff2">
@@ -19,14 +19,14 @@
 
         .login-input, .login-btn{
             border-radius: 0px;
-            background-clip: unset; 
+            background-clip: unset;
             border: transparent;
         }
         .login-input:focus, .login-btn:focus{
             border-color: transparent!important;
             box-shadow: none;
-        } 
-        
+        }
+
         .width-login{
             width: 400px;
         }
@@ -37,18 +37,18 @@
             }
         }
 
-    </style>  -->  
+    </style>  -->
   <style type="text/css">
     .login-input, .login-btn{
         border-radius: 0px;
-        background-clip: unset; 
+        background-clip: unset;
         border: transparent;
     }
     .login-input:focus, .login-btn:focus{
         border-color: 1px solid #e7e7e7 !important;
         box-shadow: none;
-    } 
-    
+    }
+
     .width-login{
         width: 400px;
     }
@@ -138,9 +138,9 @@
       border-color: transparent!important;
     }
 
-</style> 
+</style>
 </head>
-<body data-col="1-column" class=" 1-column  blank-page blank-page" ng-app="billing" >    
+<body data-col="1-column" class=" 1-column  blank-page blank-page" ng-app="billing" >
     <div class="wrapper nav-collapsed menu-collapsed">
         <div class="main-panel">
             <div class="main-content">
@@ -152,7 +152,7 @@
                                     <div class="card  text-center width-login">
                                         <div class="card-img overlap" >
                                             <img alt="element 06" class="mb-1" src="/user-asset/img/logo.jpg" width="190">
-                                        </div>                                   
+                                        </div>
                                            <ui-view></ui-view>
                                     </div>
                                 </div>
@@ -173,15 +173,15 @@
      <script src="/angular-libraries/angular-moment.min.js"></script>
     <script src="/angular-libraries/select2.js"></script>
 
-    <script src="/angular-libraries/angular-material.min.js"></script> 
+    <script src="/angular-libraries/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
-    
+
     <script type="text/javascript">
         var app =  angular.module('billing',['ui.router','angularMoment','ngAnimate','ui.select'])
         app.constant('LOGIN')
-        
-        app.config(function($stateProvider,$urlRouterProvider) 
+
+        app.config(function($stateProvider,$urlRouterProvider)
         {
             $stateProvider
                 .state('login', {
@@ -257,12 +257,12 @@
 
         .controller('RegisterCtrl', function($rootScope,$scope ,LOGIN, $http,$window){
             $scope.form = {};
-          
+
             $scope.postRegister = function()
-            {                   
+            {
                 $http({ url: 'register', method: 'POST',data:$scope.form})
                 .success(function(data){
-            
+
                    alert("successed");
 
                 }).error(function(data,status){
@@ -278,12 +278,12 @@
             // $scope.form = {
             //     RoleId : 4
             // };
-          
+
             $scope.postRegister = function()
-            {    
+            {
                 $http({ url: 'mediatorregister', method: 'POST',data:$scope.form})
                 .success(function(data){
-            
+
                    alert("successed");
                    $window.location.href = '#/login';
 
@@ -302,14 +302,14 @@
             var DataEncrypt = DataEn.replace('₹', '/');
             var DataKey = CryptoJS.enc.Utf8.parse("01234567890123456789012345678901");
             var DataVector = CryptoJS.enc.Utf8.parse("1234567890123412");
-            var decrypted = CryptoJS.AES.decrypt(DataEncrypt, DataKey, { iv: DataVector });        
+            var decrypted = CryptoJS.AES.decrypt(DataEncrypt, DataKey, { iv: DataVector });
             var decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
 
             $scope.form = {};
             $scope.form.email = angular.lowercase(decrypted);
-            
+
             $scope.postUpdated = function()
-            {                   
+            {
                 $http({ url: 'passwordupdate', method: 'POST',data:$scope.form}).success(function(data){
                     alert("Password Updated Successfully");
                     $window.location.href = '#/login';
@@ -327,7 +327,7 @@
     <script type="text/ng-template" id="loginpage">
         <div class="card-body">
             <div class="card-block">
-                <h2 class="white">LOGIN</h2>
+                <h4 style="color:#111d77;">Login</h4>
                 <form ng-submit="postLogin()">
                     <div class="form-group">
                         <div class="col-md-12">
@@ -336,12 +336,12 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="password" class="form-control login-input" name="password" id="password" ng-model="form.password" placeholder="Password" required>  
+                            <input type="password" class="form-control login-input" name="password" id="password" ng-model="form.password" placeholder="Password" required>
                             <span class="help-block" style="font-size:.8rem;color:#111d77;">
                             {{formError[0]}}</span>
                         </div>
                     </div>
-                    <div class="form-group">    
+                    <div class="form-group">
                         <div class="col-md-12">
                             <button type="Submit" class="btn login-btn btn-pink">Submit</button>
                             <button type="button" class="btn login-btn btn-secondary" ng-click="clear()">Clear</button>
@@ -374,7 +374,7 @@
                           </div>
                             <span class="help-block" style="font-size:.8rem;color:#111D77;padding: 0px 19px">
                             {{data}}</span>
-                      </div>                                                 
+                      </div>
                       <div class="modal-footer">
                         <a href=""  type="reset" class="btn atag" data-dismiss="modal" >Close</a>
                         <input type="submit" ng-disabled="isDisabled" ng-click="postForm();" class="btn btn-outline-primary atag btn-lg" value="Send Mail">
@@ -389,7 +389,7 @@
     <script type="text/ng-template" id="registerpage">
         <div class="card-body">
             <div class="card-block">
-                <h2 class="white">REGISTERATION</h2>
+                <h4 style="color:#111d77;">Registeration</h4>
                 <form ng-submit="postRegister()">
                     <div class="input-group mb-3">
                          <div class="input-group-prepend">
@@ -413,9 +413,9 @@
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="password" class="form-control" 
+                        <input type="password" class="form-control"
                         ng-model="form.password" id="password" placeholder="Password" required >
-                    </div>                                           
+                    </div>
                    <div class="form-group text-center">
                         <button type="submit" class="btn btn-warning btn-raised">Get Started</button>
                     </div>
@@ -427,7 +427,7 @@
     <script type="text/ng-template" id="medregisterpage">
         <div class="card-body">
             <div class="card-block">
-                <h2 class="white">MEDIATOR REGISTERATION</h2>
+                <h4 style="color:#111d77;">Mediator or Abo or Asp Registeration</h4>
                 <form ng-submit="postRegister()">
                     <div class="input-group mb-3">
                          <div class="input-group-prepend">
@@ -451,18 +451,18 @@
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="password" class="form-control" 
+                        <input type="password" class="form-control"
                         ng-model="form.password" id="password" placeholder="Password" required >
-                    </div> 
+                    </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="password" class="form-control" 
+                        <input type="password" class="form-control"
                         ng-model="form.RePassword" id="RePassword" placeholder="RePassword" required >
-                    </div>    
+                    </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -470,9 +470,9 @@
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" 
+                        <input type="text" class="form-control"
                         ng-model="form.Mobile" id="Mobile" placeholder="Mobile No" required >
-                    </div> 
+                    </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -480,11 +480,13 @@
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <select class="form-control" ng-model="form.RoleId" id="RoleId">
+                        <select class="form-control" ng-model="form.RoleId" id="RoleId" required>
+                          <option value="" disabled selected>Select your option</option>
                           <option value="5">ABO</option>
-                          <option value="4">MEDIATOR</option>                        
+                          <option value="2">ASP</option>
+                          <option value="4">MEDIATOR</option>
                         </select>
-                    </div> 
+                    </div>
 
                    <div class="form-group text-center">
                         <button type="submit" class="btn btn-warning btn-raised">Get Started</button>
@@ -498,7 +500,7 @@
       <script type="text/ng-template" id="forgotpage">
         <div class="card-body">
             <div class="card-block">
-                <h2 class="white">FORGOT</h2>
+                <h4 style="color:#111d77;">Forgot Password</h4>
                 <form ng-submit="postUpdated()">
                     <div class="input-group mb-3">
                          <!-- <div class="input-group-prepend">
@@ -508,27 +510,27 @@
                         </div> -->
                         <input type="hidden" class="form-control" ng-model="form.email" id="name" placeholder="email" required readonly  >
                     </div>
-                    
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" 
+                        <input type="text" class="form-control"
                         ng-model="form.password" id="password" placeholder="Enter New Password" required >
-                    </div> 
+                    </div>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="ft-lock"></i>
                             </span>
                         </div>
-                        <input type="password" class="form-control" 
+                        <input type="password" class="form-control"
                         ng-model="form.repassword" id="repassword" placeholder="Conform Password" required >
-                    </div> 
+                    </div>
                     <span class="help-block" style="font-size:.8rem;color:#111D77;padding: 0px 19px">
-                            {{formError}}</span>                                         
+                            {{formError}}</span>
                    <div class="form-group text-center">
                         <button type="submit" class="btn btn-warning btn-raised">Get Started</button>
                     </div>

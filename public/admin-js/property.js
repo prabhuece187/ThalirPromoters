@@ -45,15 +45,15 @@ app.config(function($stateProvider,$urlRouterProvider) {
     var page = SELLER.pagination.page;
     $scope.isDisabledStatus = false;
 
-    $http({ url: 'area', method: 'GET'}).success(function (result) {               
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
         $scope.area = result;
     });
 
-    $http({ url: 'type', method: 'GET'}).success(function (result) {               
+    $http({ url: 'type', method: 'GET'}).success(function (result) {
         $scope.type = result;
     });
 
-    $http({ url: 'need', method: 'GET'}).success(function (result) {               
+    $http({ url: 'need', method: 'GET'}).success(function (result) {
         $scope.need = result;
     });
 
@@ -92,21 +92,21 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // var page2 = page2||null;
 
 
-        if((form.Area == undefined || form.Area == "") && (form.PropertyId == undefined || form.PropertyId == "") 
+        if((form.Area == undefined || form.Area == "") && (form.PropertyId == undefined || form.PropertyId == "")
            && (form.Type == undefined || form.Type == "") && (form.ReachUs == undefined || form.ReachUs == "")
-           && (form.MinAmount == undefined || form.MinAmount == "") && (form.Sold == undefined || form.Sold == "" || form.Sold == false) 
+           && (form.MinAmount == undefined || form.MinAmount == "") && (form.Sold == undefined || form.Sold == "" || form.Sold == false)
            && (form.MaxAmount == undefined || form.MaxAmount == "") && (form.PropertyRegNo == undefined || form.PropertyRegNo == "")
            && (form.Need == undefined || form.Need == ""))
         {
             $scope.paginat  = page;
-            $scope.pagination.searchdata = "nosearch"; 
+            $scope.pagination.searchdata = "nosearch";
 
             if($scope.paginat  != 0 || $scope.paginat  == "undefined")
             {
-              $scope.pagination.page = page; 
+              $scope.pagination.page = page;
             }
 
-            $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {              
+            $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
                 $scope.data = result.data;
                 $scope.role = result.role;
                 $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -116,30 +116,30 @@ app.config(function($stateProvider,$urlRouterProvider) {
         }
         else
         {
-            $scope.pagination.page = page; 
-            $scope.pagination.searchdata = "search"; 
-            $scope.pagination.propertyid = form.PropertyId; 
-            // $scope.pagination.propertyname = form.PropertyName; 
-            $scope.pagination.propertyreg = form.PropertyRegNo; 
-            $scope.pagination.reachus = form.ReachUs; 
-            $scope.pagination.MinAmount = form.MinAmount; 
-            $scope.pagination.MaxAmount = form.MaxAmount; 
+            $scope.pagination.page = page;
+            $scope.pagination.searchdata = "search";
+            $scope.pagination.propertyid = form.PropertyId;
+            // $scope.pagination.propertyname = form.PropertyName;
+            $scope.pagination.propertyreg = form.PropertyRegNo;
+            $scope.pagination.reachus = form.ReachUs;
+            $scope.pagination.MinAmount = form.MinAmount;
+            $scope.pagination.MaxAmount = form.MaxAmount;
             if(form.Area != null){
-              $scope.pagination.Area = form.Area.AreaId; 
+              $scope.pagination.Area = form.Area.AreaId;
             }
             if(form.Type != null){
-              $scope.pagination.Type = form.Type.TypeId; 
+              $scope.pagination.Type = form.Type.TypeId;
             }
             if(form.Need != null){
-              $scope.pagination.Need = form.Need.NeedId; 
+              $scope.pagination.Need = form.Need.NeedId;
             }
             if(form.Sold == true){
-              $scope.pagination.Sold = "sold"; 
+              $scope.pagination.Sold = "sold";
             }else{
-              $scope.pagination.Sold = "unsold"; 
+              $scope.pagination.Sold = "unsold";
             }
 
-            $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {             
+            $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
                 $scope.data = result.data;
                 $scope.role = result.role;
                 $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -152,14 +152,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // if(page2 === null)
         // {
         //     $scope.paginat  = page;
-        //     $scope.pagination.searchdata = page2; 
+        //     $scope.pagination.searchdata = page2;
 
         //     if($scope.paginat  != 0 || $scope.paginat  == "undefined")
         //     {
-        //       $scope.pagination.page = page; 
+        //       $scope.pagination.page = page;
         //     }
 
-        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {              
+        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
         //         $scope.data = result.data;
         //         $scope.role = result.role;
         //         $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -169,10 +169,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // }
         // else
         // {
-        //     $scope.pagination.page = page; 
-        //     $scope.pagination.searchdata = page2; 
+        //     $scope.pagination.page = page;
+        //     $scope.pagination.searchdata = page2;
 
-        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {             
+        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
         //         $scope.data = result.data;
         //         $scope.role = result.role;
         //         $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -203,18 +203,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.getPropretySearch = function(page,datas)
-    { 
-         $scope.pagination.page = page; 
-         $scope.pagination.propertyid = datas.PropertyId; 
-         $scope.pagination.propertyname = datas.PropertyName; 
-         $scope.pagination.propertyreg = datas.PropertyRegNo; 
-         $scope.pagination.MinAmount = datas.MinAmount; 
-         $scope.pagination.MaxAmount = datas.MaxAmount; 
+    {
+         $scope.pagination.page = page;
+         $scope.pagination.propertyid = datas.PropertyId;
+         $scope.pagination.propertyname = datas.PropertyName;
+         $scope.pagination.propertyreg = datas.PropertyRegNo;
+         $scope.pagination.MinAmount = datas.MinAmount;
+         $scope.pagination.MaxAmount = datas.MaxAmount;
          if(datas.Area != null){
-          $scope.pagination.Area = datas.Area.AreaId; 
+          $scope.pagination.Area = datas.Area.AreaId;
          }
 
-         $http({ url: 'propertysearch', method: 'GET',params:$scope.pagination}).success(function (result) {             
+         $http({ url: 'propertysearch', method: 'GET',params:$scope.pagination}).success(function (result) {
             $scope.data = result.data;
             $scope.role = result.role;
             $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -234,11 +234,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
     // var val1 = $stateParams.data1;
     $scope.isDisabled = false;
 
-    $scope.unit = Storage.data.unit; 
-    $scope.waterval = Storage.data.water; 
-    $scope.ebval = Storage.data.eb; 
-    $scope.eb = Storage.data.eb; 
-    $scope.const = Storage.data.const_status; 
+    $scope.unit = Storage.data.unit;
+    $scope.waterval = Storage.data.water;
+    $scope.ebval = Storage.data.eb;
+    $scope.eb = Storage.data.eb;
+    $scope.const = Storage.data.const_status;
 
     $scope.property_form = {
         PropertyDate: moment(new Date()).format('YYYY-MM-DD 00:00:00'),
@@ -253,40 +253,40 @@ app.config(function($stateProvider,$urlRouterProvider) {
     };
 
     $http({ url: 'rolevalueget', method: 'GET'}).success(function(data){
-        $scope.role = data;  
+        $scope.role = data;
     });
 
     $http({ url: 'type', method: 'GET'}).success(function(data){
-        $scope.type = data;    
+        $scope.type = data;
     });
 
 
-    $http({ url: 'need', method: 'GET'}).success(function (result) {               
+    $http({ url: 'need', method: 'GET'}).success(function (result) {
         $scope.need = result;
     });
 
-    $http({ url: 'roof', method: 'GET'}).success(function (result) {               
+    $http({ url: 'roof', method: 'GET'}).success(function (result) {
         $scope.roof = result;
     });
 
-    $http({ url: 'knowus', method: 'GET'}).success(function (result) {               
+    $http({ url: 'knowus', method: 'GET'}).success(function (result) {
         $scope.knowus = result;
     });
 
     $http({ url: 'floor', method: 'GET'}).success(function(data){
-        $scope.floor = data;    
+        $scope.floor = data;
     });
 
     $http({ url: 'area', method: 'GET'}).success(function(data){
-        $scope.area = data;    
+        $scope.area = data;
     });
 
     $http({ url: 'purpose', method: 'GET'}).success(function(data){
-        $scope.purpose = data;    
+        $scope.purpose = data;
     });
 
     $http({ url: 'road', method: 'GET'}).success(function(data){
-        $scope.road = data;    
+        $scope.road = data;
     });
 
     var sellerimage = new FormData();
@@ -377,42 +377,42 @@ app.config(function($stateProvider,$urlRouterProvider) {
        $scope.formType = 'EDIT';
        $scope.imagesrc = [];
        var image = {};
-    
+
 
        $http({ url: 'propertyedit/'+id, method: 'GET'}).success(function(data)
-       {  
+       {
             $scope.temp = data;
             $scope.leng = data.gallery;
             angular.forEach($scope.leng, function(value) {
                 value.Src = "/uploads/property/gallery/"+value.PropertyGalleryImage;
                 $scope.imagesrc.push(value);
             })
-            
-            $scope.property_form = $scope.temp;            
+
+            $scope.property_form = $scope.temp;
             $scope.property_form.PropertyGalleryVideo1 = $scope.property_form.PropertyGalleryVideo||null;
-            $scope.inform = data.amenities;    
-            $scope.property_form.Type = {TypeId:$scope.property_form.TypeId,TypeName:$scope.property_form.TypeName};     
-            $scope.property_form.Area = {AreaId:$scope.property_form.AreaId,AreaName:$scope.property_form.AreaName};     
-            $scope.property_form.Need = {NeedId:$scope.property_form.NeedId,NeedName:$scope.property_form.NeedName};     
-            $scope.property_form.Floor = {FloorId:$scope.property_form.FloorId,FloorName:$scope.property_form.FloorName};     
-            $scope.property_form.Purpose = {PurposeId:$scope.property_form.PurposeId,PurposeName:$scope.property_form.PurposeName};     
-            $scope.property_form.Knowus = {KnowusId:$scope.property_form.KnowusId,KnowusName:$scope.property_form.KnowusName};     
-            $scope.property_form.Roof = {RoofId:$scope.property_form.RoofId,RoofName:$scope.property_form.RoofName};     
-            $scope.property_form.Road = {RoadId:$scope.property_form.RoadId,RoadName:$scope.property_form.RoadName};     
-         
+            $scope.inform = data.amenities;
+            $scope.property_form.Type = {TypeId:$scope.property_form.TypeId,TypeName:$scope.property_form.TypeName};
+            $scope.property_form.Area = {AreaId:$scope.property_form.AreaId,AreaName:$scope.property_form.AreaName};
+            $scope.property_form.Need = {NeedId:$scope.property_form.NeedId,NeedName:$scope.property_form.NeedName};
+            $scope.property_form.Floor = {FloorId:$scope.property_form.FloorId,FloorName:$scope.property_form.FloorName};
+            $scope.property_form.Purpose = {PurposeId:$scope.property_form.PurposeId,PurposeName:$scope.property_form.PurposeName};
+            $scope.property_form.Knowus = {KnowusId:$scope.property_form.KnowusId,KnowusName:$scope.property_form.KnowusName};
+            $scope.property_form.Roof = {RoofId:$scope.property_form.RoofId,RoofName:$scope.property_form.RoofName};
+            $scope.property_form.Road = {RoadId:$scope.property_form.RoadId,RoadName:$scope.property_form.RoadName};
+
             $scope.indsize = $scope.property_form.PropertyLandSize;
             if($scope.indsize != null){
                $scope.y = $scope.indsize.split(' ');
-               $scope.property_form.PropertyLandSize = $scope.y[0];                  
-               $scope.property_form.PropertySize = $scope.y[1];   
+               $scope.property_form.PropertyLandSize = $scope.y[0];
+               $scope.property_form.PropertySize = $scope.y[1];
             }
-            
+
             $scope.property_form.amenities = [];
-            
+
             angular.forEach($scope.inform, function(value){
                value.Specification = {SpecificationId:value.SpecificationId, SpecificationName:value.SpecificationName};
                $scope.property_form.amenities.push(value);
-            });  
+            });
         });
     }
     else
@@ -424,10 +424,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
     {
         $scope.isDisabled = true;
         $scope.formError={};
-        var errors=[];             
+        var errors=[];
         (id)? update() : add();
-    }    
-  
+    }
+
     function add()
     {
         $scope.property_form.TypeId =  $scope.property_form.Type.TypeId;
@@ -447,15 +447,15 @@ app.config(function($stateProvider,$urlRouterProvider) {
         $scope.property_form.KnowusName =  $scope.property_form.Knowus.KnowusName;
         $scope.property_form.RoadName =  $scope.property_form.Road.RoadName;
         $scope.property_form.PropertyLandSize = $scope.property_form.PropertyLandSize +" "+$scope.property_form.PropertySize;
-        
+
         $http({ url: 'property', method: 'POST',data:$scope.property_form}).success(function(result){
         var data = result.data;
         var proid = data.PropertyId;
         sellerimage.append("PropertyId",data.PropertyId);
         sellerimage.append("PropertyName",data.PropertyName);
         sellerimage.append("PropertyGalleryVideo",$scope.property_form.PropertyGalleryVideo);
-      
-        
+
+
         $http({ url: 'sellerimage/'+proid, method: 'POST',data:sellerimage,headers: { 'Content-Type' : undefined}}).success(function(data){
            $location.path('/property');
         }).error(function(data){
@@ -464,21 +464,21 @@ app.config(function($stateProvider,$urlRouterProvider) {
         });
           $scope.role = result.role;
           if($scope.role == 2){
-              al("PROPERTY ADDED SUCCESSFULLY.. PLEASE WAIT ADMIN APPROVEL");   
+              al("PROPERTY ADDED SUCCESSFULLY.. PLEASE WAIT ADMIN APPROVEL");
               $location.path('/property');
           }
           else{
-              al("PROPERTY ADDED SUCCESSFULLY");  
-              $location.path('/property'); 
+              al("PROPERTY ADDED SUCCESSFULLY");
+              $location.path('/property');
           }
-           
+
         }).error(function(data){
            $scope.formError = data;
            al("PROPERTY NOT UPDATED");
         });
     }
 
-    function update() 
+    function update()
     {
         $scope.property_form.TypeId =  $scope.property_form.Type.TypeId;
         $scope.property_form.NeedId =  $scope.property_form.Need.NeedId;
@@ -504,7 +504,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         sellerimage.append("PropertyName",$scope.property_form.PropertyName);
         sellerimage.append("PropertyGalleryVideo",$scope.property_form.PropertyGalleryVideo);
         sellerimage.append("PropertyGalleryVideo1",$scope.property_form.PropertyGalleryVideo1);
-        
+
         $http({ url: 'sellerimageupdate/'+$scope.property_form.PropertyId, method: 'POST',data:sellerimage,headers: { 'Content-Type' : undefined}}).success(function(data){
             al('Gallery Updated Successfully');
         }).error(function(data){
@@ -514,11 +514,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
           $scope.role = result.role;
           if($scope.role == 2){
-              al("PROPERTY UPDATED SUCCESSFULLY.. PLEASE WAIT ADMIN APPROVEL");   
+              al("PROPERTY UPDATED SUCCESSFULLY.. PLEASE WAIT ADMIN APPROVEL");
                 $location.path('/property');
           }
           else{
-              al("PROPERTY UPDATED SUCCESSFULLY");   
+              al("PROPERTY UPDATED SUCCESSFULLY");
                 $location.path('/property');
           }
         }).error(function(data){
@@ -545,17 +545,17 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.mediator_follow_form = {};
     $scope.abo_assign_form = {};
 
-    // $http({ url: 'mediator', method: 'GET'}).success(function (result) {               
+    // $http({ url: 'mediator', method: 'GET'}).success(function (result) {
     //      $scope.mediator = result.data;
     // });
 
-    $http({ url: 'abo', method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo', method: 'GET'}).success(function (result) {
          $scope.abo = result.data;
     });
 
     $http({ url: 'propertyfollow/'+id, method: 'GET'}).success(function(data)
-    { 
-         $scope.follow_form = data;
+    {
+         $scope.follow_form = data.data;
          $scope.PropertyAmount = $scope.follow_form.PropertyAmount;
          $scope.PropertyAddress = $scope.follow_form.PropertyAddress;
          $scope.abo_assign_form.PropertyId = $scope.follow_form.PropertyId;
@@ -563,15 +563,16 @@ app.config(function($stateProvider,$urlRouterProvider) {
          $scope.mediator_assign_form.PropertyId = $scope.follow_form.PropertyId;
          $scope.mediator_assign_form.PropertyName = $scope.follow_form.PropertyName;
          $scope.media = data.mediator;
+         $scope.abo = data.abo;
          $scope.mediator_follow_form.PropertyId = $scope.follow_form.PropertyId;
-         
+         $scope.role = data.role;
     });
 
-    $http({ url: 'propertyfollowget/'+id, method: 'GET'}).success(function (result) {               
-         $scope.follow = result;
+    $http({ url: 'propertyfollowget/'+id, method: 'GET'}).success(function (result) {
+         $scope.follow = result.data;
     });
 
-    $http({ url: 'propertypersonget/'+id, method: 'GET'}).success(function (result) {               
+    $http({ url: 'propertypersonget/'+id, method: 'GET'}).success(function (result) {
          $scope.person = result.person;
          $scope.person_form.PropertyId = result.property.PropertyId;
          $scope.person_form.PropertyName = result.property.PropertyName;
@@ -582,7 +583,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         $scope.formType = 'NEW';
         $('#mediator_follow_form').modal();
     }
-    
+
     $scope.new = function()
     {
         $scope.formType = 'NEW';
@@ -609,7 +610,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addfollow()
-    {        
+    {
         $http({ url: 'propertyfollow', method: 'POST',data:$scope.follow_form}).success(function(data){
             $('#follow_form').modal('hide');
             al('Property Follow Created Successfully');
@@ -622,7 +623,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updatefollow()
-    {  
+    {
         $http({ url: 'propertyfollowupdate/'+$scope.follow_form.FollowId, method: 'PUT',data:$scope.follow_form}).success(function(data){
             $('#follow_form').modal('hide');
             al('Property Follow Added Successfully');
@@ -658,7 +659,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addperson()
-    {      
+    {
         $http({ url: 'propertyperson', method: 'POST',data:$scope.person_form}).success(function(data){
             $('#person_form').modal('hide');
             al('Person Created Successfully');
@@ -704,6 +705,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
     {
         $scope.formType = 'NEW';
         $scope.mediator_assign_form.MediatorAssignDate = moment(new Date()).format('YYYY-MM-DD 00:00:00');
+        $scope.mediator_assign_form.AboName = $scope.abo['0'].AboName;
+        $scope.mediator_assign_form.AboId = $scope.abo['0'].AboId;
+        $scope.mediator_assign_form.AboAssignedId = $scope.abo['0'].AboAssignedId;
+        aboDataChange($scope.abo['0'].AboId);
         $('#mediator_assign_form').modal();
     }
 
@@ -718,10 +723,9 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addassign()
-    {    
-        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId; 
-        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName; 
-        $scope.mediator_assign_form.AboAssignedId = $scope.mediator_assign_form.assign.AboAssignedId;  
+    {
+        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId;
+        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;
 
         $http({ url: 'mediator_assign', method: 'POST',data:$scope.mediator_assign_form}).success(function(data){
             $('#mediator_assign_form').modal('hide');
@@ -752,9 +756,9 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addaboassign()
-    {    
-        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId; 
-        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;  
+    {
+        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId;
+        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;
 
 
         $http({ url: 'abo_assign', method: 'POST',data:$scope.abo_assign_form}).success(function(data){
@@ -768,14 +772,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
         });
     }
 
-     $scope.aboDataChange = function(data)
-    {  
-        $http({ url: 'abo_assigned_values/'+data, method: 'GET'}).success(function (result) {               
+    function aboDataChange(data)
+    {
+        $http({ url: 'abo_assigned_values/'+data, method: 'GET'}).success(function (result) {
            $scope.aboassign = result.abo;
            $scope.mediator = result.mediator;
-           // console.log($scope.data);
         });
     }
+
 
     function al(text)
     {
@@ -793,7 +797,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.form = {};
 
     $http({ url: 'buyercommentpropertyget/'+id, method: 'GET'}).success(function(data)
-    { 
+    {
         $scope.form = data;
     });
 
@@ -816,7 +820,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         }).error(function(data){
           al("Comment Not Updated");
         });
-    }   
+    }
 
 
     function al(text)
@@ -829,16 +833,16 @@ app.config(function($stateProvider,$urlRouterProvider) {
     var id = $stateParams.id;
 
     $http({ url: 'propertydocumentget/'+id, method: 'GET'}).success(function(data)
-    { 
+    {
         $scope.document = data;
-        $scope.datas = []; 
+        $scope.datas = [];
         angular.forEach($scope.document, function(value){
             value.documenturl = '/uploads/property/document/'+value.PropertyDocumentName;
             $scope.datas.push(value);
-        });             
+        });
     });
 
- 
+
 
     function al(text)
     {

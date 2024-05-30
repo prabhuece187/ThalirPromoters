@@ -45,17 +45,26 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        <form action="/adminuserlogin" method="POST" class="ltn__form-box contact-form-box">
+                        <form action="/adminuserlogin" method="POST" class="ltn__form-box contact-form-box" style="padding: 0px 50px 0px 50px;">
                              @csrf
                             <input type="text" name="name" placeholder="Name" required="">
 
                             <input type="password" name="password" placeholder="Password*" required="">
-                            
+
                             <div class="btn-wrapper">
                                 <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">SUBMIT</button>
                             </div>
                         </form>
-                       
+                        @if(session()->get('name') == 1)
+                        <form action="/sign_out" method="GET" class="ltn__form-box contact-form-box" style="padding: 0px 50px 0px 50px;">
+                            @csrf
+                            <div class="btn-wrapper">
+                                <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">LOGOUT</button>
+                            </div>
+                        </form>
+                        @endif
+
+
                     </div>
                 </div>
             </div>

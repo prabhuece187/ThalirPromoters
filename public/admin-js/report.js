@@ -50,6 +50,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
             menuactive:'customerfollow',
             title :'customerfollow'
         })
+        .state('customerfollowid', {
+            url: '/customer_follow_report/{id}',
+            templateUrl: 'views/admin.reports.customerfollow',
+            controller: 'CustomerFollowReportCtrl',
+            menuactive:'customerfollowid',
+            title :'customerfollowid'
+        })
         .state('mediatorfollow', {
             url: '/mediator_follow_report',
             templateUrl: 'views/admin.reports.mediatorfollow',
@@ -63,8 +70,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.form={};
 
-   
-    $http({ url: 'adminpropertylist', method: 'GET'}).success(function (result) {                         
+
+    $http({ url: 'adminpropertylist', method: 'GET'}).success(function (result) {
         $scope.data = result.data;
         $scope.role = result.role;
         angular.element(document).ready( function () {
@@ -81,8 +88,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.form={};
 
-   
-    $http({ url: 'otherpropertylist', method: 'GET'}).success(function (result) {                         
+
+    $http({ url: 'otherpropertylist', method: 'GET'}).success(function (result) {
         $scope.data = result.data;
         $scope.role = result.role;
         angular.element(document).ready( function () {
@@ -99,8 +106,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.form={};
 
-   
-    $http({ url: 'completedproplist', method: 'GET'}).success(function (result) {                         
+
+    $http({ url: 'completedproplist', method: 'GET'}).success(function (result) {
         $scope.data = result.data;
         $scope.role = result.role;
         angular.element(document).ready( function () {
@@ -118,10 +125,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.form={};
 
-    $http({ url: 'area', method: 'GET'}).success(function (result) {               
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
         $scope.area = result;
     });
-   
+
     $scope.searchForm =  function(){
 
         // $scope.form.AreaId = $scope.form.Area.AreaId;
@@ -132,7 +139,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     // $scope.getPDF =  function()
-    // {  
+    // {
       // console.log("wel");
       //   kendo.drawing.drawDOM($('#excel'), {
       //   paperSize: 'A4',
@@ -159,7 +166,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     // }
 
     $scope.getExcel =  function()
-    {  
+    {
         var filename = 'rough_data_propertys.xls';
         var exportHref=Excel.tableToExcel("#excel", 'Report');
         var link = document.createElement('a');
@@ -173,14 +180,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.form={};
 
-    $http({ url: 'allproperty', method: 'GET'}).success(function (result) {               
+    $http({ url: 'allproperty', method: 'GET'}).success(function (result) {
         $scope.data = result.data;
         $scope.role = result.role;
     });
-   
+
 
     $scope.getExcel =  function()
-    {  
+    {
         var filename = 'all_properties.xls';
         var exportHref=Excel.tableToExcel("#table_id", 'Report');
         var link = document.createElement('a');
@@ -199,15 +206,15 @@ app.config(function($stateProvider,$urlRouterProvider) {
     var id = $stateParams.id;
     $scope.isDisabledStatus = true;
 
-    $http({ url: 'area', method: 'GET'}).success(function (result) {               
+    $http({ url: 'area', method: 'GET'}).success(function (result) {
         $scope.area = result;
     });
 
-    $http({ url: 'type', method: 'GET'}).success(function (result) {               
+    $http({ url: 'type', method: 'GET'}).success(function (result) {
         $scope.type = result;
     });
 
-    $http({ url: 'need', method: 'GET'}).success(function (result) {               
+    $http({ url: 'need', method: 'GET'}).success(function (result) {
         $scope.need = result;
     });
 
@@ -246,21 +253,21 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // var page2 = page2||null;
 
 
-        if((form.Area == undefined || form.Area == "") && (form.PropertyId == undefined || form.PropertyId == "") 
+        if((form.Area == undefined || form.Area == "") && (form.PropertyId == undefined || form.PropertyId == "")
            && (form.Type == undefined || form.Type == "") && (form.ReachUs == undefined || form.ReachUs == "")
-           && (form.MinAmount == undefined || form.MinAmount == "") && (form.Sold == undefined || form.Sold == "" || form.Sold == false) 
+           && (form.MinAmount == undefined || form.MinAmount == "") && (form.Sold == undefined || form.Sold == "" || form.Sold == false)
            && (form.MaxAmount == undefined || form.MaxAmount == "") && (form.PropertyRegNo == undefined || form.PropertyRegNo == "")
            && (form.Need == undefined || form.Need == ""))
         {
             $scope.paginat  = page;
-            $scope.pagination.searchdata = "nosearch"; 
+            $scope.pagination.searchdata = "nosearch";
 
             if($scope.paginat  != 0 || $scope.paginat  == "undefined")
             {
-              $scope.pagination.page = page; 
+              $scope.pagination.page = page;
             }
 
-            $http({ url: 'propertybuyer/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {              
+            $http({ url: 'propertybuyer/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {
                 $scope.data = result.data;
                 $scope.role = result.role;
                 $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -270,30 +277,30 @@ app.config(function($stateProvider,$urlRouterProvider) {
         }
         else
         {
-            $scope.pagination.page = page; 
-            $scope.pagination.searchdata = "search"; 
-            $scope.pagination.propertyid = form.PropertyId; 
-            // $scope.pagination.propertyname = form.PropertyName; 
-            $scope.pagination.propertyreg = form.PropertyRegNo; 
-            $scope.pagination.reachus = form.ReachUs; 
-            $scope.pagination.MinAmount = form.MinAmount; 
-            $scope.pagination.MaxAmount = form.MaxAmount; 
+            $scope.pagination.page = page;
+            $scope.pagination.searchdata = "search";
+            $scope.pagination.propertyid = form.PropertyId;
+            // $scope.pagination.propertyname = form.PropertyName;
+            $scope.pagination.propertyreg = form.PropertyRegNo;
+            $scope.pagination.reachus = form.ReachUs;
+            $scope.pagination.MinAmount = form.MinAmount;
+            $scope.pagination.MaxAmount = form.MaxAmount;
             if(form.Area != null){
-              $scope.pagination.Area = form.Area.AreaId; 
+              $scope.pagination.Area = form.Area.AreaId;
             }
             if(form.Type != null){
-              $scope.pagination.Type = form.Type.TypeId; 
+              $scope.pagination.Type = form.Type.TypeId;
             }
             if(form.Need != null){
-              $scope.pagination.Need = form.Need.NeedId; 
+              $scope.pagination.Need = form.Need.NeedId;
             }
             if(form.Sold == true){
-              $scope.pagination.Sold = "sold"; 
+              $scope.pagination.Sold = "sold";
             }else{
-              $scope.pagination.Sold = "unsold"; 
+              $scope.pagination.Sold = "unsold";
             }
 
-            $http({ url: 'propertybuyer/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {             
+            $http({ url: 'propertybuyer/'+id, method: 'GET',params:$scope.pagination}).success(function (result) {
                 $scope.data = result.data;
                 $scope.role = result.role;
                 $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -306,14 +313,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // if(page2 === null)
         // {
         //     $scope.paginat  = page;
-        //     $scope.pagination.searchdata = page2; 
+        //     $scope.pagination.searchdata = page2;
 
         //     if($scope.paginat  != 0 || $scope.paginat  == "undefined")
         //     {
-        //       $scope.pagination.page = page; 
+        //       $scope.pagination.page = page;
         //     }
 
-        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {              
+        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
         //         $scope.data = result.data;
         //         $scope.role = result.role;
         //         $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -323,10 +330,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
         // }
         // else
         // {
-        //     $scope.pagination.page = page; 
-        //     $scope.pagination.searchdata = page2; 
+        //     $scope.pagination.page = page;
+        //     $scope.pagination.searchdata = page2;
 
-        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {             
+        //     $http({ url: 'property', method: 'GET',params:$scope.pagination}).success(function (result) {
         //         $scope.data = result.data;
         //         $scope.role = result.role;
         //         $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -357,18 +364,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.getPropretySearch = function(page,datas)
-    { 
-         $scope.pagination.page = page; 
-         $scope.pagination.propertyid = datas.PropertyId; 
-         $scope.pagination.propertyname = datas.PropertyName; 
-         $scope.pagination.propertyreg = datas.PropertyRegNo; 
-         $scope.pagination.MinAmount = datas.MinAmount; 
-         $scope.pagination.MaxAmount = datas.MaxAmount; 
+    {
+         $scope.pagination.page = page;
+         $scope.pagination.propertyid = datas.PropertyId;
+         $scope.pagination.propertyname = datas.PropertyName;
+         $scope.pagination.propertyreg = datas.PropertyRegNo;
+         $scope.pagination.MinAmount = datas.MinAmount;
+         $scope.pagination.MaxAmount = datas.MaxAmount;
          if(datas.Area != null){
-          $scope.pagination.Area = datas.Area.AreaId; 
+          $scope.pagination.Area = datas.Area.AreaId;
          }
 
-         $http({ url: 'propertysearch', method: 'GET',params:$scope.pagination}).success(function (result) {             
+         $http({ url: 'propertysearch', method: 'GET',params:$scope.pagination}).success(function (result) {
             $scope.data = result.data;
             $scope.role = result.role;
             $scope.pagevalue = Pagination(result.total, $scope.pagination.count,page);
@@ -384,26 +391,41 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 .controller('CustomerFollowReportCtrl', function($filter, $stateParams, $rootScope,$scope, REPORT, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, STATES, Excel){
 
+    var id = $stateParams.id||0;
+    console.log(id);
     $scope.form={};
 
-    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {               
+    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {
          $scope.property = result;
     });
 
-    $scope.searchForm =  function(){
 
-        $scope.form.PropertyId = $scope.form.Property.PropertyId;
-        $http({ url: 'customer_follow_report', method: 'POST',data:$scope.form}).success(function(result){
-            $scope.abo = result.abo;
-            $scope.mediator = result.mediator;
-            $scope.admin = result.admin;
-            $scope.mediatorfollow = result.mediatorfollow;
-        });
-    }
+        if(id === 0){
+            $scope.searchForm =  function(){
+                $scope.form.PropertyId = $scope.form.Property.PropertyId;
+                $http({ url: 'customer_follow_report', method: 'POST',data:$scope.form}).success(function(result){
+                    $scope.abo = result.abo;
+                    $scope.mediator = result.mediator;
+                    $scope.admin = result.admin;
+                    $scope.mediatorfollow = result.mediatorfollow;
+                });
+            }
+        }
+        else{
+            $scope.form.Property = {PropertyId:id};
+            $scope.form.PropertyId = id;
+            $http({ url: 'customer_follow_report', method: 'POST',data:$scope.form}).success(function(result){
+                $scope.abo = result.abo;
+                $scope.mediator = result.mediator;
+                $scope.admin = result.admin;
+                $scope.mediatorfollow = result.mediatorfollow;
+            });
+        }
+
 
 
     $scope.getPDF =  function()
-    {  
+    {
         kendo.drawing.drawDOM($('#excel'), {
         paperSize: 'A4',
         margin: {
@@ -442,7 +464,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 
     $scope.getPDF =  function()
-    {  
+    {
         kendo.drawing.drawDOM($('#excel'), {
         paperSize: 'A4',
         margin: {

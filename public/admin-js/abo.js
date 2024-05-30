@@ -30,11 +30,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.isDisabledAboAccess = true;
 
 
-    $http({ url: 'abo', method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo', method: 'GET'}).success(function (result) {
          $scope.abo = result.data;
     });
 
-    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {               
+    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {
          $scope.property = result;
     });
 
@@ -44,19 +44,19 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.getTable = function(page,form)
     {
 
-        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "") 
+        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "")
            && (form.aboid == undefined || form.aboid == "") && (form.aboname == undefined || form.aboname == "")
            && (form.status == undefined || form.status == "") && (form.access == undefined || form.access == "") && (form.description == undefined || form.description == ""))
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
                 if($scope.paginat  != 0 || $scope.paginat  == "undefined")
                 {
-                  $scope.pagination.page = page; 
+                  $scope.pagination.page = page;
                 }
 
-                $http({ url: 'abo_assign', method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'abo_assign', method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -66,26 +66,26 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
                     if($scope.role === 1){
                        $scope.isDisabledAboStatus = false;
-                    }        
-        
-                }); 
+                    }
+
+                });
         }
         else
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
-                $scope.pagination.page = page; 
-                $scope.pagination.searchdata = "search"; 
-                $scope.pagination.propertyid = form.propertyid; 
-                $scope.pagination.propertyname = form.propertyname; 
-                $scope.pagination.aboid = form.aboid; 
+                $scope.pagination.page = page;
+                $scope.pagination.searchdata = "search";
+                $scope.pagination.propertyid = form.propertyid;
+                $scope.pagination.propertyname = form.propertyname;
+                $scope.pagination.aboid = form.aboid;
                 $scope.pagination.aboname = form.aboname;
-                $scope.pagination.description = form.description; 
-                $scope.pagination.status = form.status; 
-                $scope.pagination.access = form.access; 
+                $scope.pagination.description = form.description;
+                $scope.pagination.status = form.status;
+                $scope.pagination.access = form.access;
 
-                $http({ url: 'abo_assign', method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'abo_assign', method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -94,10 +94,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
                     $scope.page2 = form;
                     if($scope.role === 1){
                        $scope.isDisabledAboStatus = false;
-                    } 
-                }); 
+                    }
+                });
 
-        }      
+        }
     }
 
     $scope.new = function()
@@ -128,11 +128,11 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addassign()
-    {    
-        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId; 
-        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;  
-        $scope.abo_assign_form.PropertyId = $scope.abo_assign_form.Property.PropertyId; 
-        $scope.abo_assign_form.PropertyName = $scope.abo_assign_form.Property.PropertyName;  
+    {
+        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId;
+        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;
+        $scope.abo_assign_form.PropertyId = $scope.abo_assign_form.Property.PropertyId;
+        $scope.abo_assign_form.PropertyName = $scope.abo_assign_form.Property.PropertyName;
 
         $http({ url: 'abo_assign', method: 'POST',data:$scope.abo_assign_form}).success(function(data){
             $('#abo_assign_form').modal('hide');
@@ -146,12 +146,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updateassign()
-    {  
-        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId; 
-        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;  
-        $scope.abo_assign_form.PropertyId = $scope.abo_assign_form.Property.PropertyId; 
-        $scope.abo_assign_form.PropertyName = $scope.abo_assign_form.Property.PropertyName; 
-        
+    {
+        $scope.abo_assign_form.AboId = $scope.abo_assign_form.Abo.AboId;
+        $scope.abo_assign_form.AboName = $scope.abo_assign_form.Abo.AboName;
+        $scope.abo_assign_form.PropertyId = $scope.abo_assign_form.Property.PropertyId;
+        $scope.abo_assign_form.PropertyName = $scope.abo_assign_form.Property.PropertyName;
+
         $http({ url: 'abo_assignupdate/'+$scope.abo_assign_form.AboAssignedId, method: 'PUT',data:$scope.abo_assign_form}).success(function(data){
             $('#abo_assign_form').modal('hide');
             al('Property Assigned Successfully');
@@ -161,7 +161,25 @@ app.config(function($stateProvider,$urlRouterProvider) {
         });
     }
 
- 
+    $scope.delete = function(ind,assign,ev)
+    {
+        var confirm = $mdDialog.confirm({targetEvent:ev})
+            .title('Are You Sure To Delete This Assignment?')
+            .ok('Yes')
+            .cancel('No');
+
+        $mdDialog.show(confirm).then(function() {
+            $http({ url: 'abo_assign_delete/'+assign.AboAssignedId, method: 'DELETE'}).success(function(data){
+                 al('Deleted Successfully');
+                $state.go($state.current, {}, {reload: true});
+            }).error(function(data){
+              al("Not Deleted");
+            });
+        });
+    }
+
+
+
     function al(text)
     {
         $mdToast.show($mdToast.simple().textContent(text).position('bottom right').hideDelay(3000));
@@ -185,7 +203,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 
     $http({ url: 'abo_follow/'+mid+'/'+pid, method: 'GET'}).success(function(data)
-    { 
+    {
          $scope.abo_follow_form = data.abo;
          $scope.abo_buyer_form = data.abo;
          $scope.status_form = data.abo;
@@ -195,18 +213,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
          if($scope.role === 4 && $scope.status_form.AboAssignAccess === 'no'){
             $scope.isDisabledStatus = true;
          }
-        
+
          $scope.property_form = data.property;
     });
 
-    $http({ url: 'abo_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.abo_follow = result;
     });
 
-    $http({ url: 'abo_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.abo_buyer = result.person;
     });
-    
+
     $scope.new = function()
     {
         $scope.formType = 'NEW';
@@ -233,7 +251,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addfollow()
-    {        
+    {
         // console.log($scope.abo_follow_form);
         $http({ url: 'abo_follow', method: 'POST',data:$scope.abo_follow_form}).success(function(data){
             $('#abo_follow_form').modal('hide');
@@ -247,7 +265,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updatefollow()
-    {  
+    {
         $http({ url: 'abo_follow_update/'+$scope.abo_follow_form.AboFollowId, method: 'PUT',data:$scope.abo_follow_form}).success(function(data){
             $('#abo_follow_form').modal('hide');
             al('Property Follow Added Successfully');
@@ -284,7 +302,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addperson()
-    {      
+    {
         $http({ url: 'abo_buyer', method: 'POST',data:$scope.abo_buyer_form}).success(function(data){
             $('#abo_buyer_form').modal('hide');
             al('Person Created Successfully');
@@ -345,7 +363,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.isDisabledStatus = false;
 
     $http({ url: 'abo_follow/'+mid+'/'+pid, method: 'GET'}).success(function(data)
-    { 
+    {
          $scope.abo_follow_form = data.abo;
          $scope.abo_buyer_form = data.abo;
          $scope.status_form = data.abo;
@@ -355,18 +373,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
          if($scope.role === 4){
             $scope.isDisabledStatus = true;
          }
-        
+
          $scope.property_form = data.property;
     });
 
-    $http({ url: 'abo_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.abo_follow = result;
     });
 
-    $http({ url: 'abo_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.abo_buyer = result.person;
     });
-    
+
 
     function al(text)
     {

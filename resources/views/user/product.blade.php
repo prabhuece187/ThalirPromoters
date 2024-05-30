@@ -24,7 +24,7 @@
                     if($start < 1) {
                         $start = 1; // reset start to 1
                         $end += 1;
-                    } 
+                    }
                     if($end >= $property->lastPage() ) $end = $property->lastPage(); // reset end to last page
                 ?>
 
@@ -67,14 +67,14 @@
         </li>
         <li>
            <div class="showing-product-number text-right">
-                 <span>Showing 
+                 <span>Showing
                  @if($property == "no items")
                         {{ $property }}
-                 @else 
-                 {{ $property->currentPage() }} of {{ $property->count() }} 
+                 @else
+                 {{ $property->currentPage() }} of {{ $property->count() }}
                  @endif
                  results</span>
-            </div> 
+            </div>
         </li>
     </ul>
 </div>
@@ -82,23 +82,119 @@
         <div class="tab-pane fade active show" id="liton_product_grid">
             <div class="ltn__product-tab-content-inner ltn__product-grid-view">
                 <div class="row filter_data">
-                         
+
                 @if($property == "no items")
                   <div>
                     <p>{{ $property }}</p>
                   </div>
                 @else
-                @foreach ($property as $prop)  
+                @foreach ($property as $prop)
                     @if($prop['PropertyStatus'] != 'Canceled')
+
+                    @if($prop['NeedId'] == '1' && session()->get('name') == 1)
+
+                        <div class="col-md-4 col-lg-4 col-12 col-sm-12">
+                            <div class="ltn__product-item ltn__product-item-4 text-center---" style="margin-bottom: 10px">
+                                <div class="row">
+                                <div class="product-img col-5" style="margin:auto;">
+                                    <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}">
+                                        @if($prop['PropertyGalleryImage'] != null)
+                                        <img src="/uploads/property/gallery/{{ $prop['PropertyGalleryImage'] }}" alt="">
+                                        @else
+                                        <img src="/uploads/main/noimg.jpg" alt="">
+                                        @endif
+                                    </a>
+
+                                    <!-- <div class="product-badge">
+                                        <ul>
+                                            <li class="sale-badge bg-green">{{ $prop['NeedName'] }}</li>
+                                        </ul>
+                                    </div> -->
+
+                                </div>
+                                <div class="product-info col-7" style="position: relative;">
+
+                                    @if($prop['PropertyStatus'] == 'Completed')
+                                    <p class="watermark"
+                                    style=" position:absolute ;font-weight: bold;font-size: 15px;text-align: center;color: #ff0000;top:60px;transform: rotate(-35deg) scale(1.7, 1.5);" >
+                                    Sold Out
+                                    </p>
+                                    @endif
+
+
+
+                                    <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}">
+                                        @if($prop['PropertyTotalBudget'] )
+                                        <div class="product-price">
+                                            <span >₹ {{ $prop['PropertyTotalBudget'] }} {{ $prop['PropertyTotalValType'] }}<label></label>
+                                            </span>
+                                        </div>
+                                        @endif
+                                        <div class="product-price">
+                                            <span> {{ $prop['NeedName'] }} - {{ $prop['PropertyId'] }}<label></label>
+                                            </span>
+                                        </div>
+                                        <!-- <div class="product-price">
+                                            <span>Reg No - {{ $prop['PropertyRegNo'] }}<label></label>
+                                            </span>
+                                        </div> -->
+
+                                        <!-- @if($prop['PropertyLandSize'] )
+                                        <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }} </p>
+                                        @endif -->
+                                        @if($prop['TypeName'])
+                                            <p class="marge-btm"> Type : {{ $prop['TypeName'] }}</p>
+                                        @endif
+                                        @if($prop['PropertyLandSize'])
+                                            <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }}</p>
+                                        @endif
+                                        @if($prop['AreaName'] )
+                                        <p class="marge-btm"> Area : {{ $prop['AreaName'] }}</p>
+                                        @endif
+                                        @if($prop['PropertyAreaDetail'] )
+                                        <p class="marge-btm"> AreaDetail : <span style="text-transform: lowercase;">{{ $prop['PropertyAreaDetail'] }}</span> </p>
+                                        @endif
+                                        <!-- @if($prop['KnowusName'])
+                                            <p class="marge-btm"> List By : {{ $prop['KnowusName'] }}</p>
+                                        @endif  -->
+                                    </a>
+
+                                    <!-- <div class="product-hover-action" style="text-align: left;padding: 10px 0px 0px 10px;">
+                                        <ul>
+                                            <li>
+                                                <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}" title="Product Details">
+                                                    <i class="flaticon-expand"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+
+
+                                </div>
+
+                                <div class="product-hover-action" style="position: absolute;top: 0;right: 0;text-align: left;padding: 10px 10px 0px 0px;left: auto">
+                                    <ul>
+                                        <li>
+                                            <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}" title="Product Details">
+                                                <i class="flaticon-expand"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    @elseif($prop['NeedId'] != '1')
                     <div class="col-md-4 col-lg-4 col-12 col-sm-12">
-                        <div class="ltn__product-item ltn__product-item-4 text-center---" style="margin-bottom: 10px"> 
+                        <div class="ltn__product-item ltn__product-item-4 text-center---" style="margin-bottom: 10px">
                             <div class="row">
-                             <div class="product-img col-5" style="margin:auto;">
+                            <div class="product-img col-5" style="margin:auto;">
                                 <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}">
                                     @if($prop['PropertyGalleryImage'] != null)
-                                      <img src="/uploads/property/gallery/{{ $prop['PropertyGalleryImage'] }}" alt="">
+                                    <img src="/uploads/property/gallery/{{ $prop['PropertyGalleryImage'] }}" alt="">
                                     @else
-                                      <img src="/uploads/main/noimg.jpg" alt="">
+                                    <img src="/uploads/main/noimg.jpg" alt="">
                                     @endif
                                 </a>
 
@@ -107,18 +203,18 @@
                                         <li class="sale-badge bg-green">{{ $prop['NeedName'] }}</li>
                                     </ul>
                                 </div> -->
-                               
+
                             </div>
                             <div class="product-info col-7" style="position: relative;">
-                                
+
                                 @if($prop['PropertyStatus'] == 'Completed')
-                                <p class="watermark" 
+                                <p class="watermark"
                                 style=" position:absolute ;font-weight: bold;font-size: 15px;text-align: center;color: #ff0000;top:60px;transform: rotate(-35deg) scale(1.7, 1.5);" >
-                                  Sold Out
+                                Sold Out
                                 </p>
                                 @endif
 
-                               
+
 
                                 <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}">
                                     @if($prop['PropertyTotalBudget'] )
@@ -135,28 +231,28 @@
                                         <span>Reg No - {{ $prop['PropertyRegNo'] }}<label></label>
                                         </span>
                                     </div> -->
-                                   
+
                                     <!-- @if($prop['PropertyLandSize'] )
-                                     <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }} </p>
+                                    <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }} </p>
                                     @endif -->
                                     @if($prop['TypeName'])
                                         <p class="marge-btm"> Type : {{ $prop['TypeName'] }}</p>
-                                    @endif 
+                                    @endif
                                     @if($prop['PropertyLandSize'])
                                         <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }}</p>
-                                    @endif 
+                                    @endif
                                     @if($prop['AreaName'] )
-                                     <p class="marge-btm"> Area : {{ $prop['AreaName'] }}</p>
+                                    <p class="marge-btm"> Area : {{ $prop['AreaName'] }}</p>
                                     @endif
                                     @if($prop['PropertyAreaDetail'] )
-                                     <p class="marge-btm"> AreaDetail : <span style="text-transform: lowercase;">{{ $prop['PropertyAreaDetail'] }}</span> </p>
+                                    <p class="marge-btm"> AreaDetail : <span style="text-transform: lowercase;">{{ $prop['PropertyAreaDetail'] }}</span> </p>
                                     @endif
                                     <!-- @if($prop['KnowusName'])
                                         <p class="marge-btm"> List By : {{ $prop['KnowusName'] }}</p>
                                     @endif  -->
                                 </a>
 
-                                 <!-- <div class="product-hover-action" style="text-align: left;padding: 10px 0px 0px 10px;">
+                                <!-- <div class="product-hover-action" style="text-align: left;padding: 10px 0px 0px 10px;">
                                     <ul>
                                         <li>
                                             <a href="/propertydetail/{{ $prop['PropertyId'] }}/{{ $prop['NeedId'] }}" title="Product Details">
@@ -178,9 +274,11 @@
                                     </li>
                                 </ul>
                             </div>
-                         </div>
+                        </div>
                         </div>
                     </div>
+                    @endif
+
                     @endif
                 @endforeach
                 @endif
@@ -195,7 +293,7 @@
                     <p>{{ $property }}</p>
                   </div>
                 @else
-                @foreach ($property as $prop)  
+                @foreach ($property as $prop)
                  @if($prop['PropertyStatus'] != 'Canceled')
                     <div class="col-lg-6  col-12">
                       <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
@@ -242,7 +340,7 @@
                                  <li> <p> Size : {{ $prop['PropertyLandSize'] }} </p>
                                  </li>
                                  @endif -->
-                                <li> 
+                                <li>
                                  <p> Area : {{ $prop['AreaName'] }} </p>
                                  <p> AreaDetail : {{ $prop['PropertyAreaDetail'] }} </p>
                                 </li>
@@ -265,11 +363,11 @@
                 </div>
             </div>
                 @endif
-            
+
                 @endforeach
                 @endif
             </div>
-        </div>  
+        </div>
     </div>
 </div>
 
@@ -296,7 +394,7 @@
                     if($start < 1) {
                         $start = 1; // reset start to 1
                         $end += 1;
-                    } 
+                    }
                     if($end >= $property->lastPage() ) $end = $property->lastPage(); // reset end to last page
                 ?>
 

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Admin\Role;
 use App\Models\Admin\Mediator;
 use App\Models\Admin\Abo;
+use App\Models\Admin\Asp;
 use Auth, Hash;
 
 class LoginController extends Controller
@@ -17,7 +18,8 @@ class LoginController extends Controller
         if(Auth::user())
         {
             $RoleId = Auth::user()->RoleId;
-            return view('admin.layout',['data'=>$RoleId]);            
+            $name = Auth::user()->name;
+            return view('admin.layout',['data'=>$RoleId,'name'=>$name]);
         }
         return view('admin.login');
     }
@@ -65,7 +67,7 @@ class LoginController extends Controller
             else
             {
                $role = Role::select('*')->get();
-               $errorone = "please Check the password"; 
+               $errorone = "please Check the password";
                $error ="null";
                return view('user.register',compact('errorone','role','error'));
             }
@@ -85,12 +87,20 @@ class LoginController extends Controller
         {
            $input['password'] = Hash::make($request->password);
            $input['RePassword'] = Hash::make($request->RePassword);
-           
+
            $data = User::create($input);
 
            // return response($data);
 
-           if($input['RoleId'] === "4"){
+           if($input['RoleId'] === "2"){
+                $val['id'] = 1;
+                $val['AspName'] = $data['name'];
+                $val['AspId'] = $data['id'];
+                $val['MobileNo'] = $data['Mobile'];
+
+                Asp::create($val);
+           }
+           else if($input['RoleId'] === "4"){
                $val['id'] = 1;
                $val['MediatorName'] = $data['name'];
                $val['MediatorId'] = $data['id'];
@@ -113,16 +123,16 @@ class LoginController extends Controller
         else
         {
            $role = Role::select('*')->get();
-           $errorone = "please Check the password"; 
+           $errorone = "please Check the password";
            $error ="null";
            return view('user.register',compact('errorone','role','error'));
         }
     }
 
     public function postLogin(Request $request)
-    {      
+    {
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password], $request->remember == 1 ? true : false))
-        {            
+        {
            return response(['success']);
         }
         return response(['Failure'],422);
