@@ -30,15 +30,15 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.isDisabledMediAccess = true;
 
 
-    // $http({ url: 'mediator', method: 'GET'}).success(function (result) {               
+    // $http({ url: 'mediator', method: 'GET'}).success(function (result) {
     //      $scope.mediator = result.data;
     // });
 
-    $http({ url: 'abo', method: 'GET'}).success(function (result) {               
+    $http({ url: 'abo', method: 'GET'}).success(function (result) {
          $scope.abo = result.data;
     });
 
-    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {               
+    $http({ url: 'propertygetdatas', method: 'GET'}).success(function (result) {
          $scope.property = result;
     });
 
@@ -48,19 +48,19 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.getTable = function(page,form)
     {
 
-        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "") 
+        if((form.propertyid == "" || form.propertyid == undefined) && (form.propertyname == undefined || form.propertyname == "")
            && (form.mediatorid == undefined || form.mediatorid == "") && (form.mediatorname == undefined || form.mediatorname == "")
            && (form.status == undefined || form.status == "") && (form.access == undefined || form.access == "") && (form.description == undefined || form.description == ""))
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
                 if($scope.paginat  != 0 || $scope.paginat  == "undefined")
                 {
-                  $scope.pagination.page = page; 
+                  $scope.pagination.page = page;
                 }
 
-                $http({ url: 'mediator_assign', method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'mediator_assign', method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -70,26 +70,26 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
                     if($scope.role === 1){
                        $scope.isDisabledMediStatus = false;
-                    }        
-        
-                }); 
+                    }
+
+                });
         }
         else
         {
                 $scope.paginat  = page;
-                $scope.pagination.searchdata = "nosearch"; 
+                $scope.pagination.searchdata = "nosearch";
 
-                $scope.pagination.page = page; 
-                $scope.pagination.searchdata = "search"; 
-                $scope.pagination.propertyid = form.propertyid; 
-                $scope.pagination.propertyname = form.propertyname; 
-                $scope.pagination.mediatorid = form.mediatorid; 
+                $scope.pagination.page = page;
+                $scope.pagination.searchdata = "search";
+                $scope.pagination.propertyid = form.propertyid;
+                $scope.pagination.propertyname = form.propertyname;
+                $scope.pagination.mediatorid = form.mediatorid;
                 $scope.pagination.mediatorname = form.mediatorname;
-                $scope.pagination.description = form.description; 
-                $scope.pagination.status = form.status; 
-                $scope.pagination.access = form.access; 
+                $scope.pagination.description = form.description;
+                $scope.pagination.status = form.status;
+                $scope.pagination.access = form.access;
 
-                $http({ url: 'mediator_assign', method: 'GET',params:$scope.pagination}).success(function (result) {               
+                $http({ url: 'mediator_assign', method: 'GET',params:$scope.pagination}).success(function (result) {
                     $scope.data = result.data;
                     $scope.id = result.id;
                     $scope.role = result.role;
@@ -98,10 +98,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
                     $scope.page2 = form;
                     if($scope.role === 1){
                        $scope.isDisabledMediStatus = false;
-                    } 
-                }); 
+                    }
+                });
 
-        }      
+        }
     }
 
     $scope.new = function()
@@ -134,12 +134,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addassign()
-    {    
-        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId; 
-        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;  
-        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.assign.PropertyId; 
-        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.assign.PropertyName;  
-        $scope.mediator_assign_form.AboAssignedId = $scope.mediator_assign_form.assign.AboAssignedId;  
+    {
+        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId;
+        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;
+        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.assign.PropertyId;
+        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.assign.PropertyName;
+        $scope.mediator_assign_form.AboAssignedId = $scope.mediator_assign_form.assign.AboAssignedId;
 
         $http({ url: 'mediator_assign', method: 'POST',data:$scope.mediator_assign_form}).success(function(data){
             $('#mediator_assign_form').modal('hide');
@@ -153,12 +153,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updateassign()
-    {  
-        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId; 
-        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;  
-        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId; 
-        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName; 
-        
+    {
+        $scope.mediator_assign_form.MediatorId = $scope.mediator_assign_form.Mediator.MediatorId;
+        $scope.mediator_assign_form.MediatorName = $scope.mediator_assign_form.Mediator.MediatorName;
+        $scope.mediator_assign_form.PropertyId = $scope.mediator_assign_form.Property.PropertyId;
+        $scope.mediator_assign_form.PropertyName = $scope.mediator_assign_form.Property.PropertyName;
+
         $http({ url: 'mediator_assignupdate/'+$scope.mediator_assign_form.MediatorAssignId, method: 'PUT',data:$scope.mediator_assign_form}).success(function(data){
             $('#mediator_assign_form').modal('hide');
             al('Property Assigned Successfully');
@@ -169,15 +169,32 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.aboDataChange = function(data)
-    {  
-        $http({ url: 'abo_assigned_values/'+data, method: 'GET'}).success(function (result) {               
+    {
+        $http({ url: 'abo_assigned_values/'+data, method: 'GET'}).success(function (result) {
            $scope.aboassign = result.abo;
            $scope.mediator = result.mediator;
            // console.log($scope.data);
         });
     }
 
- 
+    $scope.delete = function(ind,assign,ev)
+    {
+        var confirm = $mdDialog.confirm({targetEvent:ev})
+            .title('Are You Sure To Delete This Assignment?')
+            .ok('Yes')
+            .cancel('No');
+
+        $mdDialog.show(confirm).then(function() {
+            $http({ url: 'mediator_assign_delete/'+assign.MediatorAssignId, method: 'DELETE'}).success(function(data){
+                 al('Deleted Successfully');
+                $state.go($state.current, {}, {reload: true});
+            }).error(function(data){
+              al("Not Deleted");
+            });
+        });
+    }
+
+
     function al(text)
     {
         $mdToast.show($mdToast.simple().textContent(text).position('bottom right').hideDelay(3000));
@@ -201,7 +218,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 
     $http({ url: 'mediator_follow/'+mid+'/'+pid, method: 'GET'}).success(function(data)
-    { 
+    {
          $scope.mediator_follow_form = data.mediator;
          $scope.mediator_buyer_form = data.mediator;
          $scope.status_form = data.mediator;
@@ -211,18 +228,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
          if($scope.role === 4 && $scope.status_form.MediatorAssignAccess === 'no'){
             $scope.isDisabledStatus = true;
          }
-        
+
          $scope.property_form = data.property;
     });
 
-    $http({ url: 'mediator_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'mediator_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.mediator_follow = result;
     });
 
-    $http({ url: 'mediator_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'mediator_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.mediator_buyer = result.person;
     });
-    
+
     $scope.new = function()
     {
         $scope.formType = 'NEW';
@@ -249,7 +266,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addfollow()
-    {        
+    {
         // console.log($scope.mediator_follow_form);
         $http({ url: 'mediator_follow', method: 'POST',data:$scope.mediator_follow_form}).success(function(data){
             $('#mediator_follow_form').modal('hide');
@@ -263,7 +280,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function updatefollow()
-    {  
+    {
         $http({ url: 'mediator_follow_update/'+$scope.mediator_follow_form.MediatorFollowId, method: 'PUT',data:$scope.mediator_follow_form}).success(function(data){
             $('#mediator_follow_form').modal('hide');
             al('Property Follow Added Successfully');
@@ -300,7 +317,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function addperson()
-    {      
+    {
         $http({ url: 'mediator_buyer', method: 'POST',data:$scope.mediator_buyer_form}).success(function(data){
             $('#mediator_buyer_form').modal('hide');
             al('Person Created Successfully');
@@ -361,7 +378,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.isDisabledStatus = false;
 
     $http({ url: 'mediator_follow/'+mid+'/'+pid, method: 'GET'}).success(function(data)
-    { 
+    {
          $scope.mediator_follow_form = data.mediator;
          $scope.mediator_buyer_form = data.mediator;
          $scope.status_form = data.mediator;
@@ -371,18 +388,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
          if($scope.role === 4){
             $scope.isDisabledStatus = true;
          }
-        
+
          $scope.property_form = data.property;
     });
 
-    $http({ url: 'mediator_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'mediator_follow_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.mediator_follow = result;
     });
 
-    $http({ url: 'mediator_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {               
+    $http({ url: 'mediator_buyer_get/'+mid+'/'+pid, method: 'GET'}).success(function (result) {
          $scope.mediator_buyer = result.person;
     });
-    
+
 
     function al(text)
     {

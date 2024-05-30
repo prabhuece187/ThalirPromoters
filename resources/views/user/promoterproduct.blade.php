@@ -6,7 +6,7 @@
 
              @if($promoter == "no items")
                         {{ $promoter }}
-             @else     
+             @else
 
                 @if ($promoter->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
@@ -24,7 +24,7 @@
                     if($start < 1) {
                         $start = 1; // reset start to 1
                         $end += 1;
-                    } 
+                    }
                     if($end >= $promoter->lastPage() ) $end = $promoter->lastPage(); // reset end to last page
                 ?>
 
@@ -67,14 +67,14 @@
         </li>
         <li>
            <div class="showing-product-number text-right">
-                 <span>Showing 
+                 <span>Showing
                  @if($promoter == "no items")
                         {{ $promoter }}
-                 @else 
-                 {{ $promoter->currentPage() }} of {{ $promoter->count() }} 
+                 @else
+                 {{ $promoter->currentPage() }} of {{ $promoter->count() }}
                  @endif
                  results</span>
-            </div> 
+            </div>
         </li>
     </ul>
 </div>
@@ -82,16 +82,16 @@
         <div class="tab-pane fade active show" id="liton_product_grid">
             <div class="ltn__product-tab-content-inner ltn__product-grid-view">
                 <div class="row filter_data">
-                         
+
                  @if($promoter == "no items")
                   <div>
                     <p>{{ $promoter }}</p>
                   </div>
                 @else
-                @foreach ($promoter as $prop)  
+                @foreach ($promoter as $prop)
                     @if($prop['ProStatus'] != 'Canceled')
                     <div class="col-md-4 col-lg-4 col-12 col-sm-12">
-                        <div class="ltn__product-item ltn__product-item-4 text-center---" style="margin-bottom: 10px"> 
+                        <div class="ltn__product-item ltn__product-item-4 text-center---" style="margin-bottom: 10px">
                             <div class="row">
                              <div class="product-img col-5" style="margin:auto;">
                                 <a href="/promoterproductdetail/{{ $prop['ProSiteId'] }}">
@@ -107,18 +107,18 @@
                                         <li class="sale-badge bg-green">{{ $prop['NeedName'] }}</li>
                                     </ul>
                                 </div> -->
-                               
+
                             </div>
                             <div class="product-info col-7" style="position: relative;">
-                                
+
                                 @if($prop['ProStatus'] == 'Completed')
-                                <p class="watermark" 
+                                <p class="watermark"
                                 style=" position:absolute ;font-weight: bold;font-size: 15px;text-align: center;color: #ff0000;top:90px;transform: rotate(-35deg) scale(1.7, 1.5);" >
                                   Completed
                                 </p>
                                 @endif
 
-                               
+
 
                                 <a href="/promoterproductdetail/{{ $prop['ProSiteId'] }}">
                                     @if($prop['PromoterName'])
@@ -132,25 +132,25 @@
                                         </span>
                                     </div>
                                     @endif
-                                    
+
                                     <!-- <div class="product-price">
                                         <span>Reg No - {{ $prop['PropertyRegNo'] }}<label></label>
                                         </span>
                                     </div> -->
-                                   
+
                                     <!-- @if($prop['PropertyLandSize'] )
                                      <p class="marge-btm"> Size : {{ $prop['PropertyLandSize'] }} </p>
                                     @endif -->
 
                                     @if($prop['FlatCount'])
                                         <p class="marge-btm"> No of Sites : {{ $prop['FlatCount'] }}</p>
-                                    @endif 
+                                    @endif
                                     @if($prop['AreaName'] )
                                      <p class="marge-btm"> Area : {{ $prop['AreaName'] }}</p>
                                     @endif
                                     @if($prop['ProAddress'])
                                         <p class="marge-btm"> Size : {{ $prop['ProAddress'] }}</p>
-                                    @endif 
+                                    @endif
                                     <!-- @if($prop['KnowusName'])
                                         <p class="marge-btm"> List By : {{ $prop['KnowusName'] }}</p>
                                     @endif  -->
@@ -187,14 +187,14 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
          <ul class="pagination" role="navigation">
                 {{-- Previous Page Link --}}
              @if($promoter == "no items")
                         {{ $promoter }}
-             @else    
+             @else
                 @if ($promoter->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                         <span class="page-link" aria-hidden="true">&lsaquo;</span>
@@ -211,7 +211,7 @@
                     if($start < 1) {
                         $start = 1; // reset start to 1
                         $end += 1;
-                    } 
+                    }
                     if($end >= $promoter->lastPage() ) $end = $promoter->lastPage(); // reset end to last page
                 ?>
 

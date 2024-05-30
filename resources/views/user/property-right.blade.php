@@ -30,7 +30,7 @@
     </div>
     <!-- BREADCRUMB AREA END -->
 
-  
+
     <div class="ltn__header-options ltn__header-options-2 mb-sm-20 d-xl-none" style="justify-content: normal;padding:20px 0px 0px 20px">
         <div class="mini-cart-icon">
             <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle  common_selector" style="border:1px solid #000">
@@ -68,7 +68,7 @@
                                     <button type="submit" class="searchbutton3" style="padding:6px 14px;margin-left: 13px;"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
-                            @if(session()->get('name') == 1) 
+                            @if(session()->get('name') == 1)
                             <hr>
                             <ul>
                                 <li>
@@ -79,19 +79,21 @@
                                     <input type="radio" style="accent-color: #01580a;" class="common_selector reach" name="reach" value="Reference">
                                     <label style="padding-left: 5px">Others</label>
                                 </li>
-                               
+
                             </ul>
                             @endif
                             <hr>
                             <h4 class="ltn__widget-title">I Am Looking </h4>
                             <ul>
-                                @foreach ($need as $needs) 
+                                @foreach ($need as $needs)
                                 <li>
-                                    @if($needs['NeedId'] == "1" || $needs['NeedId'] == "1" || $needs['NeedId'] == "1")
-                                    <label class="checkbox-item">For Sell
-                                        <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    @if(session()->get('name') == 1)
+                                        @if($needs['NeedId'] == "1" || $needs['NeedId'] == "1" || $needs['NeedId'] == "1")
+                                        <label class="checkbox-item">For Sell
+                                            <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        @endif
                                     @endif
                                     @if($needs['NeedId'] == "2"|| $needs['NeedId'] == "2")
                                     <label class="checkbox-item">For Buy
@@ -105,11 +107,13 @@
                                         <span class="checkmark"></span>
                                     </label>
                                     @endif
-                                     @if($needs['NeedId'] == "4" || $needs['NeedId'] == "4")
-                                    <label class="checkbox-item">For Tenant
-                                        <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    @if(session()->get('name') == 1)
+                                        @if($needs['NeedId'] == "4" || $needs['NeedId'] == "4")
+                                        <label class="checkbox-item">For Tenant
+                                            <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        @endif
                                     @endif
                                 </li>
                                 @endforeach
@@ -117,7 +121,7 @@
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
-                                @foreach ($propertytype as $protype) 
+                                @foreach ($propertytype as $protype)
                                 <li>
                                   <label class="checkbox-item">{{ $protype['TypeName'] }}
                                     <input type="checkbox" class="common_selector type" value="{{ $protype['TypeId'] }}" >
@@ -129,7 +133,7 @@
                             <hr>
                             <h4 class="ltn__widget-title">Area</h4>
                             <ul>
-                                @foreach ($area as $areas) 
+                                @foreach ($area as $areas)
                                 <li>
                                     <label class="checkbox-item">{{ $areas['AreaName'] }}
                                         <input type="checkbox" class="common_selector area" value="{{ $areas['AreaId'] }}">
@@ -141,7 +145,7 @@
                             <hr>
                            <!--  <h4 class="ltn__widget-title">Purpose</h4>
                             <ul>
-                                @foreach ($purpose as $pur) 
+                                @foreach ($purpose as $pur)
                                 <li>
                                     <label class="checkbox-item">{{ $pur['PurposeName'] }}
                                         <input type="checkbox" class="common_selector purpose" value="{{ $pur['PurposeId'] }}">
@@ -199,9 +203,9 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul> 
-                          
-                        </div>  
+                            </ul>
+
+                        </div>
                         <!-- Category Widget -->
                     </aside>
                 </div>
@@ -212,7 +216,7 @@
         </div>
     </div>
 
-  
+
     <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
         <div class="ltn__utilize-menu-inner ltn__scrollbar" style="height: 100%">
             <div class="ltn__utilize-menu-head">
@@ -244,7 +248,7 @@
                                     <i class="fas fa-search"></i></button>
                                 </div>
                             </div>
-                            @if(session()->get('name') == 1) 
+                            @if(session()->get('name') == 1)
                             <hr>
                             <ul>
                                 <li>
@@ -255,22 +259,24 @@
                                     <input type="radio" style="accent-color: #01580a;" class="common_selector reach" name="reach" value="Reference">
                                     <label style="padding-left: 5px">Others</label>
                                 </li>
-                               
+
                             </ul>
                             @endif
                             <hr>
                              <h4 class="ltn__widget-title">I Am Looking </h4>
                              <ul>
-                               @foreach ($need as $needs) 
+                               @foreach ($need as $needs)
                                 <li>
-                                    @if($needs['NeedId'] == "1" || $needs['NeedId'] == "1" || $needs['NeedId'] == "1")
-                                    <label class="checkbox-item">For Sell
-                                        <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    @if(session()->get('name') == 1)
+                                        @if($needs['NeedId'] == "1" || $needs['NeedId'] == "1" || $needs['NeedId'] == "1")
+                                        <label class="checkbox-item">For Sell
+                                            <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        @endif
                                     @endif
                                     @if($needs['NeedId'] == "2" || $needs['NeedId'] == "2")
-                                    <label class="checkbox-item">For Buy 
+                                    <label class="checkbox-item">For Buy
                                         <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
                                         <span class="checkmark"></span>
                                     </label>
@@ -281,11 +287,13 @@
                                         <span class="checkmark"></span>
                                     </label>
                                     @endif
-                                    @if($needs['NeedId'] == "4" || $needs['NeedId'] == "4")
-                                    <label class="checkbox-item">For Tenant 
-                                        <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    @if(session()->get('name') == 1)
+                                        @if($needs['NeedId'] == "4" || $needs['NeedId'] == "4")
+                                        <label class="checkbox-item">For Tenant
+                                            <input type="checkbox" class="common_selector need" value="{{ $needs['NeedId'] }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        @endif
                                     @endif
                                 </li>
                                 @endforeach
@@ -293,7 +301,7 @@
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
-                                @foreach ($propertytype as $protype) 
+                                @foreach ($propertytype as $protype)
                                 <li>
                                   <label class="checkbox-item">{{ $protype['TypeName'] }}
                                     <input type="checkbox" class="common_selector type" value="{{ $protype['TypeId'] }}" >
@@ -305,7 +313,7 @@
                             <hr>
                             <h4 class="ltn__widget-title">Area</h4>
                             <ul>
-                                @foreach ($area as $areas) 
+                                @foreach ($area as $areas)
                                 <li>
                                     <label class="checkbox-item">{{ $areas['AreaName'] }}
                                         <input type="checkbox" class="common_selector area" value="{{ $areas['AreaId'] }}">
@@ -317,7 +325,7 @@
                             <hr>
                             <!-- <h4 class="ltn__widget-title">Purpose</h4>
                             <ul>
-                                @foreach ($purpose as $pur) 
+                                @foreach ($purpose as $pur)
                                 <li>
                                     <label class="checkbox-item">{{ $pur['PurposeName'] }}
                                         <input type="checkbox" class="common_selector purpose" value="{{ $pur['PurposeId'] }}">
@@ -376,19 +384,19 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul> 
+                            </ul>
                             </div>
                             </div>
-              
-                 
-                        </div>  
+
+
+                        </div>
                         <!-- Category Widget -->
                     </aside>
             </div>
         </div>
     </div>
- 
-    
+
+
     <!-- PRODUCT DETAILS AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) -->
@@ -408,12 +416,12 @@
             filter_data(page);
         });
     });
-   
+
     function filter_data(page)
-    {  
+    {
         var action = 'propertyproduct';
         var min = $('#hidden_minimum_price').val();
-       
+
         var max = $('#hidden_maximum_price').val();
         var minamt = $('#minamt').val();
         var maxamt = $('#maxamt').val();
@@ -445,10 +453,10 @@
 
 
     function filter_data2(page)
-    {  
+    {
         var action = 'propertyproduct';
         var min = $('#hidden_minimum_price1').val();
-       
+
         var max = $('#hidden_maximum_price1').val();
         var minamt = $('#minamt1').val();
         var maxamt = $('#maxamt1').val();
@@ -505,52 +513,52 @@
         var need = get_filter('need');
         var reach = get_filter('reach');
 
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
-             
+
         $.ajax({
             url:"propertyproduct?page="+ page,
             method:"GET",
             data:{need:need,reach:reach,action:action,minimum_price:minimum_price,maximum_price:maximum_price,minimum_amt:minimum_amt,maximum_amt:maximum_amt,area:area,purpose:purpose,sort:sort,type:type,_token: "{{ csrf_token() }}"},
             success:function(data){
-           
+
                 $('.filter_data').html(data);
             }
         });
     });
 
     $('.pricechange').click(function(){
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data(page);
     });
 
     $('.pricechangemob').click(function(){
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data2(page);
     });
 
    $(".searchbutton").click(function () {
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data(page);
     });
 
     $(".searchbutton2").click(function () {
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data(page,1);
     });
 
     $(".searchbutton3").click(function () {
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data(page);
     });
 
      $(".searchbutton4").click(function () {
-        let page = 1;   
+        let page = 1;
         history.pushState(null,null,'?page=' + page);
         filter_data(page);
     });
@@ -559,7 +567,7 @@
 
 </script>
 
-  
+
 </body>
 
 

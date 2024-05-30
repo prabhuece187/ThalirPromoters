@@ -12,7 +12,7 @@
     <meta property="og:title" content="thalirpromoters" />
 
     <meta property="og:url" content="http://www.thalirpromoters.com/promoterproductdetail/{{ $promoter['ProSiteId'] }}" />
-    
+
     @if($promoter['SiteMap'] == "no items")
       <div>
         <meta property="og:image" content="/user-asset/img/logo.jpg" />
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="/user-asset/css/style.css">
 
     <link rel="stylesheet" href="/user-asset/css/coderplays.css">
-    
+
     <!-- Responsive css -->
     <link rel="stylesheet" href="/user-asset/css/responsive.css">
 </head>
@@ -54,14 +54,14 @@
                             <div class="ltn__top-bar-menu">
                                 <ul>
                                     <li>
-                                     
+
                                     </li>
                                     <li>
                                         <div class="ltn__social-media">
                                             <ul>
                                                 <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                                
+
                                                 <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
                                                 <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
                                             </ul>
@@ -75,7 +75,7 @@
             </div>
         </div> -->
         <!-- ltn__header-top-area end -->
-        
+
         <!-- ltn__header-middle-area start -->
         <!-- style="animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;left: 0;position: fixed;top: 0;width: 100%; z-index: 999;" -->
         <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black" style="background-color: #01580a;">
@@ -119,8 +119,8 @@
                                             <ul>
                                                 <li><a href="/admin-login">AspLogin</a></li>
                                                 <li><a href="/adminuserlogin">TM Login</a></li>
-                                                @if(session()->get('name') == 1)  
-                                                    <li><a href="/admin-login/mediatorregister">Mediator Register</a></li>
+                                                @if(session()->get('name') == 1)
+                                                    <li><a href="/admin-login#/mediatorregister">Mediator or Abo or Asp Register</a></li>
                                                 @endif
                                             </ul>
                                         </li>
@@ -244,7 +244,7 @@
                         </div>
                     @endforeach
                 </div>
-             @elseif(count($promotergallery) == 0) 
+             @elseif(count($promotergallery) == 0)
                <div class="row">
                     <div class="col-12 ">
                       <div class="col-6 align-self-center ">
@@ -277,7 +277,7 @@
                                     <a class="bg-orange">For Sell</a>
                                 </li>
                                <li>
-                                    <a ><i class="far fa-comments"></i> 
+                                    <a ><i class="far fa-comments"></i>
                                      {{$commentcount}}
                                     </a>
                                 </li>
@@ -289,15 +289,15 @@
 
                         <h1>{{$promoter['PromoterName']}}</h1>
                         <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> {{ $promoter['ProAddress']}} , {{ $promoter['ProStreet'] }} , {{$promoter['ProCity']}} - {{$promoter['ProPincode']}}</label>
-                        
-                        <h4 class="title-2">Property Detail</h4>  
-                       <div class="property-detail-info-list section-bg-1 clearfix mb-60">   
+
+                        <h4 class="title-2">Property Detail</h4>
+                       <div class="property-detail-info-list section-bg-1 clearfix mb-60">
                         <div class="row">
-                         <div class="col-md-6">                      
+                         <div class="col-md-6">
                             <ul>
                                 <li><label>Property Name:</label> <span>{{$promoter['PromoterName']}}</span></li>
                                 <li><label>Property Area: </label> <span>{{$promoter['ProArea']}} {{$promoter['ProUnit']}}</span></li>
-                                <li><label>No of Sites:</label> 
+                                <li><label>No of Sites:</label>
                                    <span>{{$promoter['FlatCount']}}</span>
                                 </li>
                             </ul>
@@ -318,7 +318,7 @@
                 </div>
 
                 <h4 class="title-2">Site Plan</h4>
-                
+
                 <div class="ltn__apartments-tab-content-inner">
                 <div class="row">
                     <div class="col-lg-4">
@@ -326,14 +326,14 @@
                             <img src="/uploads/promoter/sitemap/{{ $promoter['SiteMap'] }}" alt="#">
                         </div>
                     </div>
-                    <div class="col-lg-8">                 
+                    <div class="col-lg-8">
                          <div class="property-details-amenities mb-60">
                             <div class="row">
                              @foreach($promoterstatus as $prosta)
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-2">
                                     <div class="ltn__menu-widget">
                                         <ul>
-                                            <li>  
+                                            <li>
                                                <a href="javascript:void(0)" class="flat_select">
                                                 <input type="hidden" id="idvalue" name="{{$prosta['FlatNo']}}" value="{{$prosta['FlatNo']}}"/>
                                                 <span class="site-plan-span site-plan-{{ $prosta['Status'] }}" >{{ $prosta['FlatNo'] }}</span>
@@ -343,7 +343,7 @@
                                     </div>
                                 </div>
                              @endforeach
-                               
+
                             </div>
                         </div>
                     </div>
@@ -368,8 +368,8 @@
                                 <p>{{ $comment }}</p>
                               </div>
                             @else
-                            @foreach ($comment as $comments) 
-                          
+                            @foreach ($comment as $comments)
+
                             <div class="ltn__comment-area mb-30">
                                 <div class="ltn__comment-inner">
                                     <ul>
@@ -381,7 +381,7 @@
                                                         <ul>
                                                            @for ($i =0; $i <  $comments['StarCount']; $i++)
                                                             <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                           @endfor  
+                                                           @endfor
                                                         </ul>
                                                     </div>
                                                     <p>  {{$comments['CommentDesc']}}</p>
@@ -389,7 +389,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                    
+
                                     </ul>
                                 </div>
                             </div>
@@ -433,7 +433,7 @@
          </div>
     </div>
 
-                        
+
                 </div>
             </div>
         </div>
@@ -467,12 +467,12 @@
                                     <h5><a href="product-details.html">திருப்பூர் பகுதியில் இடம் வீடு தோட்டம் வாங்க விற்க
                                      தளிர் புரமோட்டர்ஸ்</a></h5>
 
-                            <h4 class="title-2">FLAT Details</h4>  
+                            <h4 class="title-2">FLAT Details</h4>
                             <div class="property-detail-info-list section-bg-1 clearfix">
                                 <div class="row">
                                   <div class="col-md-12 " id="flatdetails">
 
-                                        
+
                                   </div>
                                 </div>
                             </div>
@@ -499,7 +499,7 @@
                 method:"GET",
                 data:{_token: "{{ csrf_token() }}"},
                 success:function(data){
-                  
+
 
                     var flat = data;
                     console.log(flat);
@@ -512,14 +512,14 @@
 
                 }
             });
-             
+
         });
 
 
-        
+
     });
 
-   
+
 </script>
 
 </body>

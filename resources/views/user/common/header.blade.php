@@ -105,7 +105,7 @@
                                                 <li><a href="/admin-login">AspLogin</a></li>
                                                 <li><a href="/adminuserlogin">TM Login</a></li>
                                                 @if(session()->get('name') == 1)
-                                                    <li><a href="/admin-login#/mediatorregister">Mediator Register</a></li>
+                                                    <li><a href="/admin-login#/mediatorregister">Mediator or Abo or Asp Register</a></li>
                                                 @endif
                                             </ul>
                                         </li>

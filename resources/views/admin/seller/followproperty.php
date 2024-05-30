@@ -5,19 +5,66 @@
               <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title"> PROPERTY FOLLOW-UP PAGE </h4>
-                </div>    
+                </div>
                 <!--<div class="float-right">
                     <div class="row">
                       <div class="pad-lr-5 pad-top-8">
                         <a href="" ng-click="new()" class="btn atag">ADD SITEMAP </a>
                       </div>
                     </div>
-                </div>  -->                            
+                </div>  -->
             </div>
         </div>
         <div class="card-body">
             <div class="card-block">
                 <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <label>T.No</label><br>
+                                        <label>Refer Name</label><br>
+                                        <label>Refer Number</label><br>
+                                        <label>Requirement</label><br>
+                                        <label>Type</label><br>
+                                        <label>Description</label><br>
+                                    </div>
+                                    <div class="col-md-8 col-sm-6">
+                                        <p>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyId}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyReferName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyReferNumber}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.NeedName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.TypeName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyDescription}} </b></span><br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <label>Budjet</label><br>
+                                        <label>Abo Name</label><br>
+                                        <label>Mediator Name</label><br>
+                                        <label>Status</label><br>
+                                        <label>Reason</label><br>
+                                        <label>Image</label><br>
+                                    </div>
+                                    <div class="col-md-8 col-sm-6">
+                                        <p>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyTotalBudget}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{abo['0'].AboName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{media['0'].MediatorName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyStatus}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyPendingReason}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b><img src="uploads/property/gallery/{{follow_form.PropertyGalleryImage}}" width="60px" height="60px" ng-if="follow_form.PropertyGalleryImage"> </b></span><br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--
                   <div class="col-md-2">
                     <label for="title">T.No</label>
                     <input type="text"class="form-control"  ng-model="follow_form.PropertyId" style="border: none !important;">
@@ -46,7 +93,7 @@
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">BUDJET</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="follow_form.PropertyTotalBudget" 
+                           <input type="text"class="form-control"  ng-model="follow_form.PropertyTotalBudget"
                            style="border: none !important;">
                          </div>
                       </fieldset>
@@ -56,16 +103,16 @@
                         <label for="title">DESCRIPTION</label>
                          <div class="">
                            <textarea class="form-control" ng-model="follow_form.PropertyDescription" style="height: 100px !important;width: 100% !important;white-space: inherit !important;">
-                           </textarea> 
+                           </textarea>
                          </div>
                       </fieldset>
                    </div>
-                   
+
                    <div class="col-md-2">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">STATUS</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="follow_form.PropertyStatus" 
+                           <input type="text"class="form-control"  ng-model="follow_form.PropertyStatus"
                            style="border: none !important;">
                          </div>
                       </fieldset>
@@ -74,22 +121,41 @@
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">REASON</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason" 
+                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason"
                            style="border: none !important;">
                          </div>
                       </fieldset>
                    </div>
                   <div class="col-md-2">
                         <label for="title">Image</label>
-                         <img src="uploads/property/gallery/{{follow_form.PropertyGalleryImage}}" width="60px" height="60px" ng-if="follow_form.PropertyGalleryImage">
-                         </img>
+                        <img src="uploads/property/gallery/{{follow_form.PropertyGalleryImage}}" width="60px" height="60px" ng-if="follow_form.PropertyGalleryImage">
+                        </img>
                   </div>
-                  
+
+                  <div class="col-md-2">
+                      <fieldset class="form-group floating-label-form-group">
+                        <label for="title">Abo Name</label>
+                         <div class="">
+                           <input type="text"class="form-control"  ng-model="abo['0'].AboName"
+                           style="border: none !important;">
+                         </div>
+                      </fieldset>
+                   </div>
+                   <div class="col-md-2">
+                      <fieldset class="form-group floating-label-form-group">
+                        <label for="title">Mediator Name</label>
+                         <div class="">
+                           <input type="text"class="form-control"  ng-model="media['0'].MediatorName"
+                           style="border: none !important;">
+                         </div>
+                      </fieldset>
+                   </div> -->
+
                   <!--  <div class="col-md-2">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PENDING RESON</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason" 
+                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason"
                            style="border: none !important;">
                          </div>
                       </fieldset>
@@ -105,7 +171,7 @@
                     <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;">
                       <a href="" ng-click="newstatus();" class="btn atag">STATUS</a>
                    </div>
-                   <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;">
+                   <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;" ng-if="role == 1">
                      <a href="" ng-click="newaboassign();" class="btn atag">ADD ABO ASSIGNMENT</a>
                    </div>
                    <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;">
@@ -114,8 +180,12 @@
                    <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;">
                      <a href="" ng-click="newmediafollow();" class="btn atag">GOTO MEDIATOR PAGE</a>
                    </div>
+                   <div class="pad-lr-5 pad-top-8" style="padding-left: 15px;padding-bottom: 10px;">
+                     <a href="#/customer_follow_report/{{follow_form.PropertyId}}"  class="btn atag">THIS PROPERTY REPORT</a>
+                   </div>
                 </div>
-               <div class="row">
+
+                <div class="row">
                    <div class="col-md-6">
                       <table class="table table-sm" id="table_id">
                           <thead class="">
@@ -139,7 +209,7 @@
                                     </a>
                                     <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, site);">
                                       <md-tooltip md-direction="top">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                                    </a> 
+                                    </a>
                                   </td>
                               </tr>
                           </tbody>
@@ -168,7 +238,7 @@
                                     </a>
                                     <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, site);">
                                       <md-tooltip md-direction="top">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                                    </a> 
+                                    </a>
                                   </td>
                               </tr>
                           </tbody>
@@ -194,7 +264,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-md-3" >  
+                    <div class="col-md-3" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DATE</label>
                          <div class="">
@@ -208,17 +278,17 @@
                          <div class="">
                             <input type="text" number-to-string class="form-control"  ng-model="follow_form.ViewedBuyer">
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DESCRIPTION</label>
                          <div class="">
-                          <textarea class="form-control" ng-model="follow_form.FollowDescription" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                          <textarea class="form-control" ng-model="follow_form.FollowDescription" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
                       </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postForm();" class="btn btn-outline-primary atag btn-lg" value="SAVE">
@@ -243,7 +313,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-md-3" >  
+                    <div class="col-md-3" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">NAME</label>
                          <div class="">
@@ -257,17 +327,17 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="person_form.PersonNumber" onlydigits >
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                    <div class="col-md-6">   
+                    <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DETAILS</label>
                          <div class="">
-                          <textarea class="form-control" ng-model="person_form.PersonDetail" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                          <textarea class="form-control" ng-model="person_form.PersonDetail" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
                       </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postPerson();" class="btn btn-outline-primary atag btn-lg" value="SAVE">
@@ -294,21 +364,21 @@
                      <div class="col-md-6">
                        <fieldset class="form-group ">
                         <label for="title">STAUS</label>
-                         <div class="">                             
+                         <div class="">
                            <select ng-model="status_form.PropertyStatus"class="form-control" >
-                           <option  ng-repeat="stat in status" value="{{stat.value}}" >{{stat.value}}</option>    
+                           <option  ng-repeat="stat in status" value="{{stat.value}}" >{{stat.value}}</option>
                           </select>
-                      </fieldset>   
+                      </fieldset>
                      </div>
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PENDING REASON</label>
                          <div class="">
-                          <textarea class="form-control" ng-model="status_form.PropertyPendingReason" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                          <textarea class="form-control" ng-model="status_form.PropertyPendingReason" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
                       </fieldset>
                     </div>
-                     <div class="col-md-6" hidden>  
+                     <div class="col-md-6" hidden>
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">USER RESPONSE</label>
                          <div class="">
@@ -316,7 +386,7 @@
                          </div>
                       </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postStatus();" class="btn btn-outline-primary atag btn-lg" value="SAVE">
@@ -345,30 +415,30 @@
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">ABO NAME</label>
                          <div class="">
-                            <!-- <input type="text" class="form-control"  ng-model="mediator_assign_form.Mediator"> -->
-                            <ui-select  required ng-change="aboDataChange(mediator_assign_form.Abo.AboId);" ng-model="mediator_assign_form.Abo" theme="select2" >
+                            <input type="text" class="form-control"  ng-model="mediator_assign_form.AboName">
+                            <!-- <ui-select  required ng-model="mediator_assign_form.Abo" theme="select2" >
                               <ui-select-match allow-clear="true" placeholder="Select Abo Name">{{$select.selected.AboName}}</ui-select-match>
                               <ui-select-choices repeat="par in abo | filter: {AboName: $select.search} ">
                                 <div>{{par.AboName}}</div>
                               </ui-select-choices>
-                            </ui-select> 
-                         </div> 
-                      </fieldset>                
+                            </ui-select> -->
+                         </div>
+                      </fieldset>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">ABO TO ASSIGNED PROPERTIES</label>
                          <div class="">
-                            <!-- <input type="text" class="form-control"  ng-model="mediator_assign_form.Mediator"> -->
+                            <input type="text" class="form-control"  ng-model="mediator_assign_form.Mediator">
                             <ui-select  required ng-model="mediator_assign_form.assign" theme="select2" >
                               <ui-select-match allow-clear="true" placeholder="Select Abo Name">{{$select.selected.PropertyId}}</ui-select-match>
                               <ui-select-choices repeat="par in aboassign | filter: {PropertyId: $select.search} ">
                                 <div>{{par.PropertyId}}</div>
                               </ui-select-choices>
-                            </ui-select> 
+                            </ui-select>
                          </div>
-                      </fieldset>                
-                    </div>
+                      </fieldset>
+                    </div> -->
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR NAME</label>
@@ -379,9 +449,9 @@
                               <ui-select-choices repeat="par in mediator | filter: {MediatorName: $select.search} ">
                                 <div>{{par.MediatorName}}</div>
                               </ui-select-choices>
-                            </ui-select> 
+                            </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -395,7 +465,7 @@
                             </ui-select> -->
                             <input type="text" class="form-control"  ng-model="mediator_assign_form.PropertyId">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                      <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -409,7 +479,7 @@
                             </ui-select> -->
                             <input type="text" class="form-control"  ng-model="mediator_assign_form.PropertyName">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -417,7 +487,7 @@
                          <div class="">
                             <md-datepicker ng-model="mediator_assign_form.MediatorAssignDate" name="Idate"  md-placeholder="Enter date"></md-datepicker>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -433,7 +503,7 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -445,7 +515,7 @@
                               <option value="no">NO</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -454,7 +524,7 @@
                             <!-- <input type="textarea" class="form-control"  ng-model="mediator_assign_form.MediatorAssignRemarks"> -->
                             <textarea class="form-control" ng-model="mediator_assign_form.MediatorAssignRemarks" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -462,11 +532,11 @@
                          <div class="">
                             <textarea class="form-control" ng-model="mediator_assign_form.MediatorAssignDesc" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
-                    
-                    
-                  </div>                                      
+
+
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal">CLOSE
                     </a>
@@ -492,7 +562,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-md-3" >  
+                    <div class="col-md-3" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY ID </label>
                          <div class="">
@@ -511,9 +581,9 @@
                               </ui-select-choices>
                             </ui-select>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <a href="#/mediator_follow/{{mediator_follow_form.mediator.MediatorId}}/{{mediator_follow_form.PropertyId}}"   class="btn atag"  >GO MEDIATOR FOLLOW-UP</a>
@@ -549,9 +619,9 @@
                               <ui-select-choices repeat="par in abo | filter: {AboName: $select.search} ">
                                 <div>{{par.AboName}}</div>
                               </ui-select-choices>
-                            </ui-select> 
+                            </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -565,7 +635,7 @@
                             </ui-select> -->
                             <input type="text" class="form-control"  ng-model="abo_assign_form.PropertyId">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                      <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -579,7 +649,7 @@
                             </ui-select> -->
                             <input type="text" class="form-control"  ng-model="abo_assign_form.PropertyName">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -587,7 +657,7 @@
                          <div class="">
                             <md-datepicker ng-model="abo_assign_form.AboAssignDate" name="Idate"  md-placeholder="Enter date"></md-datepicker>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -603,7 +673,7 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -615,7 +685,7 @@
                               <option value="no">NO</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -624,7 +694,7 @@
                             <!-- <input type="textarea" class="form-control"  ng-model="abo_assign_form.MediatorAssignRemarks"> -->
                             <textarea class="form-control" ng-model="abo_assign_form.AboAssignRemarks" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -632,11 +702,11 @@
                          <div class="">
                             <textarea class="form-control" ng-model="abo_assign_form.AboAssignDesc" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
-                    
-                    
-                  </div>                                      
+
+
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal">CLOSE
                     </a>

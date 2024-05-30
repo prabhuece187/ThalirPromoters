@@ -5,7 +5,7 @@
               <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title"> ABO ASSIGNMENT </h4>
-                </div>    
+                </div>
                 <div class="float-right">
 
                     <div class="row">
@@ -41,19 +41,19 @@
                       <div class="pad-lr-15">
                            <input class="form-control" ng-model="form.description" name="description"  value="" type="text" placeholder="Description Search ">
                       </div>
-                      <div class="pad-lr-15 pad-top-8"> 
+                      <div class="pad-lr-15 pad-top-8">
                           <a href="" class="btn btn-primary btn-corner atag" ng-click="getTable(1,form)">
                               <md-tooltip md-direction="bottom">SEARCH</md-tooltip><i class="ft-search"></i>
                           </a>
-                           <a href="" ng-click="getExcel()" class="btn atag">EXCEL</a> 
+                           <a href="" ng-click="getExcel()" class="btn atag">EXCEL</a>
                           <!-- <a href="" ng-click="getPDF()" class="btn atag">PDF</a> -->
-                      </div> 
+                      </div>
 
                       <div class="pad-lr-5 pad-top-8" ng-if="id === 1">
                         <a href="" ng-click="new();" class="btn atag">ADD ABO ASSIGNMENT</a>
                       </div>
                     </div>
-                </div>                             
+                </div>
             </div>
         </div>
         <div class="card-body">
@@ -83,16 +83,16 @@
                               </a>
                               <a class="btn atag btn-sm btn-primary" href="#/followproperty/{{types.PropertyId}}"  ng-if="role === 1 || role === 5">
                                 <md-tooltip md-direction="right">ADMIN FOLLOW</md-tooltip><i class="ft-phone-forwarded"></i>
-                              </a> 
-                              <a class="btn atag btn-sm btn-primary" href="#/mediator_follow/{{types.MediatorId}}/{{types.PropertyId}}"  ng-if="role == 1 || (role == 5 && types.AboAssignAccess === 'yes')">
-                                <md-tooltip md-direction="right">MEDIATOR FOLLOW</md-tooltip><i class="ft-phone-forwarded"></i>
                               </a>
+                              <!-- <a class="btn atag btn-sm btn-primary" href="#/mediator_follow/{{types.MediatorId}}/{{types.PropertyId}}"  ng-if="role == 1 || (role == 5 && types.AboAssignAccess === 'yes')">
+                                <md-tooltip md-direction="right">MEDIATOR FOLLOW</md-tooltip><i class="ft-phone-forwarded"></i>
+                              </a> -->
                               <a class="btn atag btn-sm btn-primary" href="#/mediator_follow_details/{{types.MediatorId}}/{{types.PropertyId}}"  ng-if="role == 1 || (role == 5 && types.MediatorAssignAccess === 'yes')">
                                 <md-tooltip md-direction="right">DETAILS</md-tooltip><i class="ft-file-text"></i>
-                              </a>  
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, types);" ng-if="role == 1">
                                 <md-tooltip md-direction="right">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                              </a> 
+                              </a>
                             </td>
                             <td>{{types.AboId}}</td>
                             <td>{{types.AboName}}</td>
@@ -138,22 +138,31 @@
                               <ui-select-choices repeat="par in abo | filter: {AboName: $select.search} ">
                                 <div>{{par.AboName}}</div>
                               </ui-select-choices>
-                            </ui-select> 
+                            </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
-                        <label for="title">PROPERTY NAME</label>
+                        <label for="title">PROPERTY ID</label>
                          <div class="">
                             <ui-select  required ng-model="abo_assign_form.Property" theme="select2" >
-                              <ui-select-match allow-clear="true" placeholder="Select Property Name">{{$select.selected.PropertyId}}</ui-select-match>
+                              <ui-select-match allow-clear="true" placeholder="Select Property ID">{{$select.selected.PropertyId}}</ui-select-match>
                               <ui-select-choices repeat="par in property | filter: {PropertyId: $select.search} | limitTo: ($select.search.length <= 1) ? 50 : 20">
                                 <div>{{par.PropertyId}}</div>
                               </ui-select-choices>
                             </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
+                    </div>
+
+                    <div class="col-md-6">
+                      <fieldset class="form-group floating-label-form-group">
+                        <label for="title">PROPERTY NAME</label>
+                         <div class="">
+                            <input type="textarea" class="form-control"  ng-model="abo_assign_form.Property.PropertyName">
+                         </div>
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -161,7 +170,7 @@
                          <div class="">
                             <md-datepicker ng-model="abo_assign_form.AboAssignDate" name="Idate"  md-placeholder="Enter date"></md-datepicker>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -177,7 +186,7 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -189,7 +198,7 @@
                               <option value="no">NO</option>
                             </select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -198,7 +207,7 @@
                             <!-- <input type="textarea" class="form-control"  ng-model="abo_assign_form.AboAssignRemarks"> -->
                             <textarea class="form-control" ng-model="abo_assign_form.AboAssignRemarks" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -206,11 +215,11 @@
                          <div class="">
                             <textarea class="form-control" ng-model="abo_assign_form.AboAssignDesc" style="height: 100px !important;width: 100% !important;white-space: inherit !important;"> </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
-                    
-                    
-                  </div>                                      
+
+
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal">CLOSE
                     </a>

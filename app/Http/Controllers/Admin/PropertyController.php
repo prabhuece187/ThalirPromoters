@@ -39,7 +39,7 @@ class PropertyController extends Controller
       {
             if($request->searchdata == "nosearch")
             {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
                 $data = Property::select( 'tbl_property.*',
@@ -51,12 +51,12 @@ class PropertyController extends Controller
                 $data = $data->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get();        
+                        ->get();
             }
             else
             {
-                $filter = json_decode($request->filter);        
-                $sorting = json_decode($request->sorting);         
+                $filter = json_decode($request->filter);
+                $sorting = json_decode($request->sorting);
 
 
                 // $data = Property::select( 'tbl_property.*',
@@ -82,37 +82,37 @@ class PropertyController extends Controller
                 if (isset($request->propertyname))
                 {
                    $datas->where('tbl_property.PropertyName',$request->propertyname);
-                } 
+                }
 
                 if (isset($request->propertyreg))
                 {
                    $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%');
-                } 
+                }
 
                 if (isset($request->reachus))
                 {
                    $datas->where('tbl_property.ReachUs',$request->reachus);
-                } 
+                }
 
                 if (isset($request->propertyid))
                 {
                    $datas->where('tbl_property.PropertyId',$request->propertyid);
-                } 
+                }
 
                 if (isset($request->Area))
                 {
                    $datas->where('tbl_property.AreaId',$request->Area);
-                } 
+                }
 
                 if (isset($request->Type))
                 {
                    $datas->where('tbl_property.TypeId',$request->Type);
-                } 
+                }
 
                 if (isset($request->Need))
                 {
                    $datas->where('tbl_property.NeedId',$request->Need);
-                } 
+                }
 
                 if (isset($request->Sold))
                 {
@@ -122,7 +122,7 @@ class PropertyController extends Controller
                     else{
                       $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
                     }
-                } 
+                }
 
                 if (isset($request->MinAmount))
                 {
@@ -138,16 +138,16 @@ class PropertyController extends Controller
                 $data = $datas->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get(); 
-            }  
-                    
+                        ->get();
+            }
+
       }
       elseif(Auth::user()->RoleId == 2)
       {
 
          if($request->searchdata == "nosearch")
          {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
                 $data = Property::select( 'tbl_property.*',
@@ -160,11 +160,11 @@ class PropertyController extends Controller
                 $data = $data->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get();        
+                        ->get();
          }
          else
          {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
 
@@ -174,38 +174,38 @@ class PropertyController extends Controller
                 if (isset($request->propertyreg))
                 {
                    $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%');
-                } 
+                }
 
                 if (isset($request->reachus))
                 {
                    $datas->where('tbl_property.ReachUs',$request->reachus);
-                } 
+                }
 
                 // if (isset($request->propertyname))
                 // {
                 //    $datas->where('tbl_property.PropertyName',$request->propertyname);
-                // } 
+                // }
 
                 if (isset($request->propertyid))
                 {
                    $datas->where('tbl_property.PropertyId',$request->propertyid);
 
-                } 
+                }
 
                 if (isset($request->Area))
                 {
                    $datas->where('tbl_property.AreaId',$request->Area);
-                } 
+                }
 
                 if (isset($request->Type))
                 {
                    $datas->where('tbl_property.TypeId',$request->Type);
                 }
-                
+
                 if (isset($request->Need))
                 {
                    $datas->where('tbl_property.NeedId',$request->Need);
-                } 
+                }
 
                 if (isset($request->Sold))
                 {
@@ -215,7 +215,7 @@ class PropertyController extends Controller
                     else{
                       $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
                     }
-                } 
+                }
 
                 if (isset($request->MinAmount))
                 {
@@ -231,12 +231,12 @@ class PropertyController extends Controller
                 $data = $datas->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get(); 
-         }  
+                        ->get();
+         }
 
       }
 
-      $RoleId = Auth::user()->RoleId;  
+      $RoleId = Auth::user()->RoleId;
 
       return response(['data' => $data , 'role' => $RoleId ,'total' => $total]);
     }
@@ -244,7 +244,7 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
        DB::beginTransaction();
-        try 
+        try
         {
             $input = $request->all();
             $input['id'] = Auth::id();
@@ -259,27 +259,27 @@ class PropertyController extends Controller
             $waterval = $input['water'];
 
             if($waterval[0]['PropertyWaterSource'] != null)
-            { 
-                foreach ($waterval as $detailwater) 
+            {
+                foreach ($waterval as $detailwater)
                 {
-                    $detailwater['PropertyId'] = $data->PropertyId;     
+                    $detailwater['PropertyId'] = $data->PropertyId;
                     $detailwater['id']=Auth::id();
                     PropertyWater::create($detailwater);
                 }
             }
 
             if($ebval[0]['PropertyEbStatus'] != null)
-            { 
-                foreach ($ebval as $detaileb) 
+            {
+                foreach ($ebval as $detaileb)
                 {
-                    $detaileb['PropertyId'] = $data->PropertyId;   
+                    $detaileb['PropertyId'] = $data->PropertyId;
                     $detaileb['id']=Auth::id();
                     PropertyEb::create($detaileb);
                 }
-            }      
+            }
             DB::commit();
 
-           $RoleId = Auth::user()->RoleId;  
+           $RoleId = Auth::user()->RoleId;
 
            return response(['data' => $data , 'role' => $RoleId ]);
 
@@ -334,21 +334,21 @@ class PropertyController extends Controller
             ->get();
 
              $property['gallery'] = PropertyGallery::select('*')
-            ->where('tbl_property_gallery.id',Auth::id())    
+            ->where('tbl_property_gallery.id',Auth::id())
             ->where('tbl_property_gallery.PropertyId',$id)
-            ->get();       
+            ->get();
 
             return response()->json($property);
-        }   
+        }
 
     }
 
     public function PropertyUpdate(Request $request,$id)
-    { 
+    {
 
       DB::beginTransaction();
-      try 
-      {  
+      try
+      {
         $valid = Auth::id();
         if($valid === 1){
            $property = Property::find($id);
@@ -366,16 +366,16 @@ class PropertyController extends Controller
         $ebval = $input['eb'];
         $waterval = $input['water'];
 
-    
+
         if(count($waterval) > 0)
         {
             PropertyWater::where('tbl_property_water.PropertyId',$id)
             ->where('tbl_property_water.id',Auth::id())
             ->delete();
 
-            foreach ($waterval as $detailwater) 
+            foreach ($waterval as $detailwater)
             {
-                $detailwater['PropertyId'] = $id;       
+                $detailwater['PropertyId'] = $id;
                 $detailwater['id']=Auth::id();
                 PropertyWater::create($detailwater);
             }
@@ -387,16 +387,16 @@ class PropertyController extends Controller
             ->where('tbl_property_eb.id',Auth::id())
             ->delete();
 
-            foreach ($ebval as $detaileb) 
+            foreach ($ebval as $detaileb)
             {
-                $detaileb['PropertyId'] = $id;   
+                $detaileb['PropertyId'] = $id;
                 $detaileb['id']=Auth::id();
                 PropertyEb::create($detaileb);
             }
         }
 
          DB::commit();
-          $RoleId = Auth::user()->RoleId;  
+          $RoleId = Auth::user()->RoleId;
           return response(['input' => $input , 'role' => $RoleId ]);
 
          } catch (\Exception $e) {
@@ -409,25 +409,25 @@ class PropertyController extends Controller
     // public function PropertyImageGet(Request $request ,$id)
     // {
     //     $data = PropertyGallery::select('*')
-    //     ->where('tbl_property_gallery.id',Auth::id())    
+    //     ->where('tbl_property_gallery.id',Auth::id())
     //     ->where('tbl_property_gallery.PropertyId',$id)
     //     ->get();
-        
+
     //     return response($data);
     // }
 
     public function PropertyImageAdd(Request $request,$proid)
-    { 
+    {
 
-            $input = $request->all();  
+            $input = $request->all();
 
             if($request->file('file'))
             {
-                $destinationPath = 'uploads/property/gallery'; 
-         
+                $destinationPath = 'uploads/property/gallery';
+
                 $files = $request->file('file');
 
-                $count  = 0;     
+                $count  = 0;
 
                 foreach ($files as $file){
 
@@ -435,13 +435,13 @@ class PropertyController extends Controller
 
                     $fil = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                     $ext = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
-                    $filename = $fil.'_'.$str.'.'.$ext; 
-                    
-                    $img = Image::make($file->getRealPath())->resize(850, 650);  
-                    $img->insert(public_path('uploads/main/logo.jpg'), 'bottom-right', 10, 10);
-                    
+                    $filename = $fil.'_'.$str.'.'.$ext;
 
-                    $ff = $img->save($destinationPath.'/'.$filename); 
+                    $img = Image::make($file->getRealPath())->resize(850, 650);
+                    $img->insert(public_path('uploads/main/logo.jpg'), 'bottom-right', 10, 10);
+
+
+                    $ff = $img->save($destinationPath.'/'.$filename);
 
                     $input['id'] = Auth::id();
                     $input['PropertyGalleryImage'] = $filename;
@@ -451,21 +451,21 @@ class PropertyController extends Controller
 
                     $count++ ;
                     if($count == 5){
-                      break;                
-                    }                  
+                      break;
+                    }
                 }
              }
 
             if($request->file('PropertyGalleryVideo'))
             {
-                $destinationPath1 = 'uploads/property/video'; 
+                $destinationPath1 = 'uploads/property/video';
 
-                $file = $request->file('PropertyGalleryVideo');        
+                $file = $request->file('PropertyGalleryVideo');
                 $fil = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $ext = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
                 $str = str::random(3);
-                $filename1 = $fil.'_'.$str.'.'.$ext; 
-                $file->move($destinationPath1, $filename1);                        
+                $filename1 = $fil.'_'.$str.'.'.$ext;
+                $file->move($destinationPath1, $filename1);
                 $input['PropertyGalleryVideo'] = $filename1;
 
                 Property::where('tbl_property.id',Auth::id())
@@ -476,8 +476,8 @@ class PropertyController extends Controller
             if($request->file('document'))
             {
                 $docss = $request->file('document');
-                $destinationPath2 = 'uploads/property/document'; 
-                $count  = 0;     
+                $destinationPath2 = 'uploads/property/document';
+                $count  = 0;
 
                 foreach ($docss as $file)
                 {
@@ -485,8 +485,8 @@ class PropertyController extends Controller
 
                     $fil = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                     $ext = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
-                    $filename3 = $fil.'_'.$str.'.'.$ext; 
-                    
+                    $filename3 = $fil.'_'.$str.'.'.$ext;
+
 
                     $file->move($destinationPath2, $filename3);
 
@@ -510,17 +510,17 @@ class PropertyController extends Controller
     public function PropertyImageUpdate(Request $request,$pid)
     {
         $input = $request->all();
-        $input['id'] = Auth::id();  
+        $input['id'] = Auth::id();
 
-        $destinationPath = 'uploads/property/gallery'; 
-        $destinationPath1 = 'uploads/property/video'; 
-        $destinationPath2 = 'uploads/property/document'; 
+        $destinationPath = 'uploads/property/gallery';
+        $destinationPath1 = 'uploads/property/video';
+        $destinationPath2 = 'uploads/property/document';
 
         if($request->file('file'))
         {
             $propertygallery =  PropertyGallery::where('tbl_property_gallery.PropertyId',$pid)
             ->get();
-            
+
             foreach ($propertygallery as $gallery){
                 if(is_null($gallery['PropertyGalleryImage']))
                 {
@@ -534,9 +534,9 @@ class PropertyController extends Controller
 
             $files = $request->file('file');
 
-            $input['id'] = Auth::id(); 
+            $input['id'] = Auth::id();
 
-            $count  = 0;     
+            $count  = 0;
 
             foreach ($files as $file)
             {
@@ -544,9 +544,9 @@ class PropertyController extends Controller
 
                 $fil = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $ext = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
-                $filename = $fil.'_'.$str.'.'.$ext; 
-                
-                $img = Image::make($file->getRealPath())->resize(850, 650);  
+                $filename = $fil.'_'.$str.'.'.$ext;
+
+                $img = Image::make($file->getRealPath())->resize(850, 650);
                 $img->insert(public_path('uploads/main/logo.jpg'), 'bottom-right', 10, 10);
                 $ff = $img->save($destinationPath.'/'.$filename);
 
@@ -562,24 +562,24 @@ class PropertyController extends Controller
                   break;
                 }
             }
-        }    
-        
+        }
+
         if($request->hasFile('PropertyGalleryVideo'))
-        { 
+        {
             if($request->PropertyGalleryVideo != $request->PropertyGalleryVideo1)
-            {         
+            {
                 if($request->PropertyGalleryVideo1 != "null")
-                { 
+                {
                    $file_path6 = 'uploads/property/video/'.$request->PropertyGalleryVideo1;
                    unlink($file_path6);
                 }
 
-                $file11 = $request->file('PropertyGalleryVideo');     
+                $file11 = $request->file('PropertyGalleryVideo');
                 $fil11 = pathinfo($file11->getClientOriginalName(), PATHINFO_FILENAME);
                 $ext11 = pathinfo($file11->getClientOriginalName(), PATHINFO_EXTENSION);
                 $str11 = str::random(3);
-                $filename11 = $fil11.'_'.$str11.'.'.$ext11;  
-                $file11->move($destinationPath1, $filename11);                          
+                $filename11 = $fil11.'_'.$str11.'.'.$ext11;
+                $file11->move($destinationPath1, $filename11);
                 $input['PropertyGalleryVideo'] = $filename11;
 
                 Property::where('tbl_property.PropertyId',$pid)
@@ -603,9 +603,9 @@ class PropertyController extends Controller
 
             $docss = $request->file('document');
 
-            $input['id'] = Auth::id(); 
+            $input['id'] = Auth::id();
 
-            $count  = 0;     
+            $count  = 0;
 
             foreach ($docss as $file)
             {
@@ -613,7 +613,7 @@ class PropertyController extends Controller
 
                 $fil = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $ext = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
-                $filename3 = $fil.'_'.$str.'.'.$ext; 
+                $filename3 = $fil.'_'.$str.'.'.$ext;
 
                 $file->move($destinationPath2, $filename3);
 
@@ -629,7 +629,7 @@ class PropertyController extends Controller
                   break;
                 }
             }
-        }   
+        }
 
         return response($input);
 
@@ -639,16 +639,16 @@ class PropertyController extends Controller
     {
         if(Auth::user()->RoleId === 5){
              $assign = DB::table('tbl_abo_assign')
-            ->where('tbl_abo_assign.PropertyId',$id) 
-            ->first(); 
-            
+            ->where('tbl_abo_assign.PropertyId',$id)
+            ->first();
+
             if($assign === null){
                return response("Not authorized");
             }
 
         }
 
-        $property = Property::select( 'tbl_property.*',
+        $property['data'] = Property::select( 'tbl_property.*',
             DB::raw('(select PropertyGalleryImage from tbl_property_gallery where tbl_property_gallery.PropertyId  =  tbl_property.PropertyId order by PropertyId asc limit 1) as PropertyGalleryImage'))
         ->where('tbl_property.PropertyId',$id)
         ->first();
@@ -657,14 +657,22 @@ class PropertyController extends Controller
         ->where('tbl_mediator_assign.PropertyId',$id)
         ->get();
 
-        return response($property);       
+        $property['abo'] = AboAssign::select('tbl_abo_assign.AboId','tbl_abo_assign.AboName','tbl_abo_assign.AboAssignedId')
+        ->where('tbl_abo_assign.PropertyId',$id)
+        ->get();
+
+        $property['role'] = Auth::user()->RoleId;
+
+        return response($property);
     }
 
     public function PropertyFollowValGet(Request $request, $id)
     {
-        $follow = DB::table('tbl_property_follow')
-        ->where('tbl_property_follow.PropertyId',$id) 
-        ->get();    
+        $follow['data'] = DB::table('tbl_property_follow')
+        ->where('tbl_property_follow.PropertyId',$id)
+        ->get();
+
+        $follow['role'] = Auth::user()->RoleId;
 
         return response($follow);
     }
@@ -679,24 +687,24 @@ class PropertyController extends Controller
     }
 
     public function PropertyFollowUpdate(Request $request, $id)
-    {      
+    {
         $follow = PropertyFollow::where('tbl_property_follow.id',Auth::id())->find($id);
         $input = $request->all();
         $data =  $follow->update($input);
 
-        return response($follow);       
+        return response($follow);
     }
 
     public function PropertyPersonValGet(Request $request, $id)
     {
         $person = DB::table('tbl_property_person')
         ->join('tbl_property','tbl_property_person.PropertyId','tbl_property.PropertyId')
-        ->where('tbl_property_person.PropertyId',$id) 
-        ->get();   
+        ->where('tbl_property_person.PropertyId',$id)
+        ->get();
 
         $property = DB::table('tbl_property')
-        ->where('tbl_property.PropertyId',$id) 
-        ->first();   
+        ->where('tbl_property.PropertyId',$id)
+        ->first();
 
         return response(['person' => $person , 'property' => $property ]);
     }
@@ -712,12 +720,12 @@ class PropertyController extends Controller
 
     public function PropertyPersonUpdate(Request $request, $id)
     {
-       
+
         $person = PropertyPerson::where('tbl_property_person.id',Auth::id())->find($id);
         $input = $request->all();
         $data =  $person->update($input);
 
-        return response($person);       
+        return response($person);
     }
 
     public function PropertyStatusUpdate(Request $request, $id)
@@ -726,7 +734,7 @@ class PropertyController extends Controller
         $input = $request->all();
         $data =  $property->update(['PropertyStatus'=>$input['PropertyStatus'],'PropertyPendingReason'=>$input['PropertyPendingReason'],'PropertyUserStatus'=>$input['PropertyUserStatus']]);
 
-        return response($data);       
+        return response($data);
     }
 
     public function PropertyUserStatusUpdate(Request $request, $id)
@@ -735,7 +743,7 @@ class PropertyController extends Controller
         $input = $request->all();
         $data =  $property->update(['PropertyUserStatus'=>$input['PropertyUserStatus']]);
 
-        return response($data);       
+        return response($data);
     }
 
     public function PropertyDocumentGet(Request $request, $id)
@@ -744,12 +752,12 @@ class PropertyController extends Controller
         ->where('tbl_property.PropertyId',$id)
         ->get();
 
-        return response($property);       
+        return response($property);
     }
 
     public function PropertySearch(Request $request)
     {
-        $filter = json_decode($request->filter);        
+        $filter = json_decode($request->filter);
         $sorting = json_decode($request->sorting);
 
 
@@ -760,23 +768,23 @@ class PropertyController extends Controller
         if (isset($request->propertyreg))
         {
            $datas->where('tbl_property.PropertyRegNo',$request->propertyreg);
-        } 
+        }
 
         if (isset($request->propertyname))
         {
            $datas->where('tbl_property.PropertyName',$request->propertyname);
-        } 
+        }
 
         if (isset($request->propertyid))
         {
            $datas->where('tbl_property.PropertyId',$request->propertyid);
 
-        } 
+        }
 
         if (isset($request->Area))
         {
            $datas->where('tbl_property.AreaId',$request->Area);
-        } 
+        }
 
         if (isset($request->MinAmount))
         {
@@ -798,9 +806,9 @@ class PropertyController extends Controller
         $data = $datas->take($request->count)
                 ->skip($request->count*($request->page-1))
                 ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                ->get();   
+                ->get();
 
-         $RoleId = Auth::user()->RoleId;  
+         $RoleId = Auth::user()->RoleId;
 
         return response(['data' => $data , 'role' => $RoleId ,'total' => $total]);
     }
@@ -809,7 +817,7 @@ class PropertyController extends Controller
     {
         $property = Property::whereNotIn('tbl_property.PropertyStatus', ['Completed','Canceled'])->get();
 
-        return response($property);       
+        return response($property);
     }
 
     public function PropertyBuyerDataGet(Request $request,$needid)
@@ -818,7 +826,7 @@ class PropertyController extends Controller
       {
             if($request->searchdata == "nosearch")
             {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
                 $data = Property::select( 'tbl_property.*',
@@ -831,12 +839,12 @@ class PropertyController extends Controller
                 $data = $data->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get();        
+                        ->get();
             }
             else
             {
-                $filter = json_decode($request->filter);        
-                $sorting = json_decode($request->sorting);         
+                $filter = json_decode($request->filter);
+                $sorting = json_decode($request->sorting);
 
 
                 // $data = Property::select( 'tbl_property.*',
@@ -863,37 +871,37 @@ class PropertyController extends Controller
                 if (isset($request->propertyname))
                 {
                    $datas->where('tbl_property.PropertyName',$request->propertyname);
-                } 
+                }
 
                 if (isset($request->propertyreg))
                 {
                    $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%');
-                } 
+                }
 
                 if (isset($request->reachus))
                 {
                    $datas->where('tbl_property.ReachUs',$request->reachus);
-                } 
+                }
 
                 if (isset($request->propertyid))
                 {
                    $datas->where('tbl_property.PropertyId',$request->propertyid);
-                } 
+                }
 
                 if (isset($request->Area))
                 {
                    $datas->where('tbl_property.AreaId',$request->Area);
-                } 
+                }
 
                 if (isset($request->Type))
                 {
                    $datas->where('tbl_property.TypeId',$request->Type);
-                } 
+                }
 
                 // if (isset($request->Need))
                 // {
                 //    $datas->where('tbl_property.NeedId',$request->Need);
-                // } 
+                // }
 
                 if (isset($request->Sold))
                 {
@@ -903,7 +911,7 @@ class PropertyController extends Controller
                     else{
                       $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
                     }
-                } 
+                }
 
                 if (isset($request->MinAmount))
                 {
@@ -919,16 +927,16 @@ class PropertyController extends Controller
                 $data = $datas->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get(); 
-            }  
-                    
+                        ->get();
+            }
+
       }
       elseif(Auth::user()->RoleId == 2)
       {
 
          if($request->searchdata == "nosearch")
          {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
                 $data = Property::select( 'tbl_property.*',
@@ -942,11 +950,11 @@ class PropertyController extends Controller
                 $data = $data->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get();        
+                        ->get();
          }
          else
          {
-                $filter = json_decode($request->filter);        
+                $filter = json_decode($request->filter);
                 $sorting = json_decode($request->sorting);
 
 
@@ -957,38 +965,38 @@ class PropertyController extends Controller
                 if (isset($request->propertyreg))
                 {
                    $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%');
-                } 
+                }
 
                 if (isset($request->reachus))
                 {
                    $datas->where('tbl_property.ReachUs',$request->reachus);
-                } 
+                }
 
                 // if (isset($request->propertyname))
                 // {
                 //    $datas->where('tbl_property.PropertyName',$request->propertyname);
-                // } 
+                // }
 
                 if (isset($request->propertyid))
                 {
                    $datas->where('tbl_property.PropertyId',$request->propertyid);
 
-                } 
+                }
 
                 if (isset($request->Area))
                 {
                    $datas->where('tbl_property.AreaId',$request->Area);
-                } 
+                }
 
                 if (isset($request->Type))
                 {
                    $datas->where('tbl_property.TypeId',$request->Type);
                 }
-                
+
                 // if (isset($request->Need))
                 // {
                 //    $datas->where('tbl_property.NeedId',$request->Need);
-                // } 
+                // }
 
                 if (isset($request->Sold))
                 {
@@ -998,7 +1006,7 @@ class PropertyController extends Controller
                     else{
                       $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
                     }
-                } 
+                }
 
                 if (isset($request->MinAmount))
                 {
@@ -1014,14 +1022,14 @@ class PropertyController extends Controller
                 $data = $datas->take($request->count)
                         ->skip($request->count*($request->page-1))
                         ->orderBy(key((array)($sorting)),current((array)($sorting)))
-                        ->get(); 
-         }  
+                        ->get();
+         }
 
       }
 
-      $RoleId = Auth::user()->RoleId;  
+      $RoleId = Auth::user()->RoleId;
 
       return response(['data' => $data , 'role' => $RoleId ,'total' => $total]);
     }
 
-}   
+}
