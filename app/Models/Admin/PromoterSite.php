@@ -10,13 +10,13 @@ class PromoterSite extends Model
     protected $primaryKey="ProSiteId";
     protected $fillable = [
         'id',
-        'SiteMap',  
-        'FlatCount',  
+        'SiteMap',
+        'FlatCount',
         'PromoterName',
         'ProTypeName',
         'ProArea',
         'ProUnit',
-        'Budjet', 
+        'Budjet',
         'ProGalleryVideo',
         'ProLocation',
         'ProPincode',
@@ -31,6 +31,7 @@ class PromoterSite extends Model
         'ProMaxType',
         'ProDistance',
         'ProStatus',
+        'ProDescription'
     ];
     protected $hidden = [
         'created_at',

@@ -19,6 +19,7 @@ use App\Models\Admin\PromoterGallery;
 use App\Models\Admin\MediatorAssign;
 use App\Models\Admin\MediatorFollow;
 use App\Models\Admin\MediatorBuyer;
+use App\Models\Admin\AspData;
 use Auth;
 use DB;
 
@@ -54,6 +55,9 @@ class DashboardController extends Controller
         ->count();
 
         $propertyfollowstatus = PropertyFollow::where('tbl_property_follow.NotifyStatus',0)
+        ->count();
+
+        $aspdata = AspData::where('tbl_asp_data.AspStatus','no')
         ->count();
 
 
@@ -103,7 +107,7 @@ class DashboardController extends Controller
         return response(['data' => $data , 'role' => $role ,'status' => $status,'commentprop' => $commentprop,'commentprom' => $commentprom,'client' => $client
             ,'totalassign'=> $totalassign ,'totalassignyes'=> $totalassignyes ,'totalassignno'=> $totalassignno ,'totalassignprocess'=> $totalassignprocess ,
             'totalassigncomplete'=> $totalassigncomplete ,'totalassignend'=> $totalassignend ,'totalassignstart'=> $totalassignstart,'mediatorfollowstatus'=> $mediatorfollowstatus,
-            'propertyfollowstatus'=> $propertyfollowstatus
+            'propertyfollowstatus'=> $propertyfollowstatus,'aspdata'=> $aspdata
         ]);
 
     }

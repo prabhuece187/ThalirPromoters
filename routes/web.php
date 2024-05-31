@@ -154,12 +154,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::put('referstatusupdate/{id}', [ReferController::class, 'ReferStatusUpdate']);
 
-    // --------------- Asp Data Data ---------------------
-    Route::resource('aspdata', AspDataController::class);
-    Route::post('aspdataupdate/{id}', [AspDataController::class, 'AspDataUpdate']);
-    Route::delete('aspdatadelete/{id}', [AspDataController::class, 'AspDataDelete']);
-
-    Route::put('aspdatastatusupdate/{id}', [AspDataController::class, 'AspDataStatusUpdate']);
 
     // ---------- type,area,roof,floor,purpose,knowus,oldbuyer master ---------------
 
@@ -254,6 +248,14 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::put('med_fol_sta_update/{id}', [DashboardController::class, 'MediatorFollowStatusUpdate']);
 
+    // --------------- Asp Data Data ---------------------
+    Route::resource('aspdata', AspDataController::class);
+    Route::post('aspdataupdate/{id}', [AspDataController::class, 'AspDataUpdate']);
+    Route::delete('aspdatadelete/{id}', [AspDataController::class, 'AspDataDelete']);
+
+    Route::put('aspdatastatusupdate/{id}', [AspDataController::class, 'AspDataStatusUpdate']);
+    Route::put('asp_status_update/{id}', [AspDataController::class, 'AspStatusUpdate']);
+
     // --------------- rent Data ---------------------
 
 
@@ -289,11 +291,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('roughreport', [ReportController::class, 'RoughReport']);
 
     Route::post('mediator_follow_report ', [ReportController::class, 'MediatorFollowReport']);
+    Route::get('mediator_assign_report/{data}',[MediatorAssignController::class,'MediatorAssignDataGet']);
+    Route::post('mediator_overall_report ', [ReportController::class, 'MediatorOverAllReport']);
+
 
     Route::get('propertybuyer/{id}', [PropertyController::class, 'PropertyBuyerDataGet']);
 
     Route::post('customer_follow_report ', [ReportController::class, 'CustomerFollowReport']);
-    Route::get('mediator_assign_report/{data}',[MediatorAssignController::class,'MediatorAssignDataGet']);
+
+    Route::post('abo_overall_report ', [ReportController::class, 'AboOverAllReport']);
 
 
 	Route::get('logout', [LoginController::class, 'getLogout']);

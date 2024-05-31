@@ -63,6 +63,20 @@ app.config(function($stateProvider,$urlRouterProvider) {
             controller: 'MediatorFollowReportCtrl',
             menuactive:'mediatorfollow',
             title :'mediatorfollow'
+        })
+        .state('abooverall', {
+            url: '/abooverall',
+            templateUrl: 'views/admin.reports.abooverall',
+            controller: 'AboOverAllReportCtrl',
+            menuactive:'abooverall',
+            title :'abooverall'
+        })
+        .state('mediatoroverall', {
+            url: '/mediatoroverall',
+            templateUrl: 'views/admin.reports.mediatoroverall',
+            controller: 'MediatorOverAllReportCtrl',
+            menuactive:'mediatoroverall',
+            title :'mediatoroverall'
         });
 })
 
@@ -483,6 +497,99 @@ app.config(function($stateProvider,$urlRouterProvider) {
             kendo.saveAs({
             dataURI: dataURL,
             fileName: 'CUSTOMER-REPORT',
+            })
+        });
+
+        });
+    }
+})
+
+
+.controller('AboOverAllReportCtrl', function($filter, $stateParams, $rootScope,$scope, REPORT, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, STATES, Excel){
+
+    $scope.form={};
+
+    $http({ url: 'abo', method: 'GET'}).success(function (result) {
+        $scope.abo = result.data;
+    });
+
+
+    $scope.searchForm =  function(){
+        $scope.form.AboId = $scope.form.Abo.AboId;
+        $scope.form.AboName = $scope.form.Abo.AboName;
+        $http({ url: 'abo_overall_report', method: 'POST',data:$scope.form}).success(function(result){
+            $scope.data = result;
+        });
+    }
+
+
+    $scope.getPDF =  function()
+    {
+        kendo.drawing.drawDOM($('#excel'), {
+        paperSize: 'A4',
+        margin: {
+          left: '0.5cm',
+          right: '0.5cm',
+          top: '0.5cm',
+          bottom: '0.5cm'
+        },
+        multiPage: true,
+        portrait: true,
+        repeatHeaders: true,
+        scale: 0.5
+        }).then(function(group) {
+            kendo.drawing.pdf.toDataURL(group, function(dataURL) {
+
+            kendo.saveAs({
+            dataURI: dataURL,
+            fileName: 'ABO-OVERALL-REPORT',
+            })
+        });
+
+        });
+    }
+})
+
+
+.controller('MediatorOverAllReportCtrl', function($filter, $stateParams, $rootScope,$scope, REPORT, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, STATES, Excel){
+
+    $scope.form={};
+
+    $http({ url: 'mediator', method: 'GET'}).success(function (result) {
+        $scope.mediator = result.data;
+    });
+
+
+    $scope.searchForm =  function(){
+        $scope.form.MediatorId = $scope.form.Mediator.MediatorId;
+        $scope.form.MediatorName = $scope.form.Mediator.MediatorName;
+        $http({ url: 'mediator_overall_report', method: 'POST',data:$scope.form}).success(function(result){
+            $scope.data = result;
+            console.log($scope.data);
+        });
+    }
+
+
+    $scope.getPDF =  function()
+    {
+        kendo.drawing.drawDOM($('#excel'), {
+        paperSize: 'A4',
+        margin: {
+          left: '0.5cm',
+          right: '0.5cm',
+          top: '0.5cm',
+          bottom: '0.5cm'
+        },
+        multiPage: true,
+        portrait: true,
+        repeatHeaders: true,
+        scale: 0.5
+        }).then(function(group) {
+            kendo.drawing.pdf.toDataURL(group, function(dataURL) {
+
+            kendo.saveAs({
+            dataURI: dataURL,
+            fileName: 'MEDIATOR-OVERALL-REPORT',
             })
         });
 

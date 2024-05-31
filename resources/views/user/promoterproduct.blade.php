@@ -111,12 +111,12 @@
                             </div>
                             <div class="product-info col-7" style="position: relative;">
 
-                                @if($prop['ProStatus'] == 'Completed')
+                                {{-- @if($prop['ProStatus'] == 'Completed')
                                 <p class="watermark"
                                 style=" position:absolute ;font-weight: bold;font-size: 15px;text-align: center;color: #ff0000;top:90px;transform: rotate(-35deg) scale(1.7, 1.5);" >
                                   Completed
                                 </p>
-                                @endif
+                                @endif --}}
 
 
 

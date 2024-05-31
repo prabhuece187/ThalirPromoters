@@ -107,5 +107,14 @@ class AspDataController extends Controller
         return response($status);
     }
 
+    public function AspStatusUpdate(Request $request,$id)
+    {
+        $status = AspData::where('tbl_asp_data.id',Auth::id())->find($id);
+        $input = $request->all();
+        $status->update(['AspStatus'=>'yes']);
+
+        return response($status);
+    }
+
 
 }

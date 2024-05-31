@@ -145,6 +145,22 @@
             </div>
         </a>
     </div>
+    <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role === 1">
+        <a href="#/aspdata" ng-if="aspdata != 0 || aspdata == null">
+            <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
+                <div class="card-body">
+                    <div class=" pt-2 pb-0">
+                        <div class="media">
+                            <div class="media-body  text-center" style="font-size:15px;">
+                                <span style="color: #fff;position: relative;">ASP NEW ENTRY</span>
+                                <span class="span-sty" >{{aspdata}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
 <div class="tilte-head">

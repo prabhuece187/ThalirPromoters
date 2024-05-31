@@ -35,6 +35,8 @@
                             <th>SIZE </th>
                             <th>NAME</th>
                             <th>NUMBER</th>
+                            <th>FOLLOW STATUS</th>
+                            <th>ACCESS STATUS</th>
                             <th>FULL DETAILS</th>
                             <th>ACTION</th>
                         </tr>
@@ -53,6 +55,8 @@
                             <td>{{ref.AspDataSize}}</td>
                             <td>{{ref.AspDataName}}</td>
                             <td>{{ref.AspDataNumber}}</td>
+                            <td>{{ref.AspDataStatus}}</td>
+                            <td>{{ref.AspStatus}}</td>
                             <td>{{ref.AspDataFullDetails}}</td>
                             <td>
                               <a href="" ng-click="edit($index, ref);" class="btn atag btn-sm btn-primary">
@@ -63,6 +67,9 @@
                               </a>
                               <a class="btn atag btn-sm btn-primary" href=""  ng-click="newstatus(ref.AspDataId)">
                                 <md-tooltip md-direction="right">STATUS</md-tooltip><i class="ft-phone-forwarded"></i>
+                              </a>
+                              <a href="" ng-click="statusupdate($index, ref);" class="btn atag btn-sm btn-primary">
+                                <md-tooltip md-direction="left">OK</md-tooltip><i class="ft-check-square"></i>
                               </a>
                             </td>
                         </tr>

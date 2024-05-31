@@ -23,6 +23,7 @@ class AspData extends Model
         'AspDataFullDetails',
         'AspDataName',
         'AspDataNumber',
+        'AspStatus',
     ];
     protected $hidden = [
         'created_at',
