@@ -159,7 +159,18 @@ app.config(function($stateProvider,$urlRouterProvider) {
         });
     }
 
-      function al(text)
+
+    $scope.statusupdate = function(ind,aspdata)
+    {
+        $http({ url: 'asp_status_update/'+aspdata.AspDataId, method: 'PUT'}).success(function (result) {
+            al('Status Updated Successfully');
+            $state.go($state.current, {}, {reload: true});
+        });
+    }
+
+
+
+    function al(text)
     {
         $mdToast.show($mdToast.simple().textContent(text).position('bottom right').hideDelay(3000));
     }

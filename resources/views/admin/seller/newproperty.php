@@ -1,4 +1,4 @@
- 
+
 <style type="text/css">
   #map {
   height: 100%;
@@ -12,13 +12,13 @@
             <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title">{{formType}}  PROPERTY </h4>
-                </div>  
-                <p style="padding-top: 10px">திருப்பூர்  பகுதியில்  உள்ளவை மட்டும்  பதிவிடவும் <br> Enter Tirupur Surrounding Properties only.</p>                               
+                </div>
+                <p style="padding-top: 10px">திருப்பூர்  பகுதியில்  உள்ளவை மட்டும்  பதிவிடவும் <br> Enter Tirupur Surrounding Properties only.</p>
             </div>
         </div>
         <div class="card-body">
             <div class="card-block">
-               <div class="modal-body"> 
+               <div class="modal-body">
                   <div class="row">
 
                     <div class="col-md-8">
@@ -46,7 +46,7 @@
                             <ui-select-choices repeat="par in knowus | filter: {KnowusName: $select.search}">
                               <div>{{par.KnowusName}}</div>
                             </ui-select-choices>
-                          </ui-select>   
+                          </ui-select>
                         </div>
                       </div>
                      </fieldset>
@@ -64,10 +64,10 @@
                                   <ui-select-choices repeat="par in need | filter: {NeedName: $select.search}">
                                     <div>{{par.NeedName}}</div>
                                   </ui-select-choices>
-                              </ui-select>   
+                              </ui-select>
                              </div>
                           </div>
-                        </fieldset>                
+                        </fieldset>
                     </div>
                  </div>
                  <div class="row" ng-if="property_form.Need.NeedId == 1||property_form.Need.NeedId == 2">
@@ -86,12 +86,12 @@
                                   <ui-select-choices repeat="par in type | filter: {TypeName: $select.search}">
                                     <div>{{par.TypeName}}</div>
                                   </ui-select-choices>
-                              </ui-select>   
+                              </ui-select>
                            </div>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                      </div>
-                     
+
                      <div class="col-md-8">
                          <fieldset class="form-group floating-label-form-group">
                           <div class="row">
@@ -128,10 +128,10 @@
                               <md-datepicker ng-model="property_form.PropertyDate" name="Idate"  md-placeholder="Enter date"></md-datepicker>
                            </div>
                          </div>
-                        </fieldset> 
-                     </div> 
+                        </fieldset>
+                     </div>
 
-                     <div class="col-md-8 " >  
+                     <div class="col-md-8 " >
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -147,9 +147,9 @@
                        </div>
                       </fieldset>
                      </div>
-                     
-                 
-                     <div class="col-md-8  ">  
+
+
+                     <div class="col-md-8  ">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -170,7 +170,7 @@
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8 " >  
+                     <div class="col-md-8 " >
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -205,13 +205,13 @@
                               <ui-select-choices repeat="par in area | filter: {AreaName: $select.search}">
                                 <div>{{par.AreaName}}</div>
                               </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                         </div>
-                      </fieldset>                
+                      </fieldset>
                      </div>
 
-                     <div class="col-md-8 ">  
+                     <div class="col-md-8 ">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -224,7 +224,7 @@
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8 ">  
+                     <div class="col-md-8 ">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -236,13 +236,13 @@
                                 <ui-select-choices repeat="par in purpose | filter: {PurposeName: $select.search}">
                                   <div>{{par.PurposeName}}</div>
                                 </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                        </div>
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8">  
+                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -254,13 +254,13 @@
                                 <ui-select-choices repeat="par in road | filter: {RoadName: $select.search}">
                                   <div>{{par.RoadName}}</div>
                                 </ui-select-choices>
-                            </ui-select> 
+                            </ui-select>
                           </div>
                         </div>
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8">  
+                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -273,7 +273,7 @@
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8">  
+                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -285,7 +285,7 @@
                        </div>
                       </fieldset>
                     </div>
-                    <hr> 
+                    <hr>
 
                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
@@ -315,7 +315,7 @@
                                   <input type="checkbox" ng-model="property_form.PropertyCorner" class="btn btn-outline-primary atag btn-lg" ng-checked="property_form.PropertyCorner=='1'">
                                   <label> கார்னர்</label>
                                 </div>
-                             </div>  
+                             </div>
                           </div>
                       </fieldset>
                     </div>
@@ -351,8 +351,8 @@
                                   <input type="checkbox" ng-model="property_form.PropertyBuildCorner" class="btn btn-outline-primary atag btn-lg" ng-checked="property_form.PropertyBuildCorner=='1'">
                                   <label> கார்னர்</label>
                                 </div>
-                             </div> 
-                          </div>                           
+                             </div>
+                          </div>
                       </fieldset>
                    </div>
 
@@ -362,12 +362,12 @@
                           <div class="col-md-3">
                             <label for="title">கட்டடிடத்தின் அளவு / BUILDING SIZE</label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                              <input class="form-control" ng-model="property_form.PropertyBuildingSize" name="PropertyBuildingSize"  value="" type="text" >
                           </div>
                         </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
@@ -375,12 +375,12 @@
                           <div class="col-md-3">
                             <label for="title">கட்டடிடத்தின் வயது / BUILDING AGE</label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                              <input class="form-control" ng-model="property_form.PropertyBuildingAge" name="PropertyBuildingAge"  value="" type="text" >
                           </div>
                         </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
@@ -394,11 +394,11 @@
                               <ui-select-choices repeat="par in roof | filter: {RoofName: $select.search}">
                                 <div>{{par.RoofName}}</div>
                               </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                         </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                     <div class="col-md-8 ">
                       <fieldset class="form-group floating-label-form-group">
@@ -412,12 +412,12 @@
                                 <ui-select-choices repeat="par in floor | filter: {FloorName: $select.search}">
                                   <div>{{par.FloorName}}</div>
                                 </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
-                      </fieldset>                   
-                    </div>  
+                      </fieldset>
+                    </div>
 
-<!--                     <div class="col-md-8">  
+<!--                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -430,7 +430,7 @@
                       </fieldset>
                      </div>
 
-                     <div class="col-md-8">  
+                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -447,7 +447,7 @@
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="title">நீர் ஆதாரம் / WATER SOURCES</label> 
+                            <label for="title">நீர் ஆதாரம் / WATER SOURCES</label>
                               <a href="" ng-click="add_new_water();" class="btn atag"><i class="ft-plus"></i>
                               </a>
                             </div>
@@ -457,7 +457,7 @@
                                     <tr>
                                         <th width="5%">SNO</th>
                                         <th width="40%">SOURCE</th>
-                                        <th width="40%">DETAIL</th>     
+                                        <th width="40%">DETAIL</th>
                                         <th>ACTION</th>
                                     </tr>
                                 </thead>
@@ -467,11 +467,11 @@
                                         <td class="ta-amt td-mob-view">
                                             <select ng-model="wat.PropertyWaterSource" class="form-control">
                                               <option value="" disabled selected>SELECT WATER  SOURCE</option>
-                                              <option ng-repeat="waters in waterval" value="{{waters.value}}">{{waters.value}}</option>   
+                                              <option ng-repeat="waters in waterval" value="{{waters.value}}">{{waters.value}}</option>
                                             </select>
                                         </td>
                                         <td class="td-mob-view">
-                                          <input type="text"  class="form-control" ng-model="wat.PropertyWaterDetail">            
+                                          <input type="text"  class="form-control" ng-model="wat.PropertyWaterDetail">
                                         </td>
                                         <td class="ta-amt">
                                             <a href="" ng-click="add_new_water();" class="btn atag"><i class="ft-plus"></i></a>
@@ -500,7 +500,7 @@
                                   <tr>
                                       <th width="5%">SNO</th>
                                       <th width="40%">LINE</th>
-                                      <th width="40%">DETAIL</th>     
+                                      <th width="40%">DETAIL</th>
                                       <th>ACTION</th>
                                   </tr>
                               </thead>
@@ -510,11 +510,11 @@
                                       <td class="ta-amt td-mob-view">
                                           <select ng-model="eb.PropertyEbStatus" class="form-control">
                                             <option value="" disabled selected>SELECT EB LINE</option>
-                                            <option ng-repeat="ebs in ebval" value="{{ebs.value}}">{{ebs.value}}</option> 
+                                            <option ng-repeat="ebs in ebval" value="{{ebs.value}}">{{ebs.value}}</option>
                                           </select>
                                       </td>
                                       <td class="td-mob-view">
-                                        <input type="text"  class="form-control" ng-model="eb.PropertyEbDetail">            
+                                        <input type="text"  class="form-control" ng-model="eb.PropertyEbDetail">
                                       </td>
                                       <td class="ta-amt">
                                           <a href="" ng-click="add_new_eb();" class="btn atag"><i class="ft-plus"></i></a>
@@ -527,7 +527,7 @@
                       </div>
                     </fieldset>
                     </div>
-               
+
                     <div class="col-md-8">
                        <fieldset class="form-group floating-label-form-group">
                         <div class="row">
@@ -536,11 +536,11 @@
                           </div>
                          <div class="col-md-9">
                            <textarea class="form-control" ng-model="property_form.PropertyDescription" style="height: 100px !important;width: 100% !important;white-space: inherit !important;">
-                           </textarea> 
+                           </textarea>
                            </div>
                        </div>
                       </fieldset>
-                    </div>  
+                    </div>
 
                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
@@ -548,11 +548,11 @@
                           <div class="col-md-3">
                             <label for="title">5 PHOTOS </label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                             <input type='file' multiple ng-file='uploadfiles' multiple ng-files="getTheFiles($files)">
                          </div>
                        </div>
-                      </fieldset>                  
+                      </fieldset>
                     </div>
 
                     <div class="col-md-4">
@@ -569,11 +569,11 @@
                           <div class="col-md-3">
                             <label for="title">VIDEO</label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                           <input id="file"  fileModel file-model="property_form.PropertyGalleryVideo" name="PropertyGalleryVideo"  value="" type="file" >
                          </div>
                        </div>
-                      </fieldset>              
+                      </fieldset>
                     </div>
 
                     <div class="col-md-8">
@@ -582,11 +582,11 @@
                           <div class="col-md-3">
                               <label for="title">5 DOCUMENTS </label>
                             </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                             <input type='file' multiple ng-file='uploadfiles' multiple ng-files="getTheDocments($files)" >
                          </div>
                        </div>
-                      </fieldset>                  
+                      </fieldset>
                     </div>
 
 
@@ -622,12 +622,12 @@
                           <div class="col-md-3">
                             <label for="title">OFFICE LOCATION  </label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyLocation" name="PropertyLocation"  value="" type="text" >
                           </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                      <div class="col-md-8" ng-if="role == 1">
                       <fieldset class="form-group floating-label-form-group">
@@ -635,12 +635,12 @@
                           <div class="col-md-3">
                             <label for="title">SPOT LOCATION</label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyLocationSpot" name="PropertyLocationSpot"  value="" type="text" >
                           </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                     <div class="col-md-8" ng-if="property_form.Knowus.KnowusId != 5">
                       <fieldset class="form-group floating-label-form-group">
@@ -648,25 +648,25 @@
                           <div class="col-md-3">
                             <label for="title">REFFERED NAME</label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyReferName" name="PropertyReferName"  value="" type="text" >
                          </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
-                 
+                      </fieldset>
+                    </div>
+
                     <div class="col-md-8" ng-if="property_form.Knowus.KnowusId != 5">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
                            <label for="title">REFFERED NUMBER</label>
                          </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyReferNumber" name="PropertyReferNumber"  value="" type="text" >
                          </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
                   </div>
 
 
@@ -687,10 +687,10 @@
                                 <ui-select-choices repeat="par in type | filter: {TypeName: $select.search}">
                                   <div>{{par.TypeName}}</div>
                                 </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                        </div>
-                      </fieldset>                
+                      </fieldset>
                      </div>
                      <div class="col-md-8">
                          <fieldset class="form-group floating-label-form-group">
@@ -726,8 +726,8 @@
                               <md-datepicker ng-model="property_form.PropertyDate" name="Idate"  md-placeholder="Enter date"></md-datepicker>
                            </div>
                          </div>
-                        </fieldset> 
-                     </div> 
+                        </fieldset>
+                     </div>
                      <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
@@ -740,13 +740,13 @@
                               <ui-select-choices repeat="par in area | filter: {AreaName: $select.search}">
                                 <div>{{par.AreaName}}</div>
                               </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                         </div>
-                      </fieldset>                
+                      </fieldset>
                      </div>
 
-                     <div class="col-md-8 " >  
+                     <div class="col-md-8 " >
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -767,7 +767,7 @@
                       </fieldset>
                      </div>
 
-                      <div class="col-md-8 ">  
+                      <div class="col-md-8 ">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -807,7 +807,7 @@
                                   <input type="checkbox" ng-model="property_form.PropertyCorner" class="btn btn-outline-primary atag btn-lg" ng-checked="property_form.PropertyCorner=='1'">
                                   <label> கார்னர்</label>
                                 </div>
-                             </div>  
+                             </div>
                           </div>
                       </fieldset>
                     </div>
@@ -842,8 +842,8 @@
                                   <input type="checkbox" ng-model="property_form.PropertyBuildCorner" class="btn btn-outline-primary atag btn-lg" ng-checked="property_form.PropertyBuildCorner=='1'">
                                   <label> கார்னர்</label>
                                 </div>
-                             </div> 
-                          </div>                           
+                             </div>
+                          </div>
                       </fieldset>
                    </div>
                    <div class="col-md-8">
@@ -858,10 +858,10 @@
                               <ui-select-choices repeat="par in roof | filter: {RoofName: $select.search}">
                                 <div>{{par.RoofName}}</div>
                               </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
                         </div>
-                      </fieldset>                   
+                      </fieldset>
                     </div>
                     <div class="col-md-8 ">
                       <fieldset class="form-group floating-label-form-group">
@@ -875,11 +875,11 @@
                                 <ui-select-choices repeat="par in floor | filter: {FloorName: $select.search}">
                                   <div>{{par.FloorName}}</div>
                                 </ui-select-choices>
-                            </ui-select>   
+                            </ui-select>
                          </div>
-                      </fieldset>                   
-                    </div> 
-                    <div class="col-md-8">  
+                      </fieldset>
+                    </div>
+                    <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -891,7 +891,7 @@
                         </div>
                       </fieldset>
                      </div>
-                     <div class="col-md-8">  
+                     <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
@@ -902,12 +902,12 @@
                          </div>
                        </div>
                       </fieldset>
-                     </div> 
+                     </div>
                      <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="title">நீர் ஆதாரம் / WATER SOURCES</label> 
+                            <label for="title">நீர் ஆதாரம் / WATER SOURCES</label>
                               <a href="" ng-click="add_new_water();" class="btn atag"><i class="ft-plus"></i>
                               </a>
                             </div>
@@ -917,7 +917,7 @@
                                     <tr>
                                         <th width="5%">SNO</th>
                                         <th width="40%">SOURCE</th>
-                                        <th width="40%">DETAIL</th>     
+                                        <th width="40%">DETAIL</th>
                                         <th>ACTION</th>
                                     </tr>
                                 </thead>
@@ -927,11 +927,11 @@
                                         <td class="ta-amt td-mob-view">
                                             <select ng-model="wat.PropertyWaterSource" class="form-control">
                                               <option value="" disabled selected>SELECT WATER  SOURCE</option>
-                                              <option ng-repeat="waters in waterval" value="{{waters.value}}">{{waters.value}}</option>   
+                                              <option ng-repeat="waters in waterval" value="{{waters.value}}">{{waters.value}}</option>
                                             </select>
                                         </td>
                                         <td class="td-mob-view">
-                                          <input type="text"  class="form-control" ng-model="wat.PropertyWaterDetail">            
+                                          <input type="text"  class="form-control" ng-model="wat.PropertyWaterDetail">
                                         </td>
                                         <td class="ta-amt">
                                             <a href="" ng-click="add_new_water();" class="btn atag"><i class="ft-plus"></i></a>
@@ -960,7 +960,7 @@
                                   <tr>
                                       <th width="5%">SNO</th>
                                       <th width="40%">LINE</th>
-                                      <th width="40%">DETAIL</th>     
+                                      <th width="40%">DETAIL</th>
                                       <th>ACTION</th>
                                   </tr>
                               </thead>
@@ -970,11 +970,11 @@
                                       <td class="ta-amt td-mob-view">
                                           <select ng-model="eb.PropertyEbStatus" class="form-control">
                                             <option value="" disabled selected>SELECT EB LINE</option>
-                                            <option ng-repeat="ebs in ebval" value="{{ebs.value}}">{{ebs.value}}</option> 
+                                            <option ng-repeat="ebs in ebval" value="{{ebs.value}}">{{ebs.value}}</option>
                                           </select>
                                       </td>
                                       <td class="td-mob-view">
-                                        <input type="text"  class="form-control" ng-model="eb.PropertyEbDetail">            
+                                        <input type="text"  class="form-control" ng-model="eb.PropertyEbDetail">
                                       </td>
                                       <td class="ta-amt">
                                           <a href="" ng-click="add_new_eb();" class="btn atag"><i class="ft-plus"></i></a>
@@ -996,22 +996,22 @@
                           </div>
                          <div class="col-md-9">
                            <textarea class="form-control" ng-model="property_form.PropertyDescription" style="height: 200px !important;width: 100% !important;white-space: inherit !important;">
-                           </textarea> 
+                           </textarea>
                            </div>
                        </div>
                       </fieldset>
-                    </div>  
+                    </div>
                   <div class="col-md-8">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
                             <label for="title">5 PHOTOS </label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                             <input type='file' multiple ng-file='uploadfiles' multiple ng-files="getTheFiles($files)">
                          </div>
                        </div>
-                      </fieldset>                  
+                      </fieldset>
                     </div>
 
                     <div class="col-md-4">
@@ -1028,11 +1028,11 @@
                           <div class="col-md-3">
                             <label for="title">VIDEO</label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                           <input id="file"  fileModel file-model="property_form.PropertyGalleryVideo" name="PropertyGalleryVideo"  value="" type="file" >
                          </div>
                        </div>
-                      </fieldset>              
+                      </fieldset>
                     </div>
 
                     <div class="col-md-8">
@@ -1041,11 +1041,11 @@
                           <div class="col-md-3">
                               <label for="title">5 DOCUMENTS </label>
                             </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                             <input type='file' multiple ng-file='uploadfiles' multiple ng-files="getTheDocments($files)" >
                          </div>
                        </div>
-                      </fieldset>                  
+                      </fieldset>
                     </div>
 
 
@@ -1081,12 +1081,12 @@
                           <div class="col-md-3">
                             <label for="title">கூகுள் மேப் இடத்தின் லிங்க் / GOOGLE MAP LOCATION LINK </label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyLocation" name="PropertyLocation"  value="" type="text" >
                           </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                      <div class="col-md-8" ng-if="role == 1">
                       <fieldset class="form-group floating-label-form-group">
@@ -1094,12 +1094,12 @@
                           <div class="col-md-3">
                             <label for="title">இடத்தின் LOCATION</label>
                           </div>
-                          <div class="col-md-9">                             
+                          <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyLocationSpot" name="PropertyLocationSpot"  value="" type="text" >
                           </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
                     <div class="col-md-8" ng-if="property_form.Knowus.KnowusId != 5">
                       <fieldset class="form-group floating-label-form-group">
@@ -1107,27 +1107,27 @@
                           <div class="col-md-3">
                             <label for="title">REFFERED NAME</label>
                           </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyReferName" name="PropertyReferName"  value="" type="text" >
                          </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
-                 
+                      </fieldset>
+                    </div>
+
                     <div class="col-md-8" ng-if="property_form.Knowus.KnowusId != 5">
                       <fieldset class="form-group floating-label-form-group">
                         <div class="row">
                           <div class="col-md-3">
                            <label for="title">REFFERED NUMBER</label>
                          </div>
-                         <div class="col-md-9">                             
+                         <div class="col-md-9">
                            <input class="form-control" ng-model="property_form.PropertyReferNumber" name="PropertyReferNumber"  value="" type="text" >
                          </div>
                        </div>
-                      </fieldset>                   
-                    </div> 
+                      </fieldset>
+                    </div>
 
-              </div> 
+              </div>
 
               <div class="col-lg-8 col-sm-8 mt-3 mt-lg-0">
                 <div class="btn-list">

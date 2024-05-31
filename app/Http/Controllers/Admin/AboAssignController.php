@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\AboAssign;
 use App\Models\Admin\Mediator;
+use App\Models\Admin\MediatorAssign;
 use App\Models\Admin\Property;
 use App\User;
 use DB;
@@ -176,90 +177,22 @@ class AboAssignController extends Controller
         $input = $request->all();
         $data =  $assign->update($input);
 
+        if($input['AboAssignAccess'] === 'no'){
+             $mediator =  MediatorAssign::where('tbl_mediator_assign.PropertyId',$assign->PropertyId)
+               ->where('tbl_mediator_assign.AboAssignedId',$assign->AboAssignedId)
+               ->get();
+             if($mediator !== null){
+                foreach($mediator as $media){
+                    $media->update(['MediatorAssignAccess'=>'no']);
+                   }
+             }
+
+        }
+
         return response($assign);
    }
 
-    public function MediatorFollowGet(Request $request, $mid,$pid)
-    {
-        $property = Property::select( 'tbl_property.*',
-            DB::raw('(select PropertyGalleryImage from tbl_property_gallery where tbl_property_gallery.PropertyId  =  tbl_property.PropertyId order by PropertyId asc limit 1) as PropertyGalleryImage'))
-        ->where('tbl_property.PropertyId',$pid)
-        ->first();
 
-        $mediator = AboAssign::where('tbl_abo_assign.PropertyId',$pid)
-        ->where('tbl_abo_assign.AboId',$mid)
-        ->first();
-
-        $datetime1 = new DateTime();
-        $datetime2 = new DateTime($mediator->AboAssignDate);
-        $interval = $datetime1->diff($datetime2);
-        $days = $interval->format('%a');
-
-        $RoleId = Auth::user()->RoleId;
-
-
-        return response(['property' => $property , 'mediator' => $mediator,'role' => $RoleId,'days' => $days]);
-    }
-
-    public function MediatorFollowValGet(Request $request, $mid,$pid)
-    {
-        $follow = DB::table('tbl_mediator_follow')
-        ->where('tbl_mediator_follow.PropertyId',$pid)
-        ->where('tbl_mediator_follow.AboId',$mid)
-        ->get();
-
-        return response($follow);
-    }
-
-    public function MediatorFollowAdd(Request $request)
-    {
-        $input = $request->all();
-        $input['id'] = Auth::id();
-        $follow = MediatorFollow::create($input);
-
-        return response($follow);
-    }
-
-    public function MediatorFollowUpdate(Request $request, $id)
-    {
-        $follow = MediatorFollow::where('tbl_mediator_follow.id',Auth::id())->find($id);
-        $input = $request->all();
-        $data =  $follow->update($input);
-
-        return response($follow);
-    }
-
-    public function MediatorBuyerValGet(Request $request, $mid,$pid)
-    {
-        $person = DB::table('tbl_mediator_buyer')
-        ->where('tbl_mediator_buyer.PropertyId',$pid)
-        ->where('tbl_mediator_buyer.AboId',$mid)
-        ->get();
-
-        $mediator = AboAssign::where('tbl_abo_assign.PropertyId',$pid)
-        ->where('tbl_abo_assign.AboId',$mid)
-        ->first();
-
-        return response(['person' => $person , 'mediator' => $mediator ]);
-    }
-
-    public function MediatorBuyerAdd(Request $request)
-    {
-        $input = $request->all();
-        $input['id'] = Auth::id();
-        $person = MediatorBuyer::create($input);
-
-        return response($person);
-    }
-
-    public function MediatorBuyerUpdate(Request $request, $id)
-    {
-        $person = MediatorBuyer::where('tbl_mediator_buyer.id',Auth::id())->find($id);
-        $input = $request->all();
-        $data =  $person->update($input);
-
-        return response($person);
-    }
 
     public function AssignStatusUpdate(Request $request, $id)
     {

@@ -11,10 +11,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 .controller('PromoterImageController', function($filter, $rootScope,$scope, PROMOTER, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, $location, STATES , Storage){
 
-    $scope.proimg_form = {}; 
+    $scope.proimg_form = {};
     $scope.isDisabled = false;
 
-    $http({ url: 'promoterget', method: 'GET'}).success(function (result) {               
+    $http({ url: 'promoterget', method: 'GET'}).success(function (result) {
          $scope.promoter = result;
     });
 
@@ -44,7 +44,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.edit = function(ind,image)
     {
         index = ind;
-        $scope.formType = 'EDIT';     
+        $scope.formType = 'EDIT';
         $scope.proimg_form = angular.copy(image);
         $scope.proimg_form.Promoter = {ProSiteId:image.ProSiteId,PromoterName:image.PromoterName,ProTypeName:image.ProTypeName};
         $scope.proimg_form.ProGalleryImage1 = "/uploads/promoter/gallery/"+image.ProGalleryImage1;
@@ -64,7 +64,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.isDisabled = false;
     $scope.postForm = function()
-    {    
+    {
         $scope.isDisabled = true;
         $scope.formError={};
         var errors=[];
@@ -73,7 +73,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         var proimage = new FormData();
 
         proimage.append("ProSiteId",$scope.proimg_form.Promoter.ProSiteId);
@@ -86,8 +86,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
         proimage.append("ProGalleryImage5",$scope.proimg_form.ProGalleryImage5);
         proimage.append("ProGalleryVideo",$scope.proimg_form.ProGalleryVideo);
         proimage.append("ProLocation",$scope.proimg_form.ProLocation);
-      
-     
+
+
         $http({ url: 'promoterimage', method: 'POST',data:proimage,headers: { 'Content-Type' : undefined}}).success(function(data){
             $('#proimg_form').modal('hide');
             al('Image Created Successfully');
@@ -119,8 +119,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
         proimage.append("ProGalleryVideo",$scope.proimg_form.ProGalleryVideo);
         proimage.append("ProGalleryVideo1",$scope.proimg_form.ProGalleryVideo1);
         proimage.append("ProLocation",$scope.proimg_form.ProLocation);
-      
- 
+
+
         $http({ url: 'galleryimageupdate/'+$scope.proimg_form.ProGalleryId, method: 'POST',data:proimage,headers: { 'Content-Type' : undefined}}).success(function(data){
             $('#proimg_form').modal('hide');
             al('Gallery Updated Successfully');
@@ -133,13 +133,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,customer,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Customer?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'customer/'+customer.CustomerId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -184,23 +184,23 @@ app.config(function($stateProvider,$urlRouterProvider) {
 })
 
 .controller('PromoterSiteController', function($filter, $rootScope,$scope, PROMOTER, $http, $mdDialog, $mdToast, $httpParamSerializer, $state, $timeout, $location, STATES ,Storage){
-    $scope.promotertype = Storage.data.promotertype; 
+    $scope.promotertype = Storage.data.promotertype;
 
 
     $scope.states = STATES;
     $scope.form = {};
 
-    // $http({ url: 'comtype', method: 'GET'}).success(function (result) {   
+    // $http({ url: 'comtype', method: 'GET'}).success(function (result) {
     //     $scope.comtype = result;
     // });
 
     $http({ url: 'area', method: 'GET'}).success(function(data){
-        $scope.area = data;    
+        $scope.area = data;
     });
-  
+
     $scope.getTable = function(page)
     {
-        $http({ url: 'sitemap', method: 'GET'}).success(function (result) {               
+        $http({ url: 'sitemap', method: 'GET'}).success(function (result) {
             $scope.sitedata = result;
 
             angular.element(document).ready( function () {
@@ -214,7 +214,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
                 ]
                });
             });
-        });       
+        });
     }
 
     $scope.new = function()
@@ -255,7 +255,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     {
         $scope.imagesrc = [];
         var image = {};
-        
+
         $http({ url: 'promoterimageget/'+site.ProSiteId, method: 'GET'}) .success(function (result) {
             $scope.leng = result;
             angular.forEach($scope.leng, function(value) {
@@ -286,7 +286,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function add()
-    { 
+    {
         sitemap.append("SiteMap",$scope.prosite_form.SiteMap);
         sitemap.append("ProTypeName",$scope.prosite_form.ProTypeName);
         sitemap.append("PromoterName",$scope.prosite_form.PromoterName);
@@ -307,6 +307,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         sitemap.append("ProMaxType",$scope.prosite_form.ProMaxType);
         sitemap.append("ProDistance",$scope.prosite_form.ProDistance);
         sitemap.append("ProUnit",$scope.prosite_form.ProUnit);
+        sitemap.append("ProDescription",$scope.prosite_form.ProDescription);
 
         $http({ url: 'sitemap', method: 'POST',data:sitemap,headers: { 'Content-Type' : undefined}}).success(function(data){
             $('#prosite_form').modal('hide');
@@ -320,7 +321,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     function update()
-    {  
+    {
         sitemap.append("SiteMap",$scope.prosite_form.SiteMap);
         sitemap.append("SiteMap1",$scope.prosite_form.SiteMap1);
         sitemap.append("ProTypeName",$scope.prosite_form.ProTypeName);
@@ -343,7 +344,8 @@ app.config(function($stateProvider,$urlRouterProvider) {
         sitemap.append("ProMaxType",$scope.prosite_form.ProMaxType);
         sitemap.append("ProDistance",$scope.prosite_form.ProDistance);
         sitemap.append("ProUnit",$scope.prosite_form.ProUnit);
-        
+        sitemap.append("ProDescription",$scope.prosite_form.ProDescription);
+
         $http({ url: 'sitemapupdate/'+$scope.prosite_form.ProSiteId, method: 'POST',data:sitemap,headers: { 'Content-Type' : undefined}}).success(function(data){
             $('#prosite_form').modal('hide');
             al('Site Updated Successfully');
@@ -356,13 +358,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,customer,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Site?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'customer/'+customer.CustomerId, method: 'DELETE'}).success(function(data){
                 al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -409,10 +411,10 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     $scope.getTable = function(page)
     {
-        $http({ url: 'sitemapdetail/'+id, method: 'GET'}).success(function (result) {               
+        $http({ url: 'sitemapdetail/'+id, method: 'GET'}).success(function (result) {
             $scope.sitedetail = result;
             $scope.site = $scope.sitedetail.detail;
-        });       
+        });
     }
 
 
@@ -437,7 +439,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
     function update()
     {
-       
+
         $http({ url: 'sitestatus/'+$scope.site_detail.ProSiteStatusId, method: 'PUT',data:$scope.site_detail}).success(function(data){
             $('#site_detail').modal('hide');
             al('Status Updated Successfully');
@@ -449,13 +451,13 @@ app.config(function($stateProvider,$urlRouterProvider) {
     }
 
     $scope.delete = function(ind,customer,ev)
-    {    
+    {
         var confirm = $mdDialog.confirm({targetEvent:ev})
             .title('Are You Sure To Delete This Status?')
             .ok('Yes')
             .cancel('No');
 
-        $mdDialog.show(confirm).then(function() {     
+        $mdDialog.show(confirm).then(function() {
             $http({ url: 'customer/'+customer.CustomerId, method: 'DELETE'}).success(function(data){
                  al('Deleted Successfully');
                 $state.go($state.current, {}, {reload: true});
@@ -481,7 +483,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     $scope.form = {};
 
     $http({ url: 'buyercommentpromoterget/'+id, method: 'GET'}).success(function(data)
-    { 
+    {
         $scope.form = data;
     });
 
@@ -504,7 +506,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         }).error(function(data){
           al("Comment Not Updated");
         });
-    }   
+    }
 
 
     function al(text)

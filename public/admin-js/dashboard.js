@@ -73,6 +73,8 @@ $scope.dashboard =function(){
             $scope.client = result.client;
             $scope.medfollow = result.mediatorfollowstatus;
             $scope.profollow = result.propertyfollowstatus;
+            $scope.aspdata = result.aspdata;
+            console.log($scope.aspdata );
             if($scope.role === 1 || $scope.role === 4 || $scope.role === 5){
                 $scope.totalassign = result.totalassign;
                 $scope.totalassignyes = result.totalassignyes;

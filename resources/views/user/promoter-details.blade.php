@@ -300,6 +300,7 @@
                                 <li><label>No of Sites:</label>
                                    <span>{{$promoter['FlatCount']}}</span>
                                 </li>
+                                <li><label>Property Description:</label> <span>{{$promoter['ProDescription']}}</span></li>
                             </ul>
                          </div>
                          <div class="col-md-6">

@@ -5,19 +5,65 @@
               <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title"> MEDIATOR FOLLOW-UP PAGE </h4>
-                </div>    
+                </div>
                 <!--<div class="float-right">
                     <div class="row">
                       <div class="pad-lr-5 pad-top-8">
                         <a href="" ng-click="new()" class="btn atag">ADD SITEMAP </a>
                       </div>
                     </div>
-                </div>  -->                            
+                </div>  -->
             </div>
         </div>
         <div class="card-body">
             <div class="card-block">
                 <div class="row">
+
+
+
+                <div class="col-md-6 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <label>Property.No</label><br>
+                                        <label>Property Name</label><br>
+                                        <label>Abo Name</label><br>
+                                        <label>Mediator Name</label><br>
+
+                                    </div>
+                                    <div class="col-md-8 col-sm-6">
+                                        <p>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.PropertyId}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.PropertyName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.AboName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.MediatorName}} </b></span><br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <label>Assigning Date</label><br>
+                                        <label>Status</label><br>
+                                        <label>Day to Assigned</label><br>
+                                        <label>Description</label><br>
+                                    </div>
+                                    <div class="col-md-8 col-sm-6">
+                                        <p>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.MediatorAssignDate}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.MediatorAssignStatus}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{days}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{mediator_follow_form.MediatorAssignDesc}} </b></span><br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+<!--
                   <div class="col-md-2">
                     <label for="title">Abo.No</label>
                     <input type="text"class="form-control"  ng-model="mediator_follow_form.AboId"  style="border: none !important;" readonly="">
@@ -55,7 +101,7 @@
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">Status</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="mediator_follow_form.MediatorAssignStatus" 
+                           <input type="text"class="form-control"  ng-model="mediator_follow_form.MediatorAssignStatus"
                            style="border: none !important;" readonly="">
                          </div>
                       </fieldset>
@@ -65,31 +111,31 @@
                         <label for="title">Description</label>
                          <div class="">
                            <textarea class="form-control" ng-model="mediator_follow_form.MediatorAssignDesc" style="height: 100px !important;width: 100% !important;white-space: inherit !important;" readonly="">
-                           </textarea> 
+                           </textarea>
                          </div>
                       </fieldset>
-                   </div>   
+                   </div>
                    <div class="col-md-1">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">Days to Assigned</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="days" 
+                           <input type="text"class="form-control"  ng-model="days"
                            style="border: none !important;" readonly="">
-                           </textarea> 
+                           </textarea>
                          </div>
                       </fieldset>
-                   </div>   
-                 <!--  <div class="col-md-2">
+                   </div>
+                  <div class="col-md-2">
                         <label for="title">Image</label>
                          <img src="uploads/property/gallery/{{follow_form.PropertyGalleryImage}}" width="60px" height="60px" ng-if="follow_form.PropertyGalleryImage">
                          </img>
-                  </div> -->
-                  
-                  <!--  <div class="col-md-2">
+                  </div>
+
+                   <div class="col-md-2">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PENDING RESON</label>
                          <div class="">
-                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason" 
+                           <input type="text"class="form-control"  ng-model="follow_form.PropertyPendingReason"
                            style="border: none !important;">
                          </div>
                       </fieldset>
@@ -138,7 +184,7 @@
                                     </a>
                                     <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, site);">
                                       <md-tooltip md-direction="top">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                                    </a> 
+                                    </a>
                                   </td>
                               </tr>
                           </tbody>
@@ -173,7 +219,7 @@
                                     </a>
                                     <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, site);">
                                       <md-tooltip md-direction="top">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                                    </a> 
+                                    </a>
                                   </td>
                               </tr>
                           </tbody>
@@ -199,7 +245,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY</label>
                          <div class="">
@@ -207,7 +253,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY NAME</label>
                          <div class="">
@@ -215,7 +261,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR</label>
                          <div class="">
@@ -223,7 +269,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR NAME</label>
                          <div class="">
@@ -231,7 +277,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DATE</label>
                          <div class="">
@@ -245,7 +291,7 @@
                          <div class="">
                             <input type="text" number-to-string class="form-control"  ng-model="mediator_follow_form.MediatorViewedBuyer">
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                        <fieldset class="form-group floating-label-form-group">
@@ -260,13 +306,13 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DESCRIPTION</label>
                          <div class="">
-                          <textarea class="form-control" ng-model="mediator_follow_form.MediatorFollowDesc" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                          <textarea class="form-control" ng-model="mediator_follow_form.MediatorFollowDesc" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
                       </fieldset>
                     </div>
@@ -274,11 +320,11 @@
                        <fieldset class="form-group floating-label-form-group">
                         <label for="title">REMARKS</label>
                          <div class="">
-                            <textarea class="form-control" ng-model="mediator_follow_form.MediatorFollowRemarks" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                            <textarea class="form-control" ng-model="mediator_follow_form.MediatorFollowRemarks" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postForm();" class="btn btn-outline-primary atag btn-lg" value="SAVE">
@@ -303,7 +349,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                     <div class="col-md-6" >   
+                     <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY</label>
                          <div class="">
@@ -311,7 +357,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY NAME</label>
                          <div class="">
@@ -319,7 +365,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR</label>
                          <div class="">
@@ -327,7 +373,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR NAME</label>
                          <div class="">
@@ -335,7 +381,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DATE</label>
                          <div class="">
@@ -343,7 +389,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >  
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PERSON NAME</label>
                          <div class="">
@@ -357,7 +403,7 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="mediator_buyer_form.PersonNumber" onlydigits >
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                        <fieldset class="form-group floating-label-form-group">
@@ -372,13 +418,13 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">DESCRIPTION</label>
                          <div class="">
-                          <textarea class="form-control" ng-model="mediator_buyer_form.MediatorBuyerDesc" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                          <textarea class="form-control" ng-model="mediator_buyer_form.MediatorBuyerDesc" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
                       </fieldset>
                     </div>
@@ -386,11 +432,11 @@
                        <fieldset class="form-group floating-label-form-group">
                         <label for="title">REMARKS</label>
                          <div class="">
-                            <textarea class="form-control" ng-model="mediator_buyer_form.MediatorBuyerRemarks" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea> 
+                            <textarea class="form-control" ng-model="mediator_buyer_form.MediatorBuyerRemarks" style="height: 100px !important;width: 100%!important;white-space: inherit!important;"></textarea>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postPerson();" class="btn btn-outline-primary atag btn-lg" value="SAVE">
@@ -414,7 +460,7 @@
               <form>
                 <div class="modal-body">
                   <div class="row">
-                     <div class="col-md-6" >   
+                     <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY</label>
                          <div class="">
@@ -422,7 +468,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">PROPERTY NAME</label>
                          <div class="">
@@ -430,7 +476,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR</label>
                          <div class="">
@@ -438,7 +484,7 @@
                          </div>
                       </fieldset>
                     </div>
-                    <div class="col-md-6" >   
+                    <div class="col-md-6" >
                       <fieldset class="form-group floating-label-form-group">
                         <label for="title">MEDIATOR NAME</label>
                          <div class="">
@@ -459,9 +505,9 @@
                               <option value="End">End</option>
                             </select>
                          </div>
-                      </fieldset> 
+                      </fieldset>
                     </div>
-                  </div>    
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal" >CLOSE</a>
                     <input type="submit" ng-disabled="isDisabled" ng-click="postStatus();" class="btn btn-outline-primary atag btn-lg" value="SAVE">

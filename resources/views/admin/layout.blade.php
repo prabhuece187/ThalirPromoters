@@ -161,6 +161,18 @@
                 </li>
                 <?php }?>
 
+                <?php if ($data == 1 || $data == 2) { ?>
+                    <li class="has-sub nav-item">
+                      <a href=""><i class="ft-user-plus"></i>
+                        <span data-i18n="" class="menu-title">ASP </span>
+                      </a>
+                      <ul class="menu-content">
+                        <li class="nav-item"><a href="#/aspdata"><span data-i18n="" class="menu-title">ASP DATA</span></a>
+                        </li>
+                      </ul>
+                    </li>
+                <?php }?>
+
                 <?php if ($data == 1 || $data == 3) { ?>
                     <li class="has-sub nav-item">
                       <a href=""><i class="ft-user-plus"></i>
@@ -173,17 +185,7 @@
                     </li>
                 <?php }?>
 
-                <?php if ($data == 1 || $data == 2) { ?>
-                    <li class="has-sub nav-item">
-                      <a href=""><i class="ft-user-plus"></i>
-                        <span data-i18n="" class="menu-title">ASP </span>
-                      </a>
-                      <ul class="menu-content">
-                        <li class="nav-item"><a href="#/aspdata"><span data-i18n="" class="menu-title">ASP DATA</span></a>
-                        </li>
-                      </ul>
-                    </li>
-                <?php }?>
+
 
                 <?php if ($data == 1) { ?>
                     <li class="">
@@ -280,7 +282,21 @@
                       <?php if ($data == 1) { ?>
                         <li class="">
                           <a href="#/mediator_follow_report">
-                            <span data-i18n="" class="menu-title">MEDIATOR STATUSWISE</span>
+                            <span data-i18n="" class="menu-title">MEDIATOR STATUS WISE</span>
+                          </a>
+                        </li >
+                      <?php }?>
+                      <?php if ($data == 1) { ?>
+                        <li class="">
+                          <a href="#/abooverall">
+                            <span data-i18n="" class="menu-title">ABO OVERALL</span>
+                          </a>
+                        </li >
+                      <?php }?>
+                      <?php if ($data == 1) { ?>
+                        <li class="">
+                          <a href="#/mediatoroverall">
+                            <span data-i18n="" class="menu-title">MEDIATOR OVERALL</span>
                           </a>
                         </li >
                       <?php }?>
