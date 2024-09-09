@@ -4,7 +4,7 @@
         <div class="col-sm-12">
               <div class="card-header">
                 <div class="tilte-head">
-                      <h4 class="card-title"> ROUGH DATAS </h4>
+                      <h4 class="card-title"> ALL PROPERTY </h4>
                 </div>
                 <div class="float-right">
                     <div class="row">

@@ -82,6 +82,7 @@
 
                             </ul>
                             @endif
+                            @if(session()->get('name') == 1)
                             <hr>
                             <h4 class="ltn__widget-title">I Am Looking </h4>
                             <ul>
@@ -118,6 +119,7 @@
                                 </li>
                                 @endforeach
                             </ul>
+                            @endif
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
@@ -188,7 +190,7 @@
                                 </div>
                             </div>
 
-                            <hr>
+                            <!-- <hr>
                              <h4 class="ltn__widget-title">Budget Sort</h4>
                              <ul>
                                 <li>
@@ -203,7 +205,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul>
+                            </ul> -->
 
                         </div>
                         <!-- Category Widget -->
@@ -262,6 +264,7 @@
 
                             </ul>
                             @endif
+                            @if(session()->get('name') == 1)
                             <hr>
                              <h4 class="ltn__widget-title">I Am Looking </h4>
                              <ul>
@@ -298,6 +301,7 @@
                                 </li>
                                 @endforeach
                             </ul>
+                            @endif
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
@@ -369,7 +373,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
+                             <!--    <hr>
                              <h4 class="ltn__widget-title">Budget Sort</h4>
                              <ul style="list-style-type: none;">
                                 <li>
@@ -384,7 +388,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul>
+                            </ul> -->
                             </div>
                             </div>
 

@@ -34,18 +34,18 @@ var app =  angular.module('Bill',['ui.router','angularMoment','ngAnimate','ui.se
 .directive('onlydigits', function() {
 return {
     restrict: 'A',
-    link: function(scope, element, attrs) {   
+    link: function(scope, element, attrs) {
       element.on('keypress', function(event) {
-        if (!isIntegerChar() ) 
+        if (!isIntegerChar() )
           event.preventDefault();
-        
+
         function isIntegerChar() {
           return /[0-9]|[.]|-/.test(
             String.fromCharCode(event.which))
         }
 
-      })       
-    
+      })
+
     }
   }
 })
@@ -64,7 +64,7 @@ return {
                     return transformedInput;
                 }
                 return undefined;
-            }            
+            }
             ngModelCtrl.$parsers.push(fromUser);
         }
     };
@@ -77,7 +77,7 @@ return {
           var model = $parse(attrs.fileModel);
           var modelSetter = model.assign;
           var isMultiple = attrs.multiple;
-          
+
           element.bind('change', function(){
             var values = [];
             var size = 0;
@@ -99,7 +99,7 @@ return {
                                 modelSetter(scope, values[0]);
                             }
                         }
-                        
+
                     });
           });
        }
@@ -149,31 +149,31 @@ return {
   }
 }])
 
-.constant('Storage', {data:{   
+.constant('Storage', {data:{
      cheque_status : [{id:1,value:'COLLECTION'},{id:2,value:'CLEARED'},
      {id:3,value:'RETURNED'}],
      request : [{id:1,value:'Land'},{id:2,value:'Home&Villas'},
      {id:3,value:'Commercial'},{id:4,value:'Others'}],
-     status : [{id:1,value:'Completed'},{id:2,value:'Pending'},{id:3,value:'Approved'},{id:4,value:'Waitting'},{id:4,value:'Canceled'}],
+     status : [{id:1,value:'Completed'},{id:2,value:'Processing'},{id:3,value:'Advanced'},{id:4,value:'Waitting'},{id:4,value:'Canceled'}],
      followstatus : [{id:1,value:'Approved'},{id:2,value:'Cancel'}],
      promotertype : [{id:1,value:'Land'},{id:2,value:'Form Land'},
      {id:3,value:'Building'}],
      propertystatus : [{id:1,value:'BOOKED'},{id:2,value:'AVAILABLE'},{id:3,value:'SOLD'},{id:4,value:'RESERVED'}],
      payment_Type : [{id:1,value:'CHEQUE'},{id:2,value:'CASH'},{id:3,value:'RTGS'}],
-     dc_status : [{id:1,value:'CLEARED'},{id:0,value:'PENDING'}], 
-     unit : [{id:1,value:'Sqft'},{id:2,value:'Meter'},{id:3,value:'Cent'},{id:4,value:'Acre'}], 
-     water : [{id:1,value:'Well'},{id:2,value:'Bore Well'},{id:3,value:'Corparation Water'},{id:4,value:'Vaaikkal Paasanam'},{id:5,value:'Nill'}], 
-     eb : [{id:1,value:'Single Phase'},{id:2,value:'Three Phase'},{id:3,value:'Free Phase Line'},{id:4,value:'Nill'}], 
-     face : [{id:1,value:'North'},{id:2,value:'South'},{id:3,value:'west'},{id:4,value:'East'},{id:5,value:'Corner'}], 
-     const_status : [{id:1,value:'Ready To Move '},{id:2,value:'Under Construction'},{id:3,value:'Upcoming Process'}], 
-     
+     dc_status : [{id:1,value:'CLEARED'},{id:0,value:'PENDING'}],
+     unit : [{id:1,value:'Sqft'},{id:2,value:'Meter'},{id:3,value:'Cent'},{id:4,value:'Acre'}],
+     water : [{id:1,value:'Well'},{id:2,value:'Bore Well'},{id:3,value:'Corparation Water'},{id:4,value:'Vaaikkal Paasanam'},{id:5,value:'Nill'}],
+     eb : [{id:1,value:'Single Phase'},{id:2,value:'Three Phase'},{id:3,value:'Free Phase Line'},{id:4,value:'Nill'}],
+     face : [{id:1,value:'North'},{id:2,value:'South'},{id:3,value:'west'},{id:4,value:'East'},{id:5,value:'Corner'}],
+     const_status : [{id:1,value:'Ready To Move '},{id:2,value:'Under Construction'},{id:3,value:'Upcoming Process'}],
+
 }})
 
  .filter('app_filter', function ($parse, $filter,Storage) {
        return function(input, master) {
             if(input||input==0 && input != "")
             {
-                try 
+                try
                 {
                     return $filter('filter')(Storage.data[master], {id:input})[0].value;
                 }
@@ -192,7 +192,7 @@ return {
     function isInteger(x) { return x % 1 === 0; }
 
     function toWords(inputNumber)
-    {  
+    {
     var str = new String(inputNumber)
     var splt = str.split("");
     var rev = splt.reverse();
@@ -245,7 +245,7 @@ return {
                 }
                 break;
 
-                
+
             case 4:
                 aboveTens();
                 break;
@@ -260,7 +260,7 @@ return {
                 if (rev[i + 1] !== '0' || rev[i] > '0') {
                     word[j] = word[j] + " Lakh";
                 }
-                 
+
                 break;
 
             case 6:
@@ -276,7 +276,7 @@ return {
                 }
                 if (rev[i + 1] !== '0' || rev[i] > '0') {
                     word[j] = word[j] + " Crore";
-                }                
+                }
                 break;
 
             case 8:
@@ -288,7 +288,7 @@ return {
         j++;
     }
 
-        function aboveTens() 
+        function aboveTens()
         {
             if (rev[i] == 0) { word[j] = ''; }
             else if (rev[i] == 1) { word[j] = twos[rev[i - 1]]; }
@@ -306,7 +306,7 @@ return {
 
     return function(value) {
     if (value && isInteger(value))
-        return  toWords(value);    
+        return  toWords(value);
         return value;
     };
 
@@ -342,7 +342,7 @@ return {
                 endPage = pagedata + 2;
             }
         }
-        
+
         for (var i=startPage; i <= endPage; i++) {
             pages.push(i);
         }
@@ -359,7 +359,7 @@ return {
         return moment(date).format('DD-MM-YYYY');
     };
 })
- 
+
 .directive('mdDatepicker', function() {
     function link(scope, element, attrs, ngModel) {
         var parser = function(val) {
@@ -417,43 +417,43 @@ return {
 
 })
 
-.directive('allowDecimalNumbers', function () {  
-    return {  
-        restrict: 'A',  
-        link: function (scope, elm, attrs, ctrl) {  
-            elm.on('keydown', function (event) {  
-                var $input = $(this);  
-                var value = $input.val();  
-                value = value.replace(/[^0-9\.]/g, '')  
-                var findsDot = new RegExp(/\./g)  
-                var containsDot = value.match(findsDot)  
-                if (containsDot != null && ([46, 110, 190].indexOf(event.which) > -1)) {  
-                    event.preventDefault();  
-                    return false;  
-                }  
-                $input.val(value);  
-                if (event.which == 64 || event.which == 16) {  
-                    // numbers  
-                    return false;  
-                } if ([8, 13, 27, 37, 38, 39, 40, 110].indexOf(event.which) > -1) {  
-                    // backspace, enter, escape, arrows  
-                    return true;  
-                } else if (event.which >= 48 && event.which <= 57) {  
-                    // numbers  
-                    return true;  
-                } else if (event.which >= 96 && event.which <= 105) {  
-                    // numpad number  
-                    return true;  
-                } else if ([46, 110, 190].indexOf(event.which) > -1) {  
-                    // dot and numpad dot  
-                    return true;  
-                } else {  
-                    event.preventDefault();  
-                    return false;  
-                }  
-            });  
-        }  
-    }  
+.directive('allowDecimalNumbers', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, elm, attrs, ctrl) {
+            elm.on('keydown', function (event) {
+                var $input = $(this);
+                var value = $input.val();
+                value = value.replace(/[^0-9\.]/g, '')
+                var findsDot = new RegExp(/\./g)
+                var containsDot = value.match(findsDot)
+                if (containsDot != null && ([46, 110, 190].indexOf(event.which) > -1)) {
+                    event.preventDefault();
+                    return false;
+                }
+                $input.val(value);
+                if (event.which == 64 || event.which == 16) {
+                    // numbers
+                    return false;
+                } if ([8, 13, 27, 37, 38, 39, 40, 110].indexOf(event.which) > -1) {
+                    // backspace, enter, escape, arrows
+                    return true;
+                } else if (event.which >= 48 && event.which <= 57) {
+                    // numbers
+                    return true;
+                } else if (event.which >= 96 && event.which <= 105) {
+                    // numpad number
+                    return true;
+                } else if ([46, 110, 190].indexOf(event.which) > -1) {
+                    // dot and numpad dot
+                    return true;
+                } else {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        }
+    }
 })
 
 

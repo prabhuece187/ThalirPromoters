@@ -4,38 +4,38 @@
         <div class="col-sm-12">
               <div class="card-header">
                 <div class="tilte-head">
-                      <h4 class="card-title">ROUGH DATA PROPERTY </h4>
-                </div>   
+                      <h4 class="card-title">ALL PROPERTY </h4>
+                </div>
                 <div class="pad-lr-15" style="padding-top: 10px">
                        <div class="row">
                             <div class="pad-lr-15">
                                 <select ng-model="form.ReferLead" class="form-control">
                                   <option  value="" disabled selected hidden>Select Lead</option>
-                                  <option  value="Mediater">Mediater</option>    
-                                  <option  value="Owner">Owner</option>    
-                                  <option  value="Friend">Friend</option>    
+                                  <option  value="Mediater">Mediater</option>
+                                  <option  value="Owner">Owner</option>
+                                  <option  value="Friend">Friend</option>
                                 </select>
                             </div>
                             <div class="pad-lr-15">
                                 <select ng-model="form.ReferFor" class="form-control">
                                   <option  value="" disabled selected hidden>Select For</option>
-                                  <option  value="Sell">Sell</option>    
-                                  <option  value="Buy">Buy</option>    
-                                  <option  value="Rent">Rent</option>    
-                                  <option  value="Tenant">Tenant</option>    
+                                  <option  value="Sell">Sell</option>
+                                  <option  value="Buy">Buy</option>
+                                  <option  value="Rent">Rent</option>
+                                  <option  value="Tenant">Tenant</option>
                                 </select>
                             </div>
                             <div class="pad-lr-15">
                                 <select ng-model="form.ReferType" class="form-control">
                                   <option  value="" disabled selected hidden>Select Type</option>
-                                  <option  value="Land">Land</option>    
-                                  <option  value="House">House</option>    
-                                  <option  value="ComercialBuilding">ComercialBuilding</option>    
-                                  <option  value="FarmLand">FarmLand</option>   
-                                  <option  value="Appartment">Appartment</option>    
-                                  <option  value="LandHouse">LandHouse</option>    
-                                  <option  value="Godown">Godown</option>    
-                                  <option  value="Others">Others</option>   
+                                  <option  value="Land">Land</option>
+                                  <option  value="House">House</option>
+                                  <option  value="ComercialBuilding">ComercialBuilding</option>
+                                  <option  value="FarmLand">FarmLand</option>
+                                  <option  value="Appartment">Appartment</option>
+                                  <option  value="LandHouse">LandHouse</option>
+                                  <option  value="Godown">Godown</option>
+                                  <option  value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="pad-lr-15">
@@ -44,7 +44,7 @@
                                 <ui-select-choices repeat="par in area | filter: {AreaName: $select.search}">
                                   <div>{{par.AreaName}}</div>
                                 </ui-select-choices>
-                              </ui-select> 
+                              </ui-select>
                             </div>
                             <div class="pad-lr-15">
                                 <input class="form-control" ng-model="form.MinAmount" name="MinAmount"  value="" type="text" placeholder="PRICE FROM">
@@ -52,15 +52,15 @@
                             <div class="pad-lr-15">
                                 <input class="form-control" ng-model="form.MaxAmount" name="MaxAmount"  value="" type="text" placeholder="TO">
                             </div>
-                            <div class="pad-lr-15 pad-top-8"> 
+                            <div class="pad-lr-15 pad-top-8">
                                 <a href="" class="btn btn-primary btn-corner atag"  ng-click="searchForm()">
                                     <md-tooltip md-direction="bottom">SEARCH</md-tooltip><i class="ft-search"></i>
                                 </a>
                                 <a href="" ng-click="getExcel()" class="btn atag">EXCEL</a>
                                 <!-- <a href="" ng-click="getPDF()" class="btn atag">PDF</a> -->
-                            </div> 
+                            </div>
                        </div>
-                    </div>                              
+                    </div>
             </div>
         </div>
         <div class="card-body" id="excel">

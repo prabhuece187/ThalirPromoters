@@ -5,14 +5,14 @@
               <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title"> MEDIATOR TYPE </h4>
-                </div>    
+                </div>
                 <div class="float-right">
                     <div class="row">
                       <!-- <div class="pad-lr-5 pad-top-8">
                         <a href="" ng-click="new();" class="btn atag">ADD MEDIATORTYPE</a>
                       </div> -->
                     </div>
-                </div>                             
+                </div>
             </div>
         </div>
         <div class="card-body">
@@ -49,7 +49,7 @@
                               </a>
                               <a class="btn atag btn-sm btn-primary" href="" ng-click="delete($index, types);">
                                 <md-tooltip md-direction="right">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                              </a> 
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href="#/mediator_per_follow_details/{{types.MediatorId}}"  ng-if="role == 1 || (role == 4 && types.MediatorAssignAccess === 'yes')">
                                 <md-tooltip md-direction="right">DETAILS</md-tooltip><i class="ft-file-text"></i>
                               </a>
@@ -81,7 +81,7 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="mediator_form.MediatorName">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -89,7 +89,7 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="mediator_form.MobileNo">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -100,9 +100,9 @@
                             <ui-select-choices repeat="par in abo | filter: {AboName: $select.search}">
                               <div>{{par.AboName}}</div>
                             </ui-select-choices>
-                          </ui-select>  
+                          </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -113,9 +113,9 @@
                             <ui-select-choices repeat="par in area | filter: {AreaName: $select.search}">
                               <div>{{par.AreaName}}</div>
                             </ui-select-choices>
-                          </ui-select>  
+                          </ui-select>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -123,7 +123,7 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="mediator_form.SubArea">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
                     <div class="col-md-6">
                       <fieldset class="form-group floating-label-form-group">
@@ -131,9 +131,9 @@
                          <div class="">
                             <input type="text" class="form-control"  ng-model="mediator_form.Address">
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
-                  </div>                                      
+                  </div>
                   <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal">CLOSE
                     </a>
@@ -146,4 +146,3 @@
 </div>
 
 
- 

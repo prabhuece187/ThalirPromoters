@@ -5,7 +5,7 @@
               <div class="card-header">
                 <div class="tilte-head">
                       <h4 class="card-title">PROPERTY </h4>
-                </div>    
+                </div>
                 <div class="float-right">
 
                     <div class="row">
@@ -16,7 +16,7 @@
                                  <input class="form-control" ng-model="form.PropertyId" name="PropertyId"  value="" type="text" placeholder="T NO ">
                             </div>
                             <div class="pad-lr-15">
-                                 <label>SoldOut </label> <input type="checkbox" class="form-control" ng-model="form.Sold" name="Sold"  value=""  style="height: 18px !important;"> 
+                                 <label>SoldOut </label> <input type="checkbox" class="form-control" ng-model="form.Sold" name="Sold"  value=""  style="height: 18px !important;">
                             </div>
                             <div class="pad-lr-15" >
                               <!-- <input class="form-control" ng-model="form.ReachUs" name="ReachUs"  value="" type="text" placeholder="Property Reachus "> -->
@@ -26,13 +26,24 @@
                                     <option value="Reference">Reference</option>
                                </select>
                             </div>
+                            <div class="pad-lr-15" >
+                              <!-- <input class="form-control" ng-model="form.ReachUs" name="ReachUs"  value="" type="text" placeholder="Property Reachus "> -->
+                               <select  class="form-control" ng-model="form.StatusSearch" name="StatusSearch">
+                                    <option value="" disabled selected hidden>Select Status</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Waitting">Waitting</option>
+                                    <option value="Canceled">Canceled</option>
+                               </select>
+                            </div>
                             <div class="pad-lr-15">
                                  <ui-select  required ng-model="form.Type" theme="select2" >
                                   <ui-select-match allow-clear="true" placeholder="Select Type Name">{{$select.selected.TypeName}}</ui-select-match>
                                   <ui-select-choices repeat="par in type | filter: {TypeName: $select.search}">
                                     <div>{{par.TypeName}}</div>
                                   </ui-select-choices>
-                                </ui-select> 
+                                </ui-select>
                             </div>
                             <div class="pad-lr-15" ng-show="isDisabledStatus == false">
                                 <ui-select  required ng-model="form.Need" theme="select2" >
@@ -40,7 +51,7 @@
                                   <ui-select-choices repeat="par in need | filter: {NeedName: $select.search}">
                                     <div>{{par.NeedName}}</div>
                                   </ui-select-choices>
-                                </ui-select> 
+                                </ui-select>
                             </div>
                             <div class="pad-lr-15">
                                  <input class="form-control" ng-model="form.PropertyRegNo" name="PropertyRegNo"  value="" type="text" placeholder="Property Search ">
@@ -51,7 +62,7 @@
                                 <ui-select-choices repeat="par in area | filter: {AreaName: $select.search}">
                                   <div>{{par.AreaName}}</div>
                                 </ui-select-choices>
-                              </ui-select> 
+                              </ui-select>
                             </div>
                             <div class="pad-lr-15 wid-130" >
                                 <input class="form-control" ng-model="form.MinAmount" name="MinAmount"  value="" type="text" placeholder="PRICE FROM">
@@ -59,18 +70,18 @@
                             <div class="pad-lr-15 wid-130" >
                                 <input class="form-control" ng-model="form.MaxAmount" name="MaxAmount"  value="" type="text" placeholder="TO">
                             </div>
-                            <div class="pad-lr-15 pad-top-8"> 
+                            <div class="pad-lr-15 pad-top-8">
                                 <a href="" class="btn btn-primary btn-corner atag" ng-click="getTable(1,form)">
                                     <md-tooltip md-direction="bottom">SEARCH</md-tooltip><i class="ft-search"></i>
                                 </a>
-                                 <a href="" ng-click="getExcel()" class="btn atag">EXCEL</a> 
+                                 <a href="" ng-click="getExcel()" class="btn atag">EXCEL</a>
                                 <!-- <a href="" ng-click="getPDF()" class="btn atag">PDF</a> -->
-                            </div> 
+                            </div>
                       <div class="pad-lr-5 pad-top-8">
                         <a href="#/newproperty"  class="btn atag">ADD POST</a>
                       </div>
                     </div>
-                </div>                             
+                </div>
             </div>
         </div>
         <div class="card-body">
@@ -106,7 +117,7 @@
                             <th>STATUS</th>
                             <th>T.NO</th>
                             <th>S.NO</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody class="">
@@ -119,19 +130,19 @@
                               </a>
                               <a class="btn atag btn-sm btn-primary" ng-if="site.PropertyPendingReason != null" ng-click="showStatus($index, site);"  >
                                 <md-tooltip md-direction="right">STATUS</md-tooltip><i class="ft-phone-forwarded"></i>
-                              </a> 
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href=""  ng-click="delete($index, site);" >
                                 <md-tooltip md-direction="top">DELETE</md-tooltip><i class="ft-trash-2"></i>
-                              </a> 
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href="#/followproperty/{{site.PropertyId}}"  ng-if="role == 1">
                                 <md-tooltip md-direction="right">FOLLOW</md-tooltip><i class="ft-phone-forwarded"></i>
-                              </a> 
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href="#/buyercommentpropertyget/{{site.PropertyId}}" ng-if="role == 1">
                                 <md-tooltip md-direction="bottom">COMMENT</md-tooltip><i class="ft-star"></i>
-                              </a> 
+                              </a>
                               <a class="btn atag btn-sm btn-primary" href="#/propertydocumentget/{{site.PropertyId}}" ng-if="role == 1">
                                 <md-tooltip md-direction="right">DOCUMENT</md-tooltip><i class="ft-file-text"></i>
-                              </a> 
+                              </a>
                             </td>
                             <!-- <td ng-if="site.photo != null"><img src="uploads/property/gallery/{{site.photo}}" width="60px" height="60px"></img></td> -->
                             <!-- <td ng-if="site.photo == null"><img src="/uploads/main/noimg.jpg" width="60px" height="60px"></img></td> -->
@@ -189,9 +200,9 @@
                             <textarea  ng-model="showstatus_form.PropertyPendingReason" style="width:400px;height: 300px">
                             </textarea>
                          </div>
-                      </fieldset>                
+                      </fieldset>
                     </div>
-                  </div>                                      
+                  </div>
                  <!--  <div class="modal-footer">
                     <a href=""  type="reset" class="btn atag" data-dismiss="modal">CLOSE
                     </a>

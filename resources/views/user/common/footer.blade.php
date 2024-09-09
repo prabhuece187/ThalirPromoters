@@ -31,10 +31,10 @@
                             <div class="ltn__social-media-2">
                                 <ul>
                                     <li><a href="https://wa.me/919894009888?text=Hi%20Thalir%20Promoters,%20Please%20Share%20Details" target="_blank" title="Whatsapp"><i class="fab fa-whatsapp"></i></a></li>
-                                    <li><a href="https://www.facebook.com/groups/866203110966016/?ref=share" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="https://youtu.be/rg6tm7FXpZ8" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="https://bit.ly/Thalir_Promoters-Facebook" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://bit.ly/Thalir_Promoters-Instagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="https://bit.ly/Thalir_Promoters-IinkedIn" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="https://bit.ly/Thalir_Promoters-youtube" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>

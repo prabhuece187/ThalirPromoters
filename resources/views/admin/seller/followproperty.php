@@ -22,20 +22,26 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6">
                                         <label>T.No</label><br>
+                                        <label>Entry Date</label><br>
                                         <label>Refer Name</label><br>
                                         <label>Refer Number</label><br>
                                         <label>Requirement</label><br>
                                         <label>Type</label><br>
+                                        <label>Area</label><br>
                                         <label>Description</label><br>
+
                                     </div>
                                     <div class="col-md-8 col-sm-6">
                                         <p>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyId}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyDate}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyReferName}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyReferNumber}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.NeedName}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.TypeName}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.AreaName}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyDescription}} </b></span><br>
+
                                         </p>
                                     </div>
                                 </div>
@@ -49,6 +55,7 @@
                                         <label>Mediator Name</label><br>
                                         <label>Status</label><br>
                                         <label>Reason</label><br>
+                                        <label>Area Details</label><br>
                                         <label>Image</label><br>
                                     </div>
                                     <div class="col-md-8 col-sm-6">
@@ -58,6 +65,7 @@
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{media['0'].MediatorName}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyStatus}} </b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyPendingReason}} </b></span><br>
+                                            <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b>{{follow_form.PropertyAreaDetail}}</b></span><br>
                                             <span style="display: inline-block;margin-bottom: 0.5rem;font-size:12px;">: <b><img src="uploads/property/gallery/{{follow_form.PropertyGalleryImage}}" width="60px" height="60px" ng-if="follow_form.PropertyGalleryImage"> </b></span><br>
                                         </p>
                                     </div>
