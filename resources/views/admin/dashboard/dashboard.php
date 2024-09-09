@@ -1,24 +1,7 @@
-
 <div class="tilte-head">
       <h4 class="card-title"> Thalir Promoters </h4>
 </div>
 <div class="row">
-     <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role == 1">
-        <a href="#/newcommentsprom" ng-if="client != 0 || client == null">
-            <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
-                <div class="card-body">
-                    <div class=" pt-2 pb-0">
-                        <div class="media">
-                            <div class="media-body  text-center" style="font-size:15px;">
-                                <span style="color: #fff;position: relative;">NEW CLIENT DATA</span>
-                                <span class="span-sty" >{{client}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
     <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role == 1 || role == 3">
         <a href="#/promotersite">
             <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
@@ -41,7 +24,7 @@
                     <div class=" pt-2 pb-0">
                         <div class="media">
                             <div class="media-body  text-center" style="font-size:15px;">
-                                <span style="color: #fff;">PROPERTY</span>
+                                <span style="color: #fff;">PROPERTY ADD POST</span>
                             </div>
                         </div>
                     </div>
@@ -49,6 +32,58 @@
             </div>
         </a>
     </div>
+    <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role == 1 || role == 2">
+        <a href="#/refer">
+            <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
+                <div class="card-body">
+                    <div class=" pt-2 pb-0">
+                        <div class="media">
+                            <div class="media-body  text-center" style="font-size:15px;">
+                                <span style="color: #fff;">ALL DATAS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role == 1 || role == 2">
+        <a href="#/clientdata">
+            <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
+                <div class="card-body">
+                    <div class=" pt-2 pb-0">
+                        <div class="media">
+                            <div class="media-body  text-center" style="font-size:15px;">
+                                <span style="color: #fff;">CLIENT DATAS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div> -->
+</div>
+<div class="tilte-head">
+      <h4 class="card-title"> Received Datas </h4>
+</div>
+<div class="row">
+     <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role == 1">
+        <a href="#/clientdata" ng-if="client != 0 || client == null">
+            <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">
+                <div class="card-body">
+                    <div class=" pt-2 pb-0">
+                        <div class="media">
+                            <div class="media-body  text-center" style="font-size:15px;">
+                                <span style="color: #fff;position: relative;">NEW CLIENT DATA</span>
+                                <span class="span-sty" >{{client}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
     <div class="col-xl-2 col-lg-2 col-md-2 col-12" ng-if="role === 1">
         <a href="#/newcomeproperty" ng-if="new != 0 || new == null">
             <div class="card atag" style="padding-bottom: 8px;background-color: #101d76 !important">

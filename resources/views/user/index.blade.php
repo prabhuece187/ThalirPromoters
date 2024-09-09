@@ -245,8 +245,8 @@
                                                 </a>
                                             </div>
                                             <!-- <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6> -->
-                                            <h1 class="slide-title animated " ><span style="color:#01580a;font-size:50px">Thalir Promoters</span>
-                                            </h1>
+                                            <h1 class="slide-title animated " ><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <p style="font-size: 25px;color: #1c0172;margin-bottom: 10px;margin-top: -22px;"> <b>Tirupur Real Estate Agency</b></p>
                                             <!-- <div class="slide-brief animated">
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
                                             </div> -->
@@ -286,8 +286,10 @@
                                                     <i class="fa fa-play"></i>
                                                 </a>
                                             </div>
+                                            <p style="font-size: 20px">Find Your Dream House By</p>
                                             <!-- <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6> -->
-                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px">Find Your Dream <br> House By <br><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px"><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <p style="font-size: 25px;color: #1c0172;margin-bottom: 10px;margin-top: -22px;"> <b>Tirupur Real Estate Agency</b></p>
                                             <div class="ltn__breadcrumb-list">
                                                 <ul class="banner-head-color1">
                                                     <li><a href="tel:+91-93626 88881"><span class="banner-head-color1 " style="font-size:20px"> <i class="icon-call"></i>  +91-93626 88881</span></a></li>
@@ -321,7 +323,9 @@
                                                     <i class="fa fa-play"></i>
                                                 </a>
                                             </div>
-                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px">For Buy and  <br> Sell  Tirupur Properties by<br><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <p style="font-size: 20px">For Buy and Sell  Tirupur Properties by</p>
+                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px"> <span style="color:#01580a;font-size:50px">Thalir Promoters </span></h1>
+                                            <p style="font-size: 25px;color: #1c0172;margin-bottom: 10px;margin-top: -22px;"> <b>Tirupur Real Estate Agency</b></p>
                                             <div class="ltn__breadcrumb-list">
                                                 <ul class="banner-head-color1">
                                                     <li><a href="tel:+91-93626 88881"><span class="banner-head-color1 " style="font-size:20px"> <i class="icon-call"></i>  +91-93626 88881</span></a></li>
@@ -352,8 +356,10 @@
                                                     <i class="fa fa-play"></i>
                                                 </a>
                                             </div>
+                                            <p style="font-size: 20px">For Rent and Lease of Properties by</p>
                                             <!-- <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6> -->
-                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px">For Rent and <br> Lease of Properties by<br><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <h1 class="slide-title animated " style="color: #8b2c30;font-size:30px"><span style="color:#01580a;font-size:50px">Thalir Promoters</span></h1>
+                                            <p style="font-size: 25px;color: #1c0172;margin-bottom: 10px;margin-top: -22px;"> <b>Tirupur Real Estate Agency</b></p>
                                             <div class="ltn__breadcrumb-list">
                                                 <ul class="banner-head-color1">
                                                     <li><a href="tel:+91-93626 88881"><span class="banner-head-color1 " style="font-size:20px"> <i class="icon-call"></i>  +91-93626 88881</span></a></li>
@@ -476,6 +482,7 @@
 
                             </ul>
                             @endif
+                            @if(session()->get('name') == 1)
                             <hr>
                             <h4 class="ltn__widget-title">I Am Looking </h4>
                             <ul>
@@ -512,6 +519,7 @@
                                 </li>
                                 @endforeach
                             </ul>
+                            @endif
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
@@ -583,7 +591,7 @@
                                 </div>
                             </div>
 
-                            <hr>
+                            <!-- <hr>
                              <h4 class="ltn__widget-title">Budget Sort</h4>
                              <ul>
                                 <li>
@@ -598,7 +606,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul>
+                            </ul> -->
 
                         </div>
                         <!-- Category Widget -->
@@ -656,6 +664,7 @@
 
                             </ul>
                             @endif
+                            @if(session()->get('name') == 1)
                             <hr>
                              <h4 class="ltn__widget-title">I Am Looking </h4>
                              <ul>
@@ -692,6 +701,7 @@
                                 </li>
                                 @endforeach
                             </ul>
+                            @endif
                             <hr>
                             <h4 class="ltn__widget-title">Property Type</h4>
                             <ul>
@@ -763,8 +773,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
-                             <h4 class="ltn__widget-title">Budget Sort</h4>
+                                <!-- <hr> -->
+                             <!-- <h4 class="ltn__widget-title">Budget Sort</h4>
                              <ul style="list-style-type: none;">
                                 <li>
                                     <label class="checkbox-item">Low To High
@@ -778,7 +788,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                            </ul>
+                            </ul> -->
                             </div>
                             </div>
 
@@ -826,8 +836,8 @@
                                                  <select name="need" id="need">
                                                       <option value="வாங்க">வாங்க</option>
                                                       <option value="விற்க">விற்க</option>
-                                                      <option value="வாடகைக்கு விட">வாடகைக்கு விட</option>
-                                                      <option value="வாடகைக்கு தேவை">வாடகைக்கு தேவை</option>
+                                                      <!-- <option value="வாடகைக்கு விட">வாடகைக்கு விட</option>
+                                                      <option value="வாடகைக்கு தேவை">வாடகைக்கு தேவை</option> -->
                                                     </select>
                                                  <input type="text" name="clientname" placeholder="பெயர் " >
                                                  <input type="email" name="clientemail" placeholder="மின்னஞ்சல்*" required="">

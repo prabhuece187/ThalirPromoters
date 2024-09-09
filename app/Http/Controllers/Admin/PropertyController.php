@@ -75,7 +75,6 @@ class PropertyController extends Controller
                 //         ->orderBy(key((array)($sorting)),current((array)($sorting)))
                 //         ->get();
 
-
                 $datas = Property::select( 'tbl_property.*',
                     DB::raw('(select PropertyGalleryImage from tbl_property_gallery where tbl_property_gallery.PropertyId  =  tbl_property.PropertyId order by PropertyId asc limit 1) as photo'));
 
@@ -86,7 +85,18 @@ class PropertyController extends Controller
 
                 if (isset($request->propertyreg))
                 {
-                   $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%');
+                   $datas->where('tbl_property.PropertyDescription', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyName', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyId', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.NeedId', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.NeedName', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.AreaName', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyAreaDetail', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyRegNo', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.AreaId', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyAreaDetail', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyReferName', 'LIKE', '%' . $request->propertyreg . '%')
+                   ->orWhere('tbl_property.PropertyTotalBudget', 'LIKE', '%' . $request->propertyreg . '%');
                 }
 
                 if (isset($request->reachus))
@@ -119,8 +129,18 @@ class PropertyController extends Controller
                     if($request->Sold == "sold"){
                       $datas->where('tbl_property.PropertyStatus', ['Completed']);
                     }
-                    else{
-                      $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
+                    else
+                    {
+                        if (isset($request->StatusSearch))
+                        {
+                           $datas->where('tbl_property.PropertyStatus',$request->StatusSearch);
+                        //    return response()->json($datas);
+
+                        }
+                        else
+                        {
+                            $datas->whereNotIn('tbl_property.PropertyStatus', ['Completed']);
+                        }
                     }
                 }
 

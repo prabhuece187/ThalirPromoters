@@ -57,7 +57,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
         $scope.need = result;
     });
 
-    $scope.form = {Area:'',PropertyId:'',PropertyName:'',PropertyRegNo:'',MinAmount:'',MaxAmount:'',ReachUs:'',Sold:'false',Type:'',Need:''};
+    $scope.form = {Area:'',PropertyId:'',PropertyName:'',PropertyRegNo:'',MinAmount:'',MaxAmount:'',ReachUs:'',Sold:'false',Type:'',Need:'',StatusSearch:''};
     // $http({ url: 'property', method: 'GET'}) .success(function (result) {
     //     $scope.data = result.data;
     //     $scope.role = result.role;
@@ -96,7 +96,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
            && (form.Type == undefined || form.Type == "") && (form.ReachUs == undefined || form.ReachUs == "")
            && (form.MinAmount == undefined || form.MinAmount == "") && (form.Sold == undefined || form.Sold == "" || form.Sold == false)
            && (form.MaxAmount == undefined || form.MaxAmount == "") && (form.PropertyRegNo == undefined || form.PropertyRegNo == "")
-           && (form.Need == undefined || form.Need == ""))
+           && (form.Need == undefined || form.Need == "") && (form.StatusSearch == undefined || form.StatusSearch == ""))
         {
             $scope.paginat  = page;
             $scope.pagination.searchdata = "nosearch";
@@ -127,6 +127,9 @@ app.config(function($stateProvider,$urlRouterProvider) {
             if(form.Area != null){
               $scope.pagination.Area = form.Area.AreaId;
             }
+            if(form.StatusSearch != null){
+                $scope.pagination.StatusSearch = form.StatusSearch;
+              }
             if(form.Type != null){
               $scope.pagination.Type = form.Type.TypeId;
             }
